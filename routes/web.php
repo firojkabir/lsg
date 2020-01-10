@@ -92,12 +92,21 @@ Route::get('/book_entertainment', function () {
     return view('frontend.include.category.book_entertainment');
 });
 
+
+Route::get('/login','Auth\ClientLoginController@showLoginForm')->name('client.login');
+Route::post('/login', 'Auth\ClientLoginController@login')->name('client.login.submit');
+Route::get('logout/', 'Auth\ClientLoginController@logout')->name('client.logout');
+
+
 /*----------------------login, logout, Authentication-----------*/
-Auth::routes();
-//Auth::routes(['register' => false]);
+Route::group(['prefix' => 'admin'], function () {
+    Auth::routes();
+    Auth::routes(['register' => false]);
+});
 
 /*---------------------user, admin panel------------------------*/
 Route::get('/admin', 'Admin\AdminController@index')->name('admin');
+
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth'], function () {
 
