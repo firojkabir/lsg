@@ -32,8 +32,8 @@ class HomeAdmin extends Controller
 
     public function slider()
     {
-        $sliders = DB::table('home_slider')->orderby('rank', 'asc')->paginate(10);
-        return view('admin.home.slider', ['sliders' => $sliders]);
+        $results = DB::table('home_slider')->orderby('rank', 'asc')->paginate(10);
+        return view('admin.home.slider', ['results' => $results]);
     }
 
     public function sliderAdd(Request $request)
@@ -81,8 +81,7 @@ class HomeAdmin extends Controller
     public function sliderEdit(Request $request, $id)
     {
         if ($request->isMethod('get')) {
-            $result = DB::table('home_slider')->where('id', $id)->get();
-            $result = $result->shift();
+            $result = DB::table('home_slider')->where('id', $id)->first();
             return view('admin.home.sliderEdit', ['slider' => $result]);
         } else {
 
@@ -193,6 +192,100 @@ class HomeAdmin extends Controller
             return redirect()->route('a_slider');
         }
     }
+
+
+    /*--------------------------------- Category Function start ------------------------*/
+
+    public function category()
+    {
+        $results = DB::table('category')->orderby('name', 'asc')->paginate(10);
+        return view('admin.home.category', ['results' => $results]);
+    }
+
+    public function categoryAdd(Request $request)
+    {
+        if ($request->isMethod('get')) {
+            return view('admin.home.categoryAdd');
+        } elseif ($request->isMethod('post')) {
+            $request->validate([
+                'name' => 'required|string|max:255',
+                'status' => 'required|integer',
+            ]);
+            try {
+                $postdata['name'] = $request->input('name');
+                $postdata['status'] = $request->input('status');
+
+                $result = DB::table('category')->insert($postdata);
+                $request->session()->flash('msg', 'Category Successfully added!');
+                return redirect()->route('a_category');
+            } catch (Exception $e) {
+                $request->session()->flash('emsg', $e->errorInfo[2]);
+                return redirect()->route('a_categoryAdd');
+            }
+        }
+    }
+
+    public function categoryEdit(Request $request, $id)
+    {
+        if ($request->isMethod('get')) {
+            $result = DB::table('category')->where('id', $id)->first();
+            return view('admin.home.categoryEdit', ['result' => $result]);
+        } else {
+
+            $request->validate([
+                'name' => 'required|string|max:255',
+                'status' => 'required|integer',
+            ]);
+
+            try {
+                $postdata['name'] = $request->input('name');
+                $postdata['status'] = $request->input('status');
+
+                $result = DB::table('category')->where('id', $id)->update($postdata);
+                $request->session()->flash('msg', 'Category Successfully updated!');
+                return redirect()->route('a_category');
+
+            } catch (Exception $e) {
+                $request->session()->flash('emsg', $e->errorInfo[2]);
+                return redirect()->route('a_categoryEdit', ['id' => $id]);
+
+            }
+        }
+    }
+
+    public function categoryDelete(Request $request, $id)
+    {
+        try {
+            $delete = DB::table('category')->where('id', $id)->delete();
+
+            $request->session()->flash('msg', 'Category Successfully Deleted!');
+            return redirect()->route('a_category');
+        } catch (Exception $e) {
+            $request->session()->flash('emsg', $e->errorInfo[2]);
+            return redirect()->route('a_category');
+        }
+    }
+
+
+    public function categoryStatus(Request $request, $id, $value, $status)
+    {
+        if ($value) {
+            $postdata[$status] = 0;
+            $result = DB::table('category')->where('id', $id)->update($postdata);
+        } else {
+            $postdata[$status] = 1;
+            $result = DB::table('category')->where('id', $id)->update($postdata);
+        }
+        if ($result) {
+            $request->session()->flash('msg', $status . ' Successfully Changed!');
+            return redirect()->route('a_category');
+        } else {
+            $request->session()->flash('emsg', $status . ' Change was Un-Successful!');
+            return redirect()->route('a_category');
+        }
+    }
+
+    /*--------------------------------- Category Function end ------------------------*/
 
 
 }
