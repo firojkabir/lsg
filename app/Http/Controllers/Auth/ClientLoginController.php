@@ -47,11 +47,11 @@ class ClientLoginController extends Controller
 
 
 	protected function sendFailedLoginResponse(Request $request)
-    {
-        throw ValidationException::withMessages([
-            $this->username() => [trans('auth.failed')],
-        ]);
-    }
+	{
+		throw ValidationException::withMessages([
+			$this->username() => [trans('auth.failed')],
+		]);
+	}
 
     /**
      * Get the login username to be used by the controller.
@@ -60,6 +60,6 @@ class ClientLoginController extends Controller
      */
     public function username()
     {
-        return 'email';
+    	return 'email';
     }
 }
