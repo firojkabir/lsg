@@ -143,6 +143,11 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
             Route::get('/status/{id}/{value}/{status}', 'HomeAdmin@categoryStatus')->name('a_categoryStatus');
         });
 
+        Route::prefix('/products')->group(function () {
+            Route::get('/', 'HomeAdmin@products')->name('a_products');
+            Route::get('/status/{id}/{value}/{status}', 'HomeAdmin@productsStatus')->name('a_productsStatus');
+        });
+
     });
 });
 

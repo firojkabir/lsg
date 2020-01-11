@@ -125,6 +125,10 @@
 						href="{{ route('a_category') }}"><i class="fa fa-angle-right text-custom"
 						style="width:5px"></i> Category </a>
 					</li>
+					<li class="{{ Request::segment(3)=='products' ? 'active':'' }}"><a
+						href="{{ route('a_products') }}"><i class="fa fa-angle-right text-custom"
+						style="width:5px"></i> Products </a>
+					</li>
 				</ul>
 			</li>
 

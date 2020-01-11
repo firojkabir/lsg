@@ -288,4 +288,36 @@ class HomeAdmin extends Controller
     /*--------------------------------- Category Function end ------------------------*/
 
 
+    /*--------------------------------- Products Function start ------------------------*/
+
+    public function products()
+    {
+        $results = DB::table('products')
+        ->join('category', 'products.category_id', '=', 'category.id')
+        ->select('products.*', 'category.name')
+        ->paginate(10);
+        return view('admin.home.products', ['results' => $results]);
+    }
+
+    public function productsStatus(Request $request, $id, $value, $status)
+    {
+        if ($value) {
+            $postdata[$status] = 0;
+            $result = DB::table('products')->where('id', $id)->update($postdata);
+        } else {
+            $postdata[$status] = 1;
+            $result = DB::table('products')->where('id', $id)->update($postdata);
+        }
+        if ($result) {
+            $request->session()->flash('msg', $status . ' Successfully Changed!');
+            return redirect()->route('a_products');
+        } else {
+            $request->session()->flash('emsg', $status . ' Change was Un-Successful!');
+            return redirect()->route('a_products');
+        }
+    }
+
+    /*--------------------------------- Products Function end ------------------------*/
+
+    
 }
