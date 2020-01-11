@@ -40,7 +40,7 @@
 								<div class="control-group">
 									<div class="controls">
 										<label for="price"><b>Product price<span style="color: red;">*</span></b></label>
-										<input type="number" id="price" placeholder="" required="" name="price">
+										<input type="number" step="0.10" min="0.01" id="price" placeholder="" required="" name="price">
 									</div>
 								</div>
 								<div class="control-group">

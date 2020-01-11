@@ -95,7 +95,7 @@ class Product extends Controller
 			'price' => 'required',
 			'category' => 'required',
 			'description' => 'required',
-			'image' => 'required|mimes:jpeg,bmp,png,jpg,gif',
+			'image' => 'mimes:jpeg,bmp,png,jpg,gif',
 			'image1' => 'mimes:jpeg,bmp,png,jpg,gif',
 			'image2' => 'mimes:jpeg,bmp,png,jpg,gif',
 		]);

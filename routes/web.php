@@ -4,10 +4,6 @@
 
 use Illuminate\Support\Facades\Auth;
 
-Route::get('/login', function () {
-    return view('frontend.login_form');
-});
-
 Route::get('/register', function () {
     return view('frontend.register');
 });
