@@ -47,7 +47,7 @@
 						<a class="brand" href="/" style="color: #BBDEFB;"><p class="pull-left">Let<span style="color: red; font-size: 25px;">Stuff</span>Go</p></a>
 						<form class="form-inline navbar-search pull-left" method="get" action="/products">
 							<input id="srchFld" class="srchTxt" placeholder="search" type="text"/>
-							<button type="submit" id="submitButton" class="btn btn-primary">Search</button>
+							<button type="submit" id="submitButton" class="btn btn-primary"><i class="fa fa-search"></i></button>
 						</form>
 						<ul id="topMenu" class="nav pull-right">
 							<li class=""><a href="/">Home</a></li>
@@ -61,7 +61,7 @@
 							</li>
 							@else
 							<li>
-								<a href="#login" role="button" data-toggle="modal" style="padding-right:0"><span class="btn btn-large btn-success">Login</span></a>
+								<a href="#login" role="button" data-toggle="modal" style="padding-right:0"><span class="btn btn-large btn-success"><i class="fa fa-sign-in"></i></span></a>
 								<div id="login" class="modal hide fade in" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="false">
 									<div class="modal-header">
 										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
