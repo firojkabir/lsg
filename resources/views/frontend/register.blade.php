@@ -1,30 +1,7 @@
 @extends('layouts.frontend_base')
 
 @section('content')
-<<<<<<< HEAD
-	<div id="divImg">
-		<img src="{{ asset('static/website/themes/images/fulda2.jpg') }}" alt="" class="img img-responsive">
-	</div>
-	
-	<div id="mainBody">
-		<div class="container">
-			<div class="row">
-				<div class="span12">
-					<ul class="breadcrumb">
-						<li><a href="/">Home</a> <span class="divider">/</span></li>
-						<li class="active">Registration</li>
-					</ul>
-					<h3 style="text-align: center;"> Registration</h3>	
-					<hr>
-					<div class="well">
-						<div class="row">
-							<form class="reg">
-								<div class="span6">
-									<div class="control-group">
-										<div class="controls">
-											<input type="text" id="inputFname1" placeholder="First Name*" required="">
-										</div>
-=======
+
 <div id="divImg">
 	<img src="{{ asset('static/website/themes/images/fulda2.jpg') }}" alt="" class="img img-responsive">
 </div>
@@ -55,7 +32,6 @@
 								<div class="control-group">
 									<div class="controls">
 										<input type="text" id="inputFname1" placeholder="First Name*" required="" name="firstname">
->>>>>>> d0e43d32c9798ac135f67a3044e311837b2bb513
 									</div>
 								</div>
 							</div>

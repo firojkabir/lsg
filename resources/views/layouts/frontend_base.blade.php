@@ -53,7 +53,6 @@
 							<li class=""><a href="/">Home</a></li>
 							<li class=""><a href="/contact">Contact</a></li>
 							<li class=""><a href="/profile">About us</a></li>
-							<li class=""><a href="/add_product">Check</a></li>
 							@if(Auth::guard('client')->check())
 							<li class=""><a href="/profile">Profile</a></li>
 							<li class="">

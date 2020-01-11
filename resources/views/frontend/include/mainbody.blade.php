@@ -6,168 +6,18 @@
 				<div class="carousel-inner">
 					<div class="item active">
 						<ul class="thumbnails">
+							@foreach($latest as $l)
 							<li class="span3">
 								<div class="thumbnail">
 									<i class="tag"></i>
-									<a href="/product-details"><img src="{{ asset('static/website/themes/images/products/b1.jpg') }}" alt=""></a>
+									<a href="/product-details/{{ $l->id }}"><img src="{{ asset($l->path.$l->thumb) }}" alt=""></a>
 									<div class="caption">
-										<h5>Product name</h5>
-										<h4><a class="btn" href="/product-details">VIEW</a> <span class="pull-right">$222.00</span></h4>
+										<h5>{{ $l->title }}</h5>
+										<h4><a class="btn" href="/product-details/{{ $l->id }}">VIEW</a> <span class="pull-right">&euro;{{ $l->price }}</span></h4>
 									</div>
 								</div>
 							</li>
-							<li class="span3">
-								<div class="thumbnail">
-									<i class="tag"></i>
-									<a href="/product-details"><img src="{{ asset('static/website/themes/images/products/b2.jpg') }}" alt=""></a>
-									<div class="caption">
-										<h5>Product name</h5>
-										<h4><a class="btn" href="/product-details">VIEW</a> <span class="pull-right">$222.00</span></h4>
-									</div>
-								</div>
-							</li>
-							<li class="span3">
-								<div class="thumbnail">
-									<i class="tag"></i>
-									<a href="/product-details"><img src="{{ asset('static/website/themes/images/products/b3.jpg') }}" alt=""></a>
-									<div class="caption">
-										<h5>Product name</h5>
-										<h4><a class="btn" href="/product-details">VIEW</a> <span class="pull-right">$222.00</span></h4>
-									</div>
-								</div>
-							</li>
-							<li class="span3">
-								<div class="thumbnail">
-									<i class="tag"></i>
-									<a href="/product-details"><img src="{{ asset('static/website/themes/images/products/b4.jpg') }}" alt=""></a>
-									<div class="caption">
-										<h5>Product name</h5>
-										<h4><a class="btn" href="/product-details">VIEW</a> <span class="pull-right">$222.00</span></h4>
-									</div>
-								</div>
-							</li>
-						</ul>
-					</div>
-					<div class="item">
-						<ul class="thumbnails">
-							<li class="span3">
-								<div class="thumbnail">
-									<i class="tag"></i>
-									<a href="/product-details"><img src="{{ asset('static/website/themes/images/products/5.jpg') }}" alt=""></a>
-									<div class="caption">
-										<h5>Product name</h5>
-										<h4><a class="btn" href="/product-details">VIEW</a> <span class="pull-right">$222.00</span></h4>
-									</div>
-								</div>
-							</li>
-							<li class="span3">
-								<div class="thumbnail">
-									<i class="tag"></i>
-									<a href="/product-details"><img src="{{ asset('static/website/themes/images/products/6.jpg') }}" alt=""></a>
-									<div class="caption">
-										<h5>Product name</h5>
-										<h4><a class="btn" href="/product-details">VIEW</a> <span class="pull-right">$222.00</span></h4>
-									</div>
-								</div>
-							</li>
-							<li class="span3">
-								<div class="thumbnail">
-									<a href="/product-details"><img src="{{ asset('static/website/themes/images/products/7.jpg') }}" alt=""></a>
-									<div class="caption">
-										<h5>Product name</h5>
-										<h4><a class="btn" href="/product-details">VIEW</a> <span class="pull-right">$222.00</span></h4>
-									</div>
-								</div>
-							</li>
-							<li class="span3">
-								<div class="thumbnail">
-									<a href="/product-details"><img src="{{ asset('static/website/themes/images/products/8.jpg') }}" alt=""></a>
-									<div class="caption">
-										<h5>Product name</h5>
-										<h4><a class="btn" href="/product-details">VIEW</a> <span class="pull-right">$222.00</span></h4>
-									</div>
-								</div>
-							</li>
-						</ul>
-					</div>
-					<div class="item">
-						<ul class="thumbnails">
-							<li class="span3">
-								<div class="thumbnail">
-									<a href="/product-details"><img src="{{ asset('static/website/themes/images/products/9.jpg') }}" alt=""></a>
-									<div class="caption">
-										<h5>Product name</h5>
-										<h4><a class="btn" href="/product-details">VIEW</a> <span class="pull-right">$222.00</span></h4>
-									</div>
-								</div>
-							</li>
-							<li class="span3">
-								<div class="thumbnail">
-									<a href="/product-details"><img src="{{ asset('static/website/themes/images/products/10.jpg') }}" alt=""></a>
-									<div class="caption">
-										<h5>Product name</h5>
-										<h4><a class="btn" href="/product-details">VIEW</a> <span class="pull-right">$222.00</span></h4>
-									</div>
-								</div>
-							</li>
-							<li class="span3">
-								<div class="thumbnail">
-									<a href="/product-details"><img src="{{ asset('static/website/themes/images/products/11.jpg') }}" alt=""></a>
-									<div class="caption">
-										<h5>Product name</h5>
-										<h4><a class="btn" href="/product-details">VIEW</a> <span class="pull-right">$222.00</span></h4>
-									</div>
-								</div>
-							</li>
-							<li class="span3">
-								<div class="thumbnail">
-									<a href="/product-details"><img src="{{ asset('static/website/themes/images/products/1.jpg') }}" alt=""></a>
-									<div class="caption">
-										<h5>Product name</h5>
-										<h4><a class="btn" href="/product-details">VIEW</a> <span class="pull-right">$222.00</span></h4>
-									</div>
-								</div>
-							</li>
-						</ul>
-					</div>
-					<div class="item">
-						<ul class="thumbnails">
-							<li class="span3">
-								<div class="thumbnail">
-									<a href="/product-details"><img src="{{ asset('static/website/themes/images/products/2.jpg') }}" alt=""></a>
-									<div class="caption">
-										<h5>Product name</h5>
-										<h4><a class="btn" href="/product-details">VIEW</a> <span class="pull-right">$222.00</span></h4>
-									</div>
-								</div>
-							</li>
-							<li class="span3">
-								<div class="thumbnail">
-									<a href="/product-details"><img src="{{ asset('static/website/themes/images/products/3.jpg') }}" alt=""></a>
-									<div class="caption">
-										<h5>Product name</h5>
-										<h4><a class="btn" href="/product-details">VIEW</a> <span class="pull-right">$222.00</span></h4>
-									</div>
-								</div>
-							</li>
-							<li class="span3">
-								<div class="thumbnail">
-									<a href="/product-details"><img src="{{ asset('static/website/themes/images/products/4.jpg') }}" alt=""></a>
-									<div class="caption">
-										<h5>Product name</h5>
-										<h4><a class="btn" href="/product-details">VIEW</a> <span class="pull-right">$222.00</span></h4>
-									</div>
-								</div>
-							</li>
-							<li class="span3">
-								<div class="thumbnail">
-									<a href="/product-details"><img src="{{ asset('static/website/themes/images/products/5.jpg') }}" alt=""></a>
-									<div class="caption">
-										<h5>Product name</h5>
-										<h4><a class="btn" href="/product-details">VIEW</a> <span class="pull-right">$222.00</span></h4>
-									</div>
-								</div>
-							</li>
+							@endforeach
 						</ul>
 					</div>
 				</div>
@@ -178,83 +28,20 @@
 	</div>
 	<h4>Top Products </h4>
 	<ul class="thumbnails">
+		@foreach($top as $t)
 		<li class="span3">
 			<div class="thumbnail">
-				<a  href="/product-details"><img src="{{ asset('static/website/themes/images/products/6.jpg') }}" alt=""/></a>
+				<a  href="/product-details/{{ $t->id }}"><img src="{{ asset($t->path.$t->thumb) }}" alt=""/></a>
 				<div class="caption">
-					<h5>Product name</h5>
-					<p>Lorem Ipsum is simply dummy text. </p>
+					<h5>{{ $t->title }}</h5>
+					<p>{{ $t->name }}</p>
 					<h4 style="text-align:center">
-						<a class="btn" href="/product-details"> <i class="icon-zoom-in"></i></a> 
-						<a class="btn" href="/cart-summery">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">$222.00</a>
+						<a class="btn" href="/product-details/{{ $t->id }}"> <i class="icon-zoom-in"></i></a> 
+						<a class="btn" href="/cart-summery">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">&euro;{{ $t->id }}</a>
 					</h4>
 				</div>
 			</div>
 		</li>
-		<li class="span3">
-			<div class="thumbnail">
-				<a  href="/product-details"><img src="{{ asset('static/website/themes/images/products/7.jpg') }}" alt=""/></a>
-				<div class="caption">
-					<h5>Product name</h5>
-					<p>Lorem Ipsum is simply dummy text. </p>
-					<h4 style="text-align:center">
-						<a class="btn" href="/product-details"> <i class="icon-zoom-in"></i></a> 
-						<a class="btn" href="/cart-summery">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">$222.00</a>
-					</h4>
-				</div>
-			</div>
-		</li>
-		<li class="span3">
-			<div class="thumbnail">
-				<a  href="/product-details"><img src="{{ asset('static/website/themes/images/products/8.jpg') }}" alt=""/></a>
-				<div class="caption">
-					<h5>Product name</h5>
-					<p>Lorem Ipsum is simply dummy text. </p>
-					<h4 style="text-align:center">
-						<a class="btn" href="/product-details"> <i class="icon-zoom-in"></i></a> 
-						<a class="btn" href="/cart-summery">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">$222.00</a>
-					</h4>
-				</div>
-			</div>
-		</li>
-		<li class="span3">
-			<div class="thumbnail">
-				<a  href="/product-details"><img src="{{ asset('static/website/themes/images/products/9.jpg') }}" alt=""/></a>
-				<div class="caption">
-					<h5>Product name</h5>
-					<p>Lorem Ipsum is simply dummy text. </p>
-					<h4 style="text-align:center">
-						<a class="btn" href="/product-details"> <i class="icon-zoom-in"></i></a> 
-						<a class="btn" href="/cart-summery">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">$222.00</a>
-					</h4>
-				</div>
-			</div>
-		</li>
-		<li class="span3">
-			<div class="thumbnail">
-				<a  href="/product-details"><img src="{{ asset('static/website/themes/images/products/10.jpg') }}" alt=""/></a>
-				<div class="caption">
-					<h5>Product name</h5>
-					<p>Lorem Ipsum is simply dummy text. </p>
-					<h4 style="text-align:center">
-						<a class="btn" href="/product-details"> <i class="icon-zoom-in"></i></a> 
-						<a class="btn" href="/cart-summery">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">$222.00</a>
-					</h4>
-				</div>
-			</div>
-		</li>
-		<li class="span3">
-			<div class="thumbnail">
-				<a  href="/product-details"><img src="{{ asset('static/website/themes/images/products/11.jpg') }}" alt=""/></a>
-				<div class="caption">
-					<h5>Product name</h5>
-					<p>Lorem Ipsum is simply dummy text. </p>
-					<h4 style="text-align:center">
-						<a class="btn" href="/product-details"> <i class="icon-zoom-in"></i></a> 
-						<a class="btn" href="/cart-summery">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">$222.00</a>
-					</h4>
-				</div>
-			</div>
-		</li>
+		@endforeach
 	</ul>
 </div>
