@@ -4,10 +4,6 @@
 
 use Illuminate\Support\Facades\Auth;
 
-Route::get('/', function () {
-    return view('frontend.home');
-});
-
 Route::get('/login', function () {
     return view('frontend.login_form');
 });
@@ -28,10 +24,6 @@ Route::get('/products', function () {
     return view('frontend.products');
 });
 
-Route::get('/product-details', function () {
-    return view('frontend.product-details');
-});
-
 Route::get('/cart-summery', function () {
     return view('frontend.cart-summery');
 });
@@ -42,10 +34,6 @@ Route::get('/profile', function () {
 
 Route::get('/basket', function () {
     return view('frontend.include.profile.basket');
-});
-
-Route::get('/add_product', function () {
-    return view('frontend.include.profile.add_product');
 });
 
 Route::get('/my_order', function () {
@@ -100,6 +88,11 @@ Route::get('/book_entertainment', function () {
     return view('frontend.include.category.book_entertainment');
 });
 
+Route::get('/', 'Home@index')->name('client.home');
+Route::any('/add_product', 'Product@add')->name('client.product.add');
+Route::any('/edit_product/{id}', 'Product@edit')->name('client.product.edit');
+Route::get('/my_products', 'Product@my_products')->name('client.profile.products');
+Route::get('/product-details/{id}', 'Home@product_details')->name('client.product.details');
 
 Route::get('/login','Auth\ClientLoginController@showLoginForm')->name('client.login');
 Route::post('/login', 'Auth\ClientLoginController@login')->name('client.login.submit');

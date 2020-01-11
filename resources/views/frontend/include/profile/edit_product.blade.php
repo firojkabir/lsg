@@ -12,9 +12,9 @@
 			<div class="span12">
 				<ul class="breadcrumb">
 					<li><a href="/">Home</a> <span class="divider">/</span></li>
-					<li class="active">Add Product</li>
+					<li class="active">Edit Product</li>
 				</ul>
-				<h3 style="text-align: center;"> Add Product</h3>	
+				<h3 style="text-align: center;"> Edit Product</h3>	
 				<hr>
 				<div class="well">
 					<div class="row">
@@ -27,20 +27,20 @@
 							<br>
 						</div>
 						@endif
-						<form class="add_product" method="post" enctype="multipart/form-data" action="/add_product">
+						<form class="add_product" method="post" enctype="multipart/form-data" action="/edit_product/{{ $result->id }}">
 							@csrf
 							<div class="span1"></div>
 							<div class="span5">
 								<div class="control-group">
 									<div class="controls">
 										<label for="title"><b>Product title<span style="color: red;">*</span></b></label>
-										<input type="text" id="title" placeholder="" required="" name="title">
+										<input type="text" id="title" placeholder="" required="" name="title" value="{{ $result->title }}">
 									</div>
 								</div>
 								<div class="control-group">
 									<div class="controls">
 										<label for="price"><b>Product price<span style="color: red;">*</span></b></label>
-										<input type="number" id="price" placeholder="" required="" name="price">
+										<input type="number" id="price" placeholder="" required="" name="price" value="{{ $result->price }}">
 									</div>
 								</div>
 									{{-- <div class="control-group">
@@ -57,24 +57,27 @@
 									</div> --}}
 									<div class="control-group">
 										<div class="controls">
-											<label for="image"><b>Product image 1<span style="color: red;">*</span></b></label>
+											<label for="image"><b>Product image 1</b></label>
 											<input type="file" id="image" name="image">
+											<input type="hidden" name="old_image" value="{{ $result->image }}">
 										</div>
 									</div>
 									<br>
 
 									<div class="control-group">
 										<div class="controls">
-											<label for="image"><b>Product image 2<span style="color: red;">*</span></b></label>
+											<label for="image"><b>Product image 2</b></label>
 											<input type="file" id="image1" name="image1">
+											<input type="hidden" name="old_image1" value="{{ $result->image1 }}">
 										</div>
 									</div>
 									<br>
 
 									<div class="control-group">
 										<div class="controls">
-											<label for="image"><b>Product image 3<span style="color: red;">*</span></b></label>
+											<label for="image"><b>Product image 3</b></label>
 											<input type="file" id="image2" name="image2">
+											<input type="hidden" name="old_image2" value="{{ $result->image2 }}">
 										</div>
 									</div>
 									<br>
@@ -87,7 +90,7 @@
 											<select name="category" id="product_category"  style="width: 80%;" required>
 												<option value="">=== Add product category ===</option>
 												@foreach($categories as $c)
-												<option value="{{ $c->id }}">{{ $c->name }}</option>
+												<option {{ $result->category_id == $c->id ? 'selected':'' }} value="{{ $c->id }}">{{ $c->name }}</option>
 												@endforeach
 											</select>
 										</div>
@@ -95,7 +98,7 @@
 										<div class="control-group">
 											<div class="controls">
 												<label for="product_description"><b>Product description<span style="color: red;">*</span></b></label>
-												<textarea name="description" placeholder="" required="" style="min-height: 115px; width: 60%;"></textarea>
+												<textarea name="description" placeholder="" required="" style="min-height: 115px; width: 60%;">{{ $result->description }}</textarea>
 											</div>
 											<br>
 										</div>
