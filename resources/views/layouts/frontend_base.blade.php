@@ -7,37 +7,18 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<link rel="shortcut icon" href="{{ asset('static/website/themes/images/ico/favicon1.ico') }}">
-	<!--Less styles -->
-   <!-- Other Less css file //different less files has different color scheam
-	<link rel="stylesheet/less" type="text/css" href="themes/less/simplex.less">
-	<link rel="stylesheet/less" type="text/css" href="themes/less/classified.less">
-	<link rel="stylesheet/less" type="text/css" href="themes/less/amelia.less">  MOVE DOWN TO activate
--->
-<!--<link rel="stylesheet/less" type="text/css" href="themes/less/bootshop.less">-->
 
-<script src="{{ asset('static/website/themes/js/less.js" type="text/javascript') }}"></script> 	
-<!-- Bootstrap style --> 
-<link id="callCss" rel="stylesheet" href="{{ asset('static/website/themes/bootshop/bootstrap.min.css') }}" media="screen"/>
-<link href="{{ asset('static/website/themes/css/base.css') }}" rel="stylesheet" media="screen"/>
-<!-- Bootstrap style responsive -->	
-<link href="{{ asset('static/website/themes/css/bootstrap-responsive.min.css') }}" rel="stylesheet"/>
-<link href="{{ asset('static/website/themes/css/font-awesome.css') }}" rel="stylesheet" type="text/css">
-<!-- Google-code-prettify -->	
-<link href="{{ asset('static/website/themes/js/google-code-prettify/prettify.css') }}" rel="stylesheet"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<!-- fav and touch icons -->
-    {{-- 
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="themes/images/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="themes/images/ico/apple-touch-icon-114-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="themes/images/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="themes/images/ico/apple-touch-icon-57-precomposed.png">
-    <style type="text/css" id="enject"></style> --}}
+	<script src="{{ asset('static/website/themes/js/less.js" type="text/javascript') }}"></script> 	
+	<!-- Bootstrap style --> 
+	<link id="callCss" rel="stylesheet" href="{{ asset('static/website/themes/bootshop/bootstrap.min.css') }}" media="screen"/>
+	<link href="{{ asset('static/website/themes/css/base.css') }}" rel="stylesheet" media="screen"/>
+	<!-- Bootstrap style responsive -->	
+	<link href="{{ asset('static/website/themes/css/bootstrap-responsive.min.css') }}" rel="stylesheet"/>
+	<link href="{{ asset('static/website/themes/css/font-awesome.css') }}" rel="stylesheet" type="text/css">
+	<!-- Google-code-prettify -->	
+	<link href="{{ asset('static/website/themes/js/google-code-prettify/prettify.css') }}" rel="stylesheet"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <!-- Online Bootstrap Link -->
-	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script> -->
 </head>
 <body>
 	<div id="header">
@@ -45,7 +26,7 @@
 			<div id="welcomeLine" class="row">
 				<div class="span6">
 					@if(Auth::guard('client')->check())
-					{{ Auth::guard('client')->user()->name }}
+					Hello {{ Auth::guard('client')->user()->firstname.' '.Auth::guard('client')->user()->lastname.',' }}
 					@endif
 					Welcome to <strong> LetStuffGo</strong></div>
 					<div class="span6">
@@ -62,8 +43,8 @@
 						<span class="icon-bar"></span>
 					</a>
 					<div class="navbar-inner">
-						<a class="brand" href="/"><img class="pull-left" src="{{ asset('static/website/themes/images/logo.png') }}" alt="LetStuffGo"/></a>
-						{{-- <a class="brand" href="/" style="color: white;"><p class="pull-left">Let<span style="color: red; font-size: 25px;">Stuff</span>Go</p></a> --}}
+						{{-- <a class="brand" href="/"><img class="pull-left" src="{{ asset('static/website/themes/images/logo.png') }}" alt="LetStuffGo"/></a> --}}
+						<a class="brand" href="/" style="color: #BBDEFB;"><p class="pull-left">Let<span style="color: red; font-size: 25px;">Stuff</span>Go</p></a>
 						<form class="form-inline navbar-search pull-left" method="get" action="/products">
 							<input id="srchFld" class="srchTxt" placeholder="search" type="text"/>
 							<button type="submit" id="submitButton" class="btn btn-primary">Search</button>
@@ -73,10 +54,13 @@
 							<li class=""><a href="/contact">Contact</a></li>
 							<li class=""><a href="/profile">About us</a></li>
 							<li class=""><a href="/add_product">Check</a></li>
+							@if(Auth::guard('client')->check())
+							<li class=""><a href="/profile">Profile</a></li>
 							<li class="">
-								@if(Auth::guard('client')->check())
 								<a href="/logout" role="button" style="padding-right:0"><span class="btn btn-large btn-danger">Logout</span></a>
-								@else
+							</li>
+							@else
+							<li>
 								<a href="#login" role="button" data-toggle="modal" style="padding-right:0"><span class="btn btn-large btn-success">Login</span></a>
 								<div id="login" class="modal hide fade in" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="false">
 									<div class="modal-header">
@@ -106,8 +90,8 @@
 									</div>
 								</div>
 
-								@endif
 							</li>
+							@endif
 						</ul>
 					</div>
 				</div>

@@ -39,21 +39,21 @@
                             <div class="row">
                                 <div class="span3">
                                     <label>Firstname</label>
-                                    <p style="color: red;"><label>From backend</label></p>
+                                    <p style="color: red;"><label>{{ Auth::guard('client')->user()->firstname }}</label></p>
                                 </div><!-- /.form-group -->
                                 <div class="span9">
                                     <label>Lastname</label>
-                                    <p style="color: red;"><label>From backend</label></p>
+                                    <p style="color: red;"><label>{{ Auth::guard('client')->user()->lastname }}</label></p>
                                 </div><!-- /.form-group -->
                             <!-- </div>
                             <div class="row"> -->
                                 <div class="form-group span6">
                                     <label>E-mail</label>
-                                    <p style="color: red;"><label>From backend</label></p>
+                                    <p style="color: red;"><label>{{ Auth::guard('client')->user()->email }}</label></p>
                                 </div><!-- /.form-group -->
                                 <div class="form-group span6">
                                     <label>Phone</label>
-                                    <p style="color: red;"><label>From backend</label></p>
+                                    <p style="color: red;"><label>{{ Auth::guard('client')->user()->phone }}</label></p>
                                 </div><!-- /.form-group -->
                             </div><!-- /.row -->
                         </div>
@@ -61,20 +61,20 @@
                             <h3 class="page-title">Address</h3>
                             <div class="row">
                                 <div class="form-group col-sm-6">
-                                    <label>State</label>
-                                    <p><label></label></p>
+                                    <label>Strret</label>
+                                    <p><label>{{ Auth::guard('client')->user()->street }}</label></p>
                                 </div><!-- /.form-group -->
                                 <div class="form-group col-sm-6">
                                     <label>City</label>
-                                    <p><label></label></p>
+                                    <p><label>{{ Auth::guard('client')->user()->city }}</label></p>
                                 </div><!-- /.form-group -->
                                 <div class="form-group col-sm-6">
                                     <label>ZIP</label>
-                                    <p><label></label></p>
+                                    <p><label>{{ Auth::guard('client')->user()->zip }}</label></p>
                                 </div><!-- /.form-group -->
                                 <div class="form-group col-sm-6">
                                     <label>Country</label>
-                                    <p><label></label></p>
+                                    <p><label>{{ Auth::guard('client')->user()->country }}</label></p>
                                 </div><!-- /.form-group -->
                             </div><!-- /.row -->
                         </div>
