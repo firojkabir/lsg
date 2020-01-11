@@ -14,6 +14,7 @@
 						<li class="active">Registration</li>
 					</ul>
 					<h3 style="text-align: center;"> Registration</h3>	
+					<hr>
 					<div class="well">
 						<div class="row">
 							<form class="reg">

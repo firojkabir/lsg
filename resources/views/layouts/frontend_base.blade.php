@@ -62,8 +62,9 @@
 						<span class="icon-bar"></span>
 					</a>
 					<div class="navbar-inner">
-						<a class="brand" href="/"><img src="{{ asset('static/website/themes/images/logo.png') }}" alt="LetStuffGo"/></a>
-						<form class="form-inline navbar-search" method="get" action="/products">
+						<a class="brand" href="/"><img class="pull-left" src="{{ asset('static/website/themes/images/logo.png') }}" alt="LetStuffGo"/></a>
+						{{-- <a class="brand" href="/" style="color: white;"><p class="pull-left">Let<span style="color: red; font-size: 25px;">Stuff</span>Go</p></a> --}}
+						<form class="form-inline navbar-search pull-left" method="get" action="/products">
 							<input id="srchFld" class="srchTxt" placeholder="search" type="text"/>
 							<button type="submit" id="submitButton" class="btn btn-primary">Search</button>
 						</form>
@@ -71,7 +72,7 @@
 							<li class=""><a href="/">Home</a></li>
 							<li class=""><a href="/contact">Contact</a></li>
 							<li class=""><a href="/profile">About us</a></li>
-							<li class=""><a href="/login">Check</a></li>
+							<li class=""><a href="/add_product">Check</a></li>
 							<li class="">
 								@if(Auth::guard('client')->check())
 								<a href="/logout" role="button" style="padding-right:0"><span class="btn btn-large btn-danger">Logout</span></a>

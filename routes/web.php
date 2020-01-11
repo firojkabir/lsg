@@ -44,6 +44,10 @@ Route::get('/basket', function () {
     return view('frontend.include.profile.basket');
 });
 
+Route::get('/add_product', function () {
+    return view('frontend.include.profile.add_product');
+});
+
 Route::get('/my_order', function () {
     return view('frontend.include.profile.my_order');
 });

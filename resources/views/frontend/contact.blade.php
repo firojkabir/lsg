@@ -40,8 +40,8 @@
 										</div>
 										<br>
 										<div class="contact-btn">
-	                                    <button type="submit" class="btn btn-info">Send MESSAGE</button>
-	                                </div>
+		                                    <button type="submit" class="btn btn-info">Send MESSAGE</button>
+		                                </div>
 									</div>
 								</div>
 							</form>
