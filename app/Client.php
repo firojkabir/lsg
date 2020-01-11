@@ -18,7 +18,7 @@ class Client extends Authenticatable
     protected $guard = 'client';
 
     protected $fillable = [
-        'name', 'email', 'password','status',
+        'firstname', 'lastname', 'phone', 'strret', 'city', 'country', 'zip', 'email', 'password','status',
     ];
 
     /**

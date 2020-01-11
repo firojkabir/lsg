@@ -101,11 +101,12 @@ Route::get('/login','Auth\ClientLoginController@showLoginForm')->name('client.lo
 Route::post('/login', 'Auth\ClientLoginController@login')->name('client.login.submit');
 Route::get('/logout', 'Auth\ClientLoginController@logout')->name('client.logout');
 
+Route::post('/register', 'Auth\ClientRegisterController@register')->name('client.register.submit');
 
 /*----------------------login, logout, Authentication-----------*/
 Route::group(['prefix' => 'admin'], function () {
     Auth::routes();
-    Auth::routes(['register' => false]);
+    //Auth::routes(['register' => false]);
 });
 
 /*---------------------user, admin panel------------------------*/
