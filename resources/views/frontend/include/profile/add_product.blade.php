@@ -48,7 +48,7 @@
 									<div class="control-group">
 										<div class="controls">
 											<label for="product_image"><b>Product image<span style="color: red;">*</span></b></label>
-											<input type="file" name="fileToUpload" id="fileToUpload">
+											<input type="file" name="fileToUpload" id="fileToUpload" required="">
 										</div>
 									</div>
 									<br>
@@ -57,7 +57,7 @@
 									<div class="control-group">
 										<div class="controls"><b>
 											<label for="product_category"><b>Product category<span style="color: red;">*</span></b></label>
-											<select name="product_category" id="product_category"  style="width: 80%;">
+											<select name="product_category" id="product_category"  style="width: 80%;" required="">
 												<option value="0">=== Add product category ===</option>
 												<option value="1">Computer, Tablet & Laptop</option>
 												<option value="2">Mobile & Gadgets</option>
