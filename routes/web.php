@@ -8,6 +8,10 @@ Route::get('/', function () {
     return view('frontend.home');
 });
 
+Route::get('/login', function () {
+    return view('frontend.login_form');
+});
+
 Route::get('/register', function () {
     return view('frontend.register');
 });
