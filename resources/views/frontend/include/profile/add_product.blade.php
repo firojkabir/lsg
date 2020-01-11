@@ -43,72 +43,61 @@
 										<input type="number" id="price" placeholder="" required="" name="price">
 									</div>
 								</div>
-									{{-- <div class="control-group">
-										<div class="controls">
-											<label for="product_size"><b>Product size</b></label>
-											<select name="size" id="product_size" style="width: 85%;">
-												<option value="0">=== Add product size ===</option>
-												<option value="1">S</option>
-												<option value="2">M</option>
-												<option value="3">L</option>
-												<option value="4">XL</option>
-											</select>
-										</div>
-									</div> --}}
-									<div class="control-group">
-										<div class="controls">
-											<label for="image"><b>Product image 1<span style="color: red;">*</span></b></label>
-											<input type="file" id="image" name="image">
-										</div>
+								<div class="control-group">
+									<div class="controls">
+										<label for="image"><b>Product image 1<span style="color: red;">*</span></b></label>
+										<input type="file" id="image" name="image">
 									</div>
-									<br>
-
-									<div class="control-group">
-										<div class="controls">
-											<label for="image"><b>Product image 2<span style="color: red;">*</span></b></label>
-											<input type="file" id="image1" name="image1">
-										</div>
-									</div>
-									<br>
-
-									<div class="control-group">
-										<div class="controls">
-											<label for="image"><b>Product image 3<span style="color: red;">*</span></b></label>
-											<input type="file" id="image2" name="image2">
-										</div>
-									</div>
-									<br>
-
 								</div>
-								<div class="span5">
+								<br>
+
+								<div class="control-group">
+									<div class="controls">
+										<label for="image"><b>Product image 2<span style="color: red;">*</span></b></label>
+										<input type="file" id="image1" name="image1">
+									</div>
+								</div>
+								<br>
+
+								<div class="control-group">
+									<div class="controls">
+										<label for="image"><b>Product image 3<span style="color: red;">*</span></b></label>
+										<input type="file" id="image2" name="image2">
+									</div>
+								</div>
+								<br>
+
+							</div>
+							<div class="span5">
+								<div class="control-group">
+									<div class="controls"><b>
+										<label for="product_category"><b>Product category<span style="color: red;">*</span></b></label>
+										<select name="category" id="product_category"  style="width: 80%;" required>
+											<option value="">=== Add product category ===</option>
+											@foreach($categories as $c)
+											<option value="{{ $c->id }}">{{ $c->name }}</option>
+											@endforeach
+
+										</select>
+									</div>
+									<br>
 									<div class="control-group">
-										<div class="controls"><b>
-											<label for="product_category"><b>Product category<span style="color: red;">*</span></b></label>
-											<select name="category" id="product_category"  style="width: 80%;" required>
-												<option value="">=== Add product category ===</option>
-												@foreach($categories as $c)
-												<option value="{{ $c->id }}">{{ $c->name }}</option>
-												@endforeach
-											</select>
+										<div class="controls">
+											<label for="product_description"><b>Product description<span style="color: red;">*</span></b></label>
+											<textarea name="description" placeholder="" required="" style="min-height: 115px; width: 60%;"></textarea>
 										</div>
 										<br>
-										<div class="control-group">
-											<div class="controls">
-												<label for="product_description"><b>Product description<span style="color: red;">*</span></b></label>
-												<textarea name="description" placeholder="" required="" style="min-height: 115px; width: 60%;"></textarea>
-											</div>
-											<br>
-										</div>
 									</div>
 								</div>
-								<br><br>
-								<button type="submit" class="btn btn-primary pull-right upload-btn">Upload product</button>
-							</form>
-						</div>
+							</div>
+							<br><br>
+							<button type="submit" class="btn btn-primary pull-right upload-btn">Upload product</button>
+						</form>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
 
-	@endsection
+@endsection
