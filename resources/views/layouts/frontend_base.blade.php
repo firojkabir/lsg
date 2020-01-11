@@ -45,7 +45,7 @@
 			<div id="welcomeLine" class="row">
 				<div class="span6">
 					@if(Auth::guard('client')->check())
-					{{ Auth::guard('client')->user()->name }}
+					Hello {{ Auth::guard('client')->user()->name.',' }}
 					@endif
 					Welcome to <strong> LetStuffGo</strong></div>
 					<div class="span6">
@@ -70,11 +70,13 @@
 						<ul id="topMenu" class="nav pull-right">
 							<li class=""><a href="/">Home</a></li>
 							<li class=""><a href="/contact">Contact</a></li>
-							<li class=""><a href="/profile">About us</a></li>
+							@if(Auth::guard('client')->check())
+							<li class=""><a href="/profile">Profile</a></li>
 							<li class="">
-								@if(Auth::guard('client')->check())
 								<a href="/logout" role="button" style="padding-right:0"><span class="btn btn-large btn-danger">Logout</span></a>
-								@else
+							</li>
+							@else
+							<li>
 								<a href="#login" role="button" data-toggle="modal" style="padding-right:0"><span class="btn btn-large btn-success">Login</span></a>
 								<div id="login" class="modal hide fade in" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="false">
 									<div class="modal-header">
@@ -104,8 +106,8 @@
 									</div>
 								</div>
 
-								@endif
 							</li>
+							@endif
 						</ul>
 					</div>
 				</div>
