@@ -17,10 +17,43 @@ body {
 #myCart  img{float:left; margin-right:8px; }
 #myCart .badge {padding: 9px;}
 #myCart {font-size: 13px;font-weight: bold; line-height: 33px;}
-#sidebar ul ul li a{ font-size:12px;}
-#sidebar ul {list-style: none;padding: 0;margin: 0;width: 100%;}
-#sidebar  li  a{font-weight:bold; background:url(../images/tabRepeatInactive.png) repeat-x 0 0; color:#262626;}
-#sidebar ul li li a{background:#eee; padding-left:14px;font-weight:normal;display:block;   font-size:13px; line-height:26px;}
+
+#sidebar ul ul li a { 
+	font-size:12px;
+}
+
+#sidebar ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+}
+
+#sidebar hr {
+	border: 1px solid #494E53;
+}
+
+#sidebar li {
+	font-weight: bold; 
+	color: #262626;
+	cursor: pointer;
+ 	background-color: #BBDEF7 !important;
+ 	transition: 0.3s;
+}
+
+#sidebar li:hover {
+	background-color: #FF0000  !important;
+}
+
+
+#sidebar ul li li a {
+	background: #eee; 
+	padding-left: 14px;
+	font-weight: normal;
+	display: block;   
+	font-size: 13px; 
+	line-height: 26px;
+}
 
 /* ***** divImg **** */
 #divImg img {
@@ -119,6 +152,7 @@ body {
 }
 
 .upload-btn {
+	/* background-color: #BBDEF7 !important; */
 	border: 0 none;
 	font-size: 18px;
 	padding: 13px 18px;
@@ -142,6 +176,16 @@ body {
 	-webkit-box-shadow: none;
 	box-shadow: none;
 }
+
+ #sideManu li {
+ 	
+ }
+
+#sideManu:hover {
+		/* style */
+	}
+	
+
 
 /* body--- */
 .thumbnail>a{display:block; text-align:center}

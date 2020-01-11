@@ -82,7 +82,7 @@
 								</div>
 							</form>
 							<br><br>
-							<button type="submit" class="btn btn-primary pull-right upload-btn">Upload product</button>
+							<button type="submit" class="btn btn-default pull-right upload-btn" style="background-color: #BBDEF7;">Upload product</button>
 						</div>
 					</div>
 				</div>
