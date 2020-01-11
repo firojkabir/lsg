@@ -71,6 +71,7 @@
 							<li class=""><a href="/">Home</a></li>
 							<li class=""><a href="/contact">Contact</a></li>
 							<li class=""><a href="/profile">About us</a></li>
+							<li class=""><a href="/login">Check</a></li>
 							<li class="">
 								@if(Auth::guard('client')->check())
 								<a href="/logout" role="button" style="padding-right:0"><span class="btn btn-large btn-danger">Logout</span></a>

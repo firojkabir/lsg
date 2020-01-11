@@ -11,13 +11,36 @@
 				<div class="span12">
 					<ul class="breadcrumb">
 						<li><a href="/">Home</a> <span class="divider">/</span></li>
-						<li class="active">Registration</li>
+						<li class="active">Login</li>
 					</ul>
-					<h3 style="text-align: center;"> Registration</h3>	
+					<h3 style="text-align: center;"> Login</h3>	
 					<div class="well">
 						<div class="row">
-							<form class="reg">
-								<div class="span6">
+							<div class="span4">
+								
+							</div>
+							<div class="span6">
+								<form class="form-horizontal loginFrm" method="post">
+									@csrf
+									<div class="control-group">								
+										<input type="text" id="inputEmail" placeholder="Username or Email" name="email">
+									</div>
+									<br>
+									<div class="control-group">
+										<input type="password" id="inputPassword" placeholder="Password" name="password">
+									</div>
+									<br>
+									<div class="control-group">
+										<label class="checkbox">
+											<input type="checkbox"> Remember me
+										</label>
+										<p style="font-size: 15px;">New here? Then <b><a href="/register" style="color: darkslateblue;">Register</a> </b>first.</p>
+									</div>
+									<button type="submit" class="btn btn-success">Login</button>
+								</form>
+							</div>
+							{{-- <form class="login">
+								<div class="span4">
 									<div class="control-group">
 										<div class="controls">
 											<input type="text" id="inputFname1" placeholder="First Name*" required="">
@@ -88,7 +111,7 @@
 									</div>
 								</div>
 							</form>
-							<button type="submit" class="btn btn-success pull-right rg-btn">Sign Up</button>
+							<button type="submit" class="btn btn-success pull-right rg-btn">Sign Up</button> --}}
 						</div>
 					</div>
 				</div>
