@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 10, 2020 at 12:45 AM
+-- Generation Time: Jan 11, 2020 at 12:57 AM
 -- Server version: 5.7.28-0ubuntu0.18.04.4
--- PHP Version: 7.2.24-0ubuntu0.18.04.1
+-- PHP Version: 7.1.33-3+ubuntu18.04.1+deb.sury.org+1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -29,11 +29,40 @@ SET time_zone = "+00:00";
 CREATE TABLE `category` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at_ip` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `updated_at_ip` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` int(11) NOT NULL DEFAULT '1',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`id`, `name`, `status`, `created_at`, `updated_at`) VALUES
+(2, 'Books', 1, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `clients`
+--
+
+CREATE TABLE `clients` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `clients`
+--
+
+INSERT INTO `clients` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Rimon', 'rimon@gmail.com', '$2y$10$w3izHy6CV.luwuDy36Ggw.NER3Z/ZmU7T6nwZPNBBTqxEXRpLAkvi', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -89,7 +118,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (13, '2014_10_12_100000_create_password_resets_table', 3),
 (11, '2017_09_19_063044_users', 2),
 (14, '2017_11_20_051139_admins', 4),
-(15, '2017_11_20_051159_password_resets_admin', 4);
+(15, '2017_11_20_051159_password_resets_admin', 4),
+(16, '2020_01_10_232021_create_clients_table', 5);
 
 -- --------------------------------------------------------
 
@@ -138,7 +168,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `group`, `password`, `image`, `thumb`, `image_path`, `status`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Jobayer Mojumder', 'jobayer.pro@gmail.com', 'admin', '$2y$10$w3izHy6CV.luwuDy36Ggw.NER3Z/ZmU7T6nwZPNBBTqxEXRpLAkvi', '1528090106_16299767_1402521006478179_360885980094480421_o.jpg', 'thumb_1528090106_16299767_1402521006478179_360885980094480421_o.jpg', 'assets/user/', 1, '4h9uT9Mjbi16p9zkbVZ5PcnRuqsd2c87b84akBRU5B4ORzD2CZutenTZXiO2', NULL, '2017-09-28 00:23:16');
+(1, 'Jobayer Mojumder', 'jobayer.pro@gmail.com', 'admin', '$2y$10$w3izHy6CV.luwuDy36Ggw.NER3Z/ZmU7T6nwZPNBBTqxEXRpLAkvi', '1528090106_16299767_1402521006478179_360885980094480421_o.jpg', 'thumb_1528090106_16299767_1402521006478179_360885980094480421_o.jpg', 'assets/user/', 1, 'fglgHNtTvrJUa8lj90uUSzhvqkgzlhOjAuJbgfiLHBOXDpBG1Owv7cDG6gYc', NULL, '2017-09-28 00:23:16'),
+(6, 'Rimon', 'rimon@gmail.com', 'customer', '$2y$10$w3izHy6CV.luwuDy36Ggw.NER3Z/ZmU7T6nwZPNBBTqxEXRpLAkvi', '', '', '', 1, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -148,8 +179,14 @@ INSERT INTO `users` (`id`, `name`, `email`, `group`, `password`, `image`, `thumb
 -- Indexes for table `category`
 --
 ALTER TABLE `category`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `clients`
+--
+ALTER TABLE `clients`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `category_name_unique` (`name`);
+  ADD UNIQUE KEY `clients_email_unique` (`email`);
 
 --
 -- Indexes for table `home_slider`
@@ -185,7 +222,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `clients`
+--
+ALTER TABLE `clients`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `home_slider`
 --
@@ -195,7 +237,7 @@ ALTER TABLE `home_slider`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `products`
 --
@@ -205,7 +247,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

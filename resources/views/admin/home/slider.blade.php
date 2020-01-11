@@ -26,8 +26,8 @@
 						</tr>
 					</thead>
 					<tbody>
-						@php $i = $sliders->perPage() * ($sliders->currentPage()-1); @endphp
-						@foreach ($sliders as $slider)
+						@php $i = $results->perPage() * ($results->currentPage()-1); @endphp
+						@foreach ($results as $slider)
 						<tr>
 							<td>{{ ++$i }}</td>
 							<td>{{ $slider->rank }}</td>
@@ -72,7 +72,7 @@
 						@endforeach
 					</tbody>
 				</table>
-				{{ $sliders->links() }}
+				{{ $results->links() }}
 			</div>
 		</div>
 	</div>

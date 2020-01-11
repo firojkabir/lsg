@@ -92,12 +92,21 @@ Route::get('/book_entertainment', function () {
     return view('frontend.include.category.book_entertainment');
 });
 
+
+Route::get('/login','Auth\ClientLoginController@showLoginForm')->name('client.login');
+Route::post('/login', 'Auth\ClientLoginController@login')->name('client.login.submit');
+Route::get('/logout', 'Auth\ClientLoginController@logout')->name('client.logout');
+
+
 /*----------------------login, logout, Authentication-----------*/
-Auth::routes();
-Auth::routes(['register' => false]);
+Route::group(['prefix' => 'admin'], function () {
+    Auth::routes();
+    Auth::routes(['register' => false]);
+});
 
 /*---------------------user, admin panel------------------------*/
 Route::get('/admin', 'Admin\AdminController@index')->name('admin');
+
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth'], function () {
 
@@ -122,6 +131,14 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
             Route::any('/edit/{id}', 'HomeAdmin@sliderEdit')->name('a_sliderEdit');
             Route::get('/delete/{id}', 'HomeAdmin@sliderDelete')->name('a_sliderDelete');
             Route::get('/status/{id}/{value}/{status}', 'HomeAdmin@sliderStatus')->name('a_sliderStatus');
+        });
+
+        Route::prefix('/category')->group(function () {
+            Route::get('/', 'HomeAdmin@category')->name('a_category');
+            Route::any('/add', 'HomeAdmin@categoryAdd')->name('a_categoryAdd');
+            Route::any('/edit/{id}', 'HomeAdmin@categoryEdit')->name('a_categoryEdit');
+            Route::get('/delete/{id}', 'HomeAdmin@categoryDelete')->name('a_categoryDelete');
+            Route::get('/status/{id}/{value}/{status}', 'HomeAdmin@categoryStatus')->name('a_categoryStatus');
         });
 
     });
