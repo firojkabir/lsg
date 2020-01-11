@@ -26,7 +26,7 @@
 		<br />
 		<div class="login-logo" style="background:#FFFFFF ">
 			<a href=""><img  src="{{ asset('admin_assets/admin_images/company.png') }}"></a>
-			<h2 class="text-custom" style="padding-top:0px; margin-top:10px;"> IFIC :: ADMIN LOGIN</h2>
+			<h2 class="text-custom" style="padding-top:0px; margin-top:10px;"> LetStuffGo :: ADMIN LOGIN</h2>
 		</div>
 		@yield('content')
 	</div>

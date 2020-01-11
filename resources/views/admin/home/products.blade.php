@@ -26,7 +26,7 @@
 						@foreach ($results as $product)
 						<tr>
 							<td>{{ ++$i }}</td>
-							<td>{{ $product->title }}</td>
+							<td><a target="_blank" href="/product-details/{{ $product->id }}">{{ $product->title }}</a></td>
 							<td style="text-align: center;">{{ $product->name }}</td>
 							<td style="text-align: center;">&euro;{{ $product->price }}</td>
 							<td style="text-align: center;">{{ $product->description }}</td>
