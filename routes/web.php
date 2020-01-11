@@ -95,7 +95,7 @@ Route::get('/book_entertainment', function () {
 
 Route::get('/login','Auth\ClientLoginController@showLoginForm')->name('client.login');
 Route::post('/login', 'Auth\ClientLoginController@login')->name('client.login.submit');
-Route::get('logout/', 'Auth\ClientLoginController@logout')->name('client.logout');
+Route::get('/logout', 'Auth\ClientLoginController@logout')->name('client.logout');
 
 
 /*----------------------login, logout, Authentication-----------*/

@@ -43,93 +43,102 @@
 	<div id="header">
 		<div class="container">
 			<div id="welcomeLine" class="row">
-				<div class="span6">Hello @if(Auth::guard('client')->check()) {{ Auth::guard('client')->user()->name }} @endif Welcome to <strong> LetStuffGo</strong></div>
 				<div class="span6">
-					<div class="pull-right">
-						<a href="product_summary.html"><span class="btn btn-primary"><i class="icon-shopping-cart icon-white"></i> [ 0 ] Cart </span> </a> 
+					@if(Auth::guard('client')->check())
+					{{ Auth::guard('client')->user()->name }}
+					@endif
+					Welcome to <strong> LetStuffGo</strong></div>
+					<div class="span6">
+						<div class="pull-right">
+							<a href="product_summary.html"><span class="btn btn-primary"><i class="icon-shopping-cart icon-white"></i> [ 0 ] Cart </span> </a> 
+						</div>
+					</div>
+				</div>
+				<!-- ****** Navbar ****** -->
+				<div id="logoArea" class="navbar">
+					<a id="smallScreen" data-target="#topMenu" data-toggle="collapse" class="btn btn-navbar">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</a>
+					<div class="navbar-inner">
+						<a class="brand" href="/"><img src="{{ asset('static/website/themes/images/logo.png') }}" alt="LetStuffGo"/></a>
+						<form class="form-inline navbar-search" method="get" action="/products">
+							<input id="srchFld" class="srchTxt" placeholder="search" type="text"/>
+							<button type="submit" id="submitButton" class="btn btn-primary">Search</button>
+						</form>
+						<ul id="topMenu" class="nav pull-right">
+							<li class=""><a href="/">Home</a></li>
+							<li class=""><a href="/contact">Contact</a></li>
+							<li class=""><a href="/profile">About us</a></li>
+							<li class="">
+								@if(Auth::guard('client')->check())
+								<a href="/logout" role="button" style="padding-right:0"><span class="btn btn-large btn-danger">Logout</span></a>
+								@else
+								<a href="#login" role="button" data-toggle="modal" style="padding-right:0"><span class="btn btn-large btn-success">Login</span></a>
+								<div id="login" class="modal hide fade in" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="false">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+										<h3 style="text-align: center;">Login</h3>
+									</div>
+									<div class="modal-body">
+										<form class="form-horizontal loginFrm" method="post" action="/login">
+											@csrf
+											<div class="control-group">								
+												<input type="text" id="inputEmail" placeholder="Username or Email" name="email">
+											</div>
+											<br>
+											<div class="control-group">
+												<input type="password" id="inputPassword" placeholder="Password" name="password">
+											</div>
+											<br>
+											<div class="control-group">
+												<label class="checkbox">
+													<input type="checkbox"> Remember me
+												</label>
+												<p style="font-size: 15px;">New here? Then <b><a href="/register" style="color: darkslateblue;">Register</a> </b>first.</p>
+											</div>
+											<button type="submit" class="btn btn-success">Login</button>
+											<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+										</form>		
+									</div>
+								</div>
+
+								@endif
+							</li>
+						</ul>
 					</div>
 				</div>
 			</div>
-			<!-- ****** Navbar ****** -->
-			<div id="logoArea" class="navbar">
-				<a id="smallScreen" data-target="#topMenu" data-toggle="collapse" class="btn btn-navbar">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</a>
-				<div class="navbar-inner">
-					<a class="brand" href="/"><img src="{{ asset('static/website/themes/images/logo.png') }}" alt="LetStuffGo"/></a>
-					<form class="form-inline navbar-search" method="get" action="/products">
-						<input id="srchFld" class="srchTxt" placeholder="search" type="text"/>
-						<button type="submit" id="submitButton" class="btn btn-primary">Search</button>
-					</form>
-					<ul id="topMenu" class="nav pull-right">
-						<li class=""><a href="/">Home</a></li>
-						<li class=""><a href="/contact">Contact</a></li>
-						<li class=""><a href="/profile">About us</a></li>
-						<li class="">
-							<a href="#login" role="button" data-toggle="modal" style="padding-right:0"><span class="btn btn-large btn-success">Login</span></a>
-							<div id="login" class="modal hide fade in" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="false">
-								<div class="modal-header">
-									<button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
-									<h3 style="text-align: center;">Login</h3>
-								</div>
-								<div class="modal-body">
-									<form class="form-horizontal loginFrm" method="post" action="/login">
-										@csrf
-										<div class="control-group">								
-											<input type="text" id="inputEmail" placeholder="Username or Email" name="email">
-										</div>
-										<br>
-										<div class="control-group">
-											<input type="password" id="inputPassword" placeholder="Password" name="password">
-										</div>
-										<br>
-										<div class="control-group">
-											<label class="checkbox">
-												<input type="checkbox"> Remember me
-											</label>
-											<p style="font-size: 15px;">New here? Then <b><a href="/register" style="color: darkslateblue;">Register</a> </b>first.</p>
-										</div>
-										<button type="submit" class="btn btn-success">Login</button>
-										<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-									</form>		
-								</div>
-							</div>
-						</li>
-					</ul>
-				</div>
-			</div>
 		</div>
-	</div>
-	<!-- ******* Header End ****** -->
+		<!-- ******* Header End ****** -->
 
-	@yield('content')
+		@yield('content')
 
-	<!-- ****** Footer part start ****** -->
-	<div  id="footerSection">
-		<div class="container">
-			<div class="row">
-				<div class="span6 pull-left">
-					<p class="">&copy; Copyright reserved by <b>GDSD-G6</b>, 2019</p>
+		<!-- ****** Footer part start ****** -->
+		<div  id="footerSection">
+			<div class="container">
+				<div class="row">
+					<div class="span6 pull-left">
+						<p class="">&copy; Copyright reserved by <b>GDSD-G6</b>, 2019</p>
+					</div>
+					<div id="socialMedia" class="span6 pull-right">
+						{{-- <h5>SOCIAL MEDIA </h5> --}}<span>Follow us: </span>
+						<a href="www.facebook.com"><i class="fa fa-facebook" style="font-size:30px; color:#4267B2;"></i></a>
+						<a href="www.youtube.com"><i class="fa fa-youtube" style="font-size:30px; color:#FF0000;"></i></a>
+					</div>
 				</div>
-				<div id="socialMedia" class="span6 pull-right">
-					{{-- <h5>SOCIAL MEDIA </h5> --}}<span>Follow us: </span>
-					<a href="www.facebook.com"><i class="fa fa-facebook" style="font-size:30px; color:#4267B2;"></i></a>
-					<a href="www.youtube.com"><i class="fa fa-youtube" style="font-size:30px; color:#FF0000;"></i></a>
-				</div>
+				<br>
 			</div>
-			<br>
+			<!-- ****** Container End ****** -->
 		</div>
-		<!-- ****** Container End ****** -->
-	</div>
-	<!-- ****** Footer part end ****** -->
+		<!-- ****** Footer part end ****** -->
 
-	<!-- Placed at the end of the document so the pages load faster ============================================= -->
-	<script src="{{ asset('static/website/themes/js/jquery.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('static/website/themes/js/bootstrap.min.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('static/website/themes/js/google-code-prettify/prettify.js') }}"></script>
-	<script src="{{ asset('static/website/themes/js/bootshop.js') }}"></script>
-	<script src="{{ asset('static/website/themes/js/jquery.lightbox-0.5.js') }}"></script>
-</body>
-</html>
+		<!-- Placed at the end of the document so the pages load faster ============================================= -->
+		<script src="{{ asset('static/website/themes/js/jquery.js') }}" type="text/javascript"></script>
+		<script src="{{ asset('static/website/themes/js/bootstrap.min.js') }}" type="text/javascript"></script>
+		<script src="{{ asset('static/website/themes/js/google-code-prettify/prettify.js') }}"></script>
+		<script src="{{ asset('static/website/themes/js/bootshop.js') }}"></script>
+		<script src="{{ asset('static/website/themes/js/jquery.lightbox-0.5.js') }}"></script>
+	</body>
+	</html>
