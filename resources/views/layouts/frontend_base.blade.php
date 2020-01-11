@@ -56,7 +56,7 @@
 							@if(Auth::guard('client')->check())
 							<li class=""><a href="/profile">Profile</a></li>
 							<li class="">
-								<a href="/logout" role="button" style="padding-right:0"><span class="btn btn-large btn-danger">Logout</span></a>
+								<a href="/logout" role="button" style="padding-right:0"><span class="btn btn-large btn-danger"><i class="fa fa-sign-out"></i></span></a>
 							</li>
 							@else
 							<li>

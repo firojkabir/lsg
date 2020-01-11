@@ -5,7 +5,7 @@
 		<li class="subMenu open"><a> ELECTRONICS </a>
 			<ul>
 				<li>
-					<a href="/computer"><i class="icon-chevron-right"></i>Computers, Tablets & laptop </a>
+					<a href="/computer"><i class="icon-chevron-right"></i>Computers, Tablets & Laptops </a>
 				</li>
 				<li>
 					<a href="/gadgets"><i class="icon-chevron-right"></i>Mobile & Gadgets</a>
