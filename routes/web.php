@@ -4,10 +4,6 @@
 
 use Illuminate\Support\Facades\Auth;
 
-Route::get('/login', function () {
-    return view('frontend.login_form');
-});
-
 Route::get('/register', function () {
     return view('frontend.register');
 });
@@ -141,6 +137,11 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
             Route::any('/edit/{id}', 'HomeAdmin@categoryEdit')->name('a_categoryEdit');
             Route::get('/delete/{id}', 'HomeAdmin@categoryDelete')->name('a_categoryDelete');
             Route::get('/status/{id}/{value}/{status}', 'HomeAdmin@categoryStatus')->name('a_categoryStatus');
+        });
+
+        Route::prefix('/products')->group(function () {
+            Route::get('/', 'HomeAdmin@products')->name('a_products');
+            Route::get('/status/{id}/{value}/{status}', 'HomeAdmin@productsStatus')->name('a_productsStatus');
         });
 
     });

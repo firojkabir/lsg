@@ -28,33 +28,40 @@
 						<div id="differentview" class="moreOptopm carousel slide">
 							<div class="carousel-inner">
 								<div class="item active">
+									@if($result->image)
 									<a href="{{ asset($result->path.$result->image) }}"> 
 										<img style="width:29%" src="{{ asset($result->path.$result->image) }}" alt=""/>
 									</a>
+									@endif
+									@if($result->image1)
 									<a href="{{ asset($result->path.$result->image1) }}"> 
 										<img style="width:29%" src="{{ asset($result->path.$result->image1) }}" alt=""/>
 									</a>
+									@endif
+
+									@if($result->image2)
 									<a href="{{ asset($result->path.$result->image2) }}" > 
 										<img style="width:29%" src="{{ asset($result->path.$result->image2) }}" alt=""/>
 									</a>
+									@endif
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="span6">
 						<h3>{{ $result->title }}</h3>
-						<small>- {{ $result->name }}</small>
+						<small><b>Category: </b>{{ $result->name }}</small>
 						<hr class="soft"/>
 						<form class="form-horizontal qtyFrm">
 							<div class="control-group">
-								<label class="control-label"><span>&euro;{{ $result->price }}</span></label>
+								<label class="control-label"><b>Price: </b><span>&euro;{{ $result->price }}</span></label>
 								<div class="controls">
-									<input type="number" class="span1" placeholder="Qty."/>
 									<button type="submit" class="btn btn-large btn-primary pull-right"><a href="/cart-summery">Add to cart </a><i class=" icon-shopping-cart"></i></button>
 								</div>
 							</div>
 						</form>
 						<hr class="soft clr"/>
+						<label class="control-label"><b>Description </b></label>
 						<p>{{ $result->description }}</p>
 					</div>
 					<hr class="soft clr"/>

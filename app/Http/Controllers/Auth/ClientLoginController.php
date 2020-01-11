@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Validation\ValidationException;
 use Auth;
 use Route;
 
@@ -17,7 +18,7 @@ class ClientLoginController extends Controller
 
 	public function showLoginForm()
 	{
-		return view('auth.client_login');
+		return view('frontend.login_form');
 	}
 
 	public function login(Request $request)
@@ -34,7 +35,8 @@ class ClientLoginController extends Controller
 			return redirect('/');
 		}
 		// if unsuccessful, then redirect back to the login with the form data
-		return redirect()->back()->withInput($request->only('email', 'remember'));
+		//return redirect('/login')->withInput($request->only('email', 'remember'));
+		return $this->sendFailedLoginResponse($request);
 	}
 
 	public function logout()
@@ -42,4 +44,22 @@ class ClientLoginController extends Controller
 		Auth::guard('client')->logout();
 		return redirect('/');
 	}
+
+
+	protected function sendFailedLoginResponse(Request $request)
+    {
+        throw ValidationException::withMessages([
+            $this->username() => [trans('auth.failed')],
+        ]);
+    }
+
+    /**
+     * Get the login username to be used by the controller.
+     *
+     * @return string
+     */
+    public function username()
+    {
+        return 'email';
+    }
 }
