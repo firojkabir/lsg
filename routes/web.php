@@ -16,10 +16,6 @@ Route::get('/about', function () {
     return view('frontend.about');
 });
 
-Route::get('/products', function () {
-    return view('frontend.products');
-});
-
 Route::get('/cart-summery', function () {
     return view('frontend.cart-summery');
 });
@@ -41,6 +37,7 @@ Route::get('/edit_profile', function () {
 });
 
 Route::get('/', 'Home@index')->name('client.home');
+Route::get('/products', 'Home@search');
 Route::get('/profile', 'Home@profile')->name('client.profile');
 Route::get('/search', 'Home@search')->name('client.profile');
 
@@ -49,6 +46,10 @@ Route::any('/add_product', 'Product@add')->name('client.product.add');
 Route::any('/edit_product/{id}', 'Product@edit')->name('client.product.edit');
 Route::get('/my_products', 'Product@my_products')->name('client.profile.products');
 Route::get('/product-details/{id}', 'Home@product_details')->name('client.product.details');
+
+Route::post('/cart/add', 'CartController@add')->name('client.cart.add');
+Route::post('/cart/delete', 'CartController@delete')->name('client.cart.delete');
+
 
 Route::get('/login','Auth\ClientLoginController@showLoginForm')->name('client.login');
 Route::post('/login', 'Auth\ClientLoginController@login')->name('client.login.submit');

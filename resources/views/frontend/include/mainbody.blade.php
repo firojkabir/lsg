@@ -35,7 +35,7 @@
 					<p>{{ $t->name }}</p>
 					<h4 style="text-align:center">
 						<a class="btn" href="/product-details/{{ $t->id }}"> <i class="icon-zoom-in"></i></a> 
-						<a class="btn" href="/cart-summery">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">&euro;{{ $t->price }}</a>
+						<a class="btn add-to-cart" href="#" id="{{ $t->id }}">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">&euro;{{ $t->price }}</a>
 					</h4>
 				</div>
 			</div>

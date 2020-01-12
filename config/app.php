@@ -177,6 +177,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\AgentServiceProvider::class,
+        Darryldecode\Cart\CartServiceProvider::class,
 
     ],
 
@@ -228,6 +229,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'SiteHelper' => App\Helpers\SiteHelper::class,
+        'Cart' => Darryldecode\Cart\Facades\CartFacade::class,
 
     ],
 

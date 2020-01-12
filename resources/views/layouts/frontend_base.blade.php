@@ -31,7 +31,7 @@
 					Welcome to <strong> LetStuffGo</strong></div>
 					<div class="span6">
 						<div class="pull-right">
-							<a href="product_summary.html"><span class="btn btn-primary"><i class="icon-shopping-cart icon-white"></i> [ 0 ] Cart </span> </a> 
+							<a href="/cart-summery"><span class="btn btn-primary"><i class="icon-shopping-cart icon-white"></i> [ {{ Cart::getTotal() }} ] Cart </span> </a> 
 						</div>
 					</div>
 				</div>
@@ -125,5 +125,26 @@
 		<script src="{{ asset('static/website/themes/js/google-code-prettify/prettify.js') }}"></script>
 		<script src="{{ asset('static/website/themes/js/bootshop.js') }}"></script>
 		<script src="{{ asset('static/website/themes/js/jquery.lightbox-0.5.js') }}"></script>
+
+
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$('.add-to-cart').on('click', function() {
+					var id = $(this).attr("id");
+					console.log(id);
+					$.ajax({
+						url: "{{ route('client.cart.add') }}",
+						type: 'post',
+						data: { '_token':'{{ csrf_token() }}', "id": id},
+						success: function (response) {
+							alert(response);
+						}
+					});
+				});
+			});
+
+		</script>
+
+
 	</body>
 	</html>
