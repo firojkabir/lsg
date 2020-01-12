@@ -47,6 +47,13 @@
 								<td>&euro;{{ $row->price*$row->qty }}</td>
 							</tr>
 							@endforeach
+							<tr style="empty-cells: hide;">
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td>&euro;{{ Cart::subtotal() }}</td>
+							</tr>
 						</tbody>
 					</table>
 					<button type="btn" class="btn btn-success pull-right">Confirm order</button>
