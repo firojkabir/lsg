@@ -190,7 +190,10 @@ hr {
 		/* style */
 	}
 	
-
+/* #contact_seller .modal-header {
+	background-color: #FBFBFB !important;
+	color: white;
+} */
 
 /* body--- */
 .thumbnail>a{display:block; text-align:center}
