@@ -83,98 +83,103 @@ class Product extends Controller
 	}
 
 	public function edit(Request $request, $id)
-{
-	if ($request->isMethod('get')) {
-		$data['categories'] = DB::table('category')->where('status', '1')->get();
-		$data['result'] = DB::table('products')->where('id', $id)->first();
-		return view('frontend.include.profile.edit_product', $data);
-	} else {
+	{
+		if ($request->isMethod('get')) {
+			$data['categories'] = DB::table('category')->where('status', '1')->get();
+			$data['result'] = DB::table('products')->where('id', $id)->first();
 
-		$request->validate([
-			'title' => 'required|string|max:255',
-			'price' => 'required',
-			'category' => 'required',
-			'description' => 'required',
-			'image' => 'mimes:jpeg,bmp,png,jpg,gif',
-			'image1' => 'mimes:jpeg,bmp,png,jpg,gif',
-			'image2' => 'mimes:jpeg,bmp,png,jpg,gif',
-		]);
+			if (count($data['result'])) {
+				return view('frontend.include.profile.edit_product', $data);
+			}else{
+				return redirect()->back();
+			}
+		} else {
 
-		try {
-			$postdata['title'] = $request->input('title');
-			$postdata['price'] = $request->input('price');
-			$postdata['category_id'] = $request->input('category');
-			$postdata['description'] = $request->input('description');
+			$request->validate([
+				'title' => 'required|string|max:255',
+				'price' => 'required',
+				'category' => 'required',
+				'description' => 'required',
+				'image' => 'mimes:jpeg,bmp,png,jpg,gif',
+				'image1' => 'mimes:jpeg,bmp,png,jpg,gif',
+				'image2' => 'mimes:jpeg,bmp,png,jpg,gif',
+			]);
 
-			$postdata['path'] = 'assets/product/';
+			try {
+				$postdata['title'] = $request->input('title');
+				$postdata['price'] = $request->input('price');
+				$postdata['category_id'] = $request->input('category');
+				$postdata['description'] = $request->input('description');
 
-			if (Input::hasFile('image')) {
+				$postdata['path'] = 'assets/product/';
 
-				$image = $request->file('image');
-				$imagename = time() . '_' . $image->getClientOriginalname();
-				$thumb = 'thumb_' . $imagename;
-				$path = 'assets/product';
-				$img = Image::make($image->getRealPath())->resize(150, 150);
-				$img->save($path . '/' . $thumb);
-				$image->move($path, $imagename);
-				$postdata['image'] = $imagename;
-				$postdata['thumb'] = $thumb;
+				if (Input::hasFile('image')) {
 
-				if ($request->input('old_image')) {
-					$delete1 = $postdata['path'] . $request->input('old_image');
-					$delete2 = $postdata['path'] . 'thumb_' . $request->input('old_image');
-					if (File::exists($delete1)) {
-						unlink($delete1);
-					}
-					if (File::exists($delete2)) {
-						unlink($delete2);
+					$image = $request->file('image');
+					$imagename = time() . '_' . $image->getClientOriginalname();
+					$thumb = 'thumb_' . $imagename;
+					$path = 'assets/product';
+					$img = Image::make($image->getRealPath())->resize(150, 150);
+					$img->save($path . '/' . $thumb);
+					$image->move($path, $imagename);
+					$postdata['image'] = $imagename;
+					$postdata['thumb'] = $thumb;
+
+					if ($request->input('old_image')) {
+						$delete1 = $postdata['path'] . $request->input('old_image');
+						$delete2 = $postdata['path'] . 'thumb_' . $request->input('old_image');
+						if (File::exists($delete1)) {
+							unlink($delete1);
+						}
+						if (File::exists($delete2)) {
+							unlink($delete2);
+						}
 					}
 				}
-			}
 
-			if (Input::hasFile('image1')) {
+				if (Input::hasFile('image1')) {
 
-				$image1 = $request->file('image1');
-				$imagename1 = time() . '_' . $image1->getClientOriginalname();
-				$path = 'assets/product';
-				$image1->move($path, $imagename1);
-				$postdata['image1'] = $imagename1;
+					$image1 = $request->file('image1');
+					$imagename1 = time() . '_' . $image1->getClientOriginalname();
+					$path = 'assets/product';
+					$image1->move($path, $imagename1);
+					$postdata['image1'] = $imagename1;
 
-				if ($request->input('old_image1')) {
-					$delete = $postdata['path'] . $request->input('old_image1');
-					if (File::exists($delete)) {
-						unlink($delete);
+					if ($request->input('old_image1')) {
+						$delete = $postdata['path'] . $request->input('old_image1');
+						if (File::exists($delete)) {
+							unlink($delete);
+						}
 					}
 				}
-			}
 
-			if (Input::hasFile('image2')) {
+				if (Input::hasFile('image2')) {
 
-				$image2 = $request->file('image2');
-				$imagename2 = time() . '_' . $image2->getClientOriginalname();
-				$path = 'assets/product';
-				$image2->move($path, $imagename2);
-				$postdata['image2'] = $imagename2;
+					$image2 = $request->file('image2');
+					$imagename2 = time() . '_' . $image2->getClientOriginalname();
+					$path = 'assets/product';
+					$image2->move($path, $imagename2);
+					$postdata['image2'] = $imagename2;
 
-				if ($request->input('old_image2')) {
-					$delete = $postdata['path'] . $request->input('old_image2');
-					if (File::exists($delete)) {
-						unlink($delete);
+					if ($request->input('old_image2')) {
+						$delete = $postdata['path'] . $request->input('old_image2');
+						if (File::exists($delete)) {
+							unlink($delete);
+						}
 					}
 				}
+
+
+				$result = DB::table('products')->where('id', $id)->update($postdata);
+				$request->session()->flash('msg', 'Product Successfully updated!');
+				return redirect('/my_products');
+
+			} catch (Exception $e) {
+				$request->session()->flash('emsg', $e->errorInfo[2]);
+				return redirect('edit_product/'.$id);
+
 			}
-
-
-			$result = DB::table('products')->where('id', $id)->update($postdata);
-			$request->session()->flash('msg', 'Product Successfully updated!');
-			return redirect('/my_products');
-
-		} catch (Exception $e) {
-			$request->session()->flash('emsg', $e->errorInfo[2]);
-			return redirect('edit_product/'.$id);
-
 		}
 	}
-}
 
 }

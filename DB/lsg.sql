@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 12, 2020 at 12:39 AM
+-- Generation Time: Jan 12, 2020 at 02:16 AM
 -- Server version: 5.7.28-0ubuntu0.18.04.4
--- PHP Version: 7.2.24-0ubuntu0.18.04.1
+-- PHP Version: 7.1.33-3+ubuntu18.04.1+deb.sury.org+1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -147,7 +147,7 @@ CREATE TABLE `products` (
   `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `price` double(8,2) NOT NULL,
-  `status` enum('POSTED','PUBLISHED','BLOCKED','RESERVED','SOLD','UNAVAILABLE','RETURNED') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'POSTED',
+  `status` tinyint(4) NOT NULL DEFAULT '0',
   `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `image1` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `image2` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -155,8 +155,8 @@ CREATE TABLE `products` (
   `path` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
   `category_id` bigint(20) UNSIGNED NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -164,15 +164,15 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `title`, `description`, `price`, `status`, `image`, `image1`, `image2`, `thumb`, `path`, `user_id`, `category_id`, `created_at`, `updated_at`) VALUES
-(7, 'Macbook Air', 'Mackbook air from Apple.\r\n\r\nRam: 8gb\r\nRom 500 gb SSD\r\nScreen: 13.5\"', 555.00, 'POSTED', '1578783770_laptop.jpg', '1578783770_laptop.jpg', '1578783770_laptop.jpg', 'thumb_1578783770_laptop.jpg', 'assets/product/', 4, 2, NULL, NULL),
-(8, 'Bike(Kids)', 'Bike for kids. \r\n\r\nRechargeable and driveable.', 250.00, 'POSTED', '1578784969_kids.jpg', '1578784969_kids.jpg', '1578784969_kids.jpg', 'thumb_1578784969_kids.jpg', 'assets/product/', 4, 6, NULL, NULL),
-(9, 'Juice(Grape)', 'Juice made from black grapes. \r\n\r\nNo alcohol.', 2.00, 'POSTED', '1578785205_foods.jpg', '1578785205_foods.jpg', '1578785205_foods.jpg', 'thumb_1578785205_foods.jpg', 'assets/product/', 4, 7, NULL, NULL),
-(10, 'Hand Wash(Dettol)', 'Dettol hand wash. \r\n\r\nTo disinfect your hands.', 10.00, 'POSTED', '1578785296_Health.jpg', '1578785296_Health.jpg', '1578785296_Health.jpg', 'thumb_1578785296_Health.jpg', 'assets/product/', 4, 8, NULL, NULL),
-(11, 'Basket Ball', 'Wilson basket ball.\r\n\r\nKeep play it will make your body fit.', 45.00, 'POSTED', '1578785375_sports.jpg', '1578785375_sports.jpg', '1578785375_sports.jpg', 'thumb_1578785375_sports.jpg', 'assets/product/', 4, 9, NULL, NULL),
-(12, 'Eat That From(1st Edition)', 'Eat that from is a best selling book. \r\n\r\nHelpful for self improvement.', 23.00, 'POSTED', '1578785469_books.jpeg', '1578785469_books.jpeg', '1578785469_books.jpeg', 'thumb_1578785469_books.jpeg', 'assets/product/', 4, 10, NULL, NULL),
-(13, 'Shoe(Women)', 'Women\'s converse. \r\nEasy and comfortable to wear.', 48.00, 'POSTED', '1578785619_women.jpg', '1578785619_women.jpg', '1578785619_women.jpg', 'thumb_1578785619_women.jpg', 'assets/product/', 4, 4, NULL, NULL),
-(14, 'Xiaomi AirDots', 'Xiaomi airdots\r\n\r\nBlack \r\nBluetooth', 18.00, 'POSTED', '1578785723_gadgets.jpg', '1578785723_gadgets.jpg', '1578785723_gadgets.jpg', 'thumb_1578785723_gadgets.jpg', 'assets/product/', 4, 3, NULL, NULL),
-(15, 'Jacket(Men)', 'Winter jacket for men.\r\n\r\nWaterproof', 60.00, 'POSTED', '1578785806_men.jpeg', '1578785807_men.jpeg', '1578785807_men.jpeg', 'thumb_1578785806_men.jpeg', 'assets/product/', 4, 5, NULL, NULL);
+(7, 'Macbook Air', 'Mackbook air from Apple.\r\n\r\nRam: 8gb\r\nRom 500 gb SSD\r\nScreen: 13.5\"', 555.00, 1, '1578783770_laptop.jpg', '1578783770_laptop.jpg', '1578783770_laptop.jpg', 'thumb_1578783770_laptop.jpg', 'assets/product/', 4, 2, '2020-01-11 23:00:00', NULL),
+(8, 'Bike(Kids)', 'Bike for kids. \r\n\r\nRechargeable and driveable.', 250.00, 1, '1578784969_kids.jpg', '1578784969_kids.jpg', '1578784969_kids.jpg', 'thumb_1578784969_kids.jpg', 'assets/product/', 4, 6, '2020-01-11 23:00:00', NULL),
+(9, 'Juice(Grape)', 'Juice made from black grapes. \r\n\r\nNo alcohol.', 2.00, 1, '1578785205_foods.jpg', '1578785205_foods.jpg', '1578785205_foods.jpg', 'thumb_1578785205_foods.jpg', 'assets/product/', 4, 7, '2020-01-11 23:00:00', NULL),
+(10, 'Hand Wash(Dettol)', 'Dettol hand wash. \r\n\r\nTo disinfect your hands.', 10.00, 1, '1578785296_Health.jpg', '1578785296_Health.jpg', '1578785296_Health.jpg', 'thumb_1578785296_Health.jpg', 'assets/product/', 4, 8, '2020-01-11 23:00:00', NULL),
+(11, 'Basket Ball', 'Wilson basket ball.\r\n\r\nKeep play it will make your body fit.', 45.00, 1, '1578785375_sports.jpg', '1578785375_sports.jpg', '1578785375_sports.jpg', 'thumb_1578785375_sports.jpg', 'assets/product/', 4, 9, '2020-01-11 23:00:00', NULL),
+(12, 'Eat That From(1st Edition)', 'Eat that from is a best selling book. \r\n\r\nHelpful for self improvement.', 23.00, 1, '1578785469_books.jpeg', '1578785469_books.jpeg', '1578785469_books.jpeg', 'thumb_1578785469_books.jpeg', 'assets/product/', 4, 10, '2020-01-11 23:00:00', NULL),
+(13, 'Shoe(Women)', 'Women\'s converse. \r\nEasy and comfortable to wear.', 48.00, 1, '1578785619_women.jpg', '1578785619_women.jpg', '1578785619_women.jpg', 'thumb_1578785619_women.jpg', 'assets/product/', 4, 4, '2020-01-11 23:00:00', NULL),
+(14, 'Xiaomi AirDots', 'Xiaomi airdots\r\n\r\nBlack \r\nBluetooth', 18.00, 1, '1578785723_gadgets.jpg', '1578785723_gadgets.jpg', '1578785723_gadgets.jpg', 'thumb_1578785723_gadgets.jpg', 'assets/product/', 4, 3, '2020-01-11 23:00:00', NULL),
+(15, 'Jacket(Men)', 'Winter jacket for men.\r\n\r\nWaterproof', 60.00, 1, '1578785806_men.jpeg', '1578785807_men.jpeg', '1578785807_men.jpeg', 'thumb_1578785806_men.jpeg', 'assets/product/', 4, 5, '2020-01-11 23:00:00', NULL);
 
 -- --------------------------------------------------------
 

@@ -30,7 +30,12 @@ class Home extends Controller
 		->where('products.id', $id)
 		->where('products.status', '1')
 		->first();
-		return view('frontend.product-details', $data);
+
+		if (count($data['result'])) {
+			return view('frontend.product-details', $data);
+		}else{
+			return redirect()->back();
+		}
 	}
 
 	public function profile(){		
