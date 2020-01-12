@@ -11,41 +11,41 @@
   			<div class="row">
   				<div class="span12">
   					<h3 style="text-align: center;"> Send A Mail</h3>
-  					<br>
-						<div class="row">
-							<form class="contact-form">
-								<div class="span6">
-									<div class="control-group">
-										<div class="controls">
-											<input type="text" id="name" placeholder="Your Name*" required="">
-										</div>
-									</div>
-									<br>
-									<div class="control-group">
-										<div class="controls">
-											<input type="text" id="mail" placeholder="Email ID*" required="">
-										</div>
-									</div>
-									<br>
-									<div class="control-group">
-										<div class="controls">
-											<input type="text" id="subject" placeholder="Subject*" required="">
-										</div>
+  					<hr>
+					<div class="row">
+						<form class="contact-form">
+							<div class="span6">
+								<div class="control-group">
+									<div class="controls">
+										<input type="text" id="name" placeholder="Your Name*" required="">
 									</div>
 								</div>
-								<div class="span5">
-									<div class="control-group">
-										<div class="controls">
-											<textarea name="message" placeholder="Your message*" required="" style="min-height: 115px;"></textarea>
-										</div>
-										<br>
-										<div class="contact-btn">
-		                                    <button type="submit" class="btn btn-info">Send MESSAGE</button>
-		                                </div>
+								<br>
+								<div class="control-group">
+									<div class="controls">
+										<input type="text" id="mail" placeholder="Email ID*" required="">
 									</div>
 								</div>
-							</form>
-						</div>
+								<br>
+								<div class="control-group">
+									<div class="controls">
+										<input type="text" id="subject" placeholder="Subject*" required="">
+									</div>
+								</div>
+							</div>
+							<div class="span5">
+								<div class="control-group">
+									<div class="controls">
+										<textarea name="message" placeholder="Your message*" required="" style="min-height: 115px; background-color: #DDE1EA !important;"></textarea>
+									</div>
+									<br>
+									<div class="contact-btn">
+	                                    <button type="submit" class="btn btn-info"><i class="fa fa-rocket"></i>  Send</button>
+	                                </div>
+								</div>
+							</div>
+						</form>
+					</div>
   				</div>
   			</div>
   		</div>
