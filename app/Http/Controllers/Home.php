@@ -14,10 +14,11 @@ class Home extends Controller
 
 	public function index()
 	{
-		$data['latest'] = DB::table('products')->orderBy('created_at', 'DESC')->limit(4)->get();
+		$data['latest'] = DB::table('products')->where('products.status', '1')->orderBy('created_at', 'DESC')->limit(4)->get();
 		$data['top'] = DB::table('products')
 		->join('category', 'products.category_id', '=', 'category.id')
 		->select('products.*', 'category.name')
+		->where('products.status', '1')
 		->get();
 		return view('frontend.home', $data);
 	}
@@ -27,6 +28,7 @@ class Home extends Controller
 		->join('category', 'products.category_id', '=', 'category.id')
 		->select('products.*', 'category.name')
 		->where('products.id', $id)
+		->where('products.status', '1')
 		->first();
 		return view('frontend.product-details', $data);
 	}
@@ -40,18 +42,24 @@ class Home extends Controller
 			$data['results'] = DB::table('products')
 			->join('category', 'products.category_id', '=', 'category.id')
 			->select('products.*', 'category.name')
+			->where('products.status', '1')
 			->get();
-		
+
 			$data['search'] = "Search results for all category.";
 		}else{
 			$data['results'] = DB::table('products')
 			->join('category', 'products.category_id', '=', 'category.id')
 			->select('products.*', 'category.name')
+			->where('products.status', '1')
 			->where('products.category_id', $id)
 			->get();
 			
-			$category = $data['results'][0];
-			$data['search'] = "Search results for category '".$category->name."'";
+			if (count($data['results'])) {
+				$category = $data['results'][0];
+				$data['search'] = "Results found for '".$category->name."'";
+			}else{
+				$data['search'] = "No results found.";
+			}
 
 		}
 
@@ -64,15 +72,19 @@ class Home extends Controller
 		$data['results'] = DB::table('products')
 		->join('category', 'products.category_id', '=', 'category.id')
 		->select('products.*', 'category.name')
-		->where('title', 'Like', '%'.$text.'%')
-		->orWhere('description', 'Like', '%'.$text.'%')
-		->orWhere('category.name', 'Like', '%'.$text.'%')
+		->where( 'products.status', '=', '1' )
+		->where( function ( $query) use ($text)
+		{
+			$query->where('title', 'Like', '%'.$text.'%')
+			->orWhere('description', 'Like', '%'.$text.'%')
+			->orWhere('category.name', 'Like', '%'.$text.'%');
+		})
 		->get();
 		
 		if($text==''){
 			$data['search'] = "Search results";
 		}elseif (count($data['results'])) {
-			$data['search'] = "Search results for '".$text."'";
+			$data['search'] = "Results found for '".$text."'";
 		}else{
 			$data['search'] = "No result found for '".$text."'";
 		}
