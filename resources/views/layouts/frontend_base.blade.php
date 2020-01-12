@@ -45,8 +45,8 @@
 					<div class="navbar-inner">
 						{{-- <a class="brand" href="/"><img class="pull-left" src="{{ asset('static/website/themes/images/logo.png') }}" alt="LetStuffGo"/></a> --}}
 						<a class="brand" href="/" style="color: #BBDEFB;"><p class="pull-left">Let<span style="color: red; font-size: 25px;">Stuff</span>Go</p></a>
-						<form class="form-inline navbar-search pull-left" method="get" action="/products">
-							<input id="srchFld" class="srchTxt" placeholder="search" type="text"/>
+						<form class="form-inline navbar-search pull-left" method="get" action="/search">
+							<input id="srchFld" class="srchTxt" placeholder="search" type="text" name="text"/>
 							<button type="submit" id="submitButton" class="btn btn-primary"><i class="fa fa-search"></i></button>
 						</form>
 						<ul id="topMenu" class="nav pull-right">

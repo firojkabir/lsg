@@ -24,10 +24,6 @@ Route::get('/cart-summery', function () {
     return view('frontend.cart-summery');
 });
 
-Route::get('/profile', function () {
-    return view('frontend.profile');
-});
-
 Route::get('/basket', function () {
     return view('frontend.include.profile.basket');
 });
@@ -44,47 +40,11 @@ Route::get('/edit_profile', function () {
     return view('frontend.include.profile.edit_profile');
 });
 
-Route::get('/logout', function () {
-    return view('frontend.include.profile.logout');
-});
-
-Route::get('/computer', function () {
-    return view('frontend.include.category.computer');
-});
-
-Route::get('/gadgets', function () {
-    return view('frontend.include.category.gadgets');
-});
-
-Route::get('/women_products', function () {
-    return view('frontend.include.category.women_products');
-});
-
-Route::get('/men_products', function () {
-    return view('frontend.include.category.men_products');
-});
-
-Route::get('/kids_products', function () {
-    return view('frontend.include.category.kids_products');
-});
-
-Route::get('/food_beverage', function () {
-    return view('frontend.include.category.food_beverage');
-});
-
-Route::get('/health_beauty', function () {
-    return view('frontend.include.category.health_beauty');
-});
-
-Route::get('/sports_leisure', function () {
-    return view('frontend.include.category.sports_leisure');
-});
-
-Route::get('/book_entertainment', function () {
-    return view('frontend.include.category.book_entertainment');
-});
-
 Route::get('/', 'Home@index')->name('client.home');
+Route::get('/profile', 'Home@profile')->name('client.profile');
+Route::get('/search', 'Home@search')->name('client.profile');
+
+Route::get('/category-search/{id}', 'Home@category_search')->name('client.category.search');
 Route::any('/add_product', 'Product@add')->name('client.product.add');
 Route::any('/edit_product/{id}', 'Product@edit')->name('client.product.edit');
 Route::get('/my_products', 'Product@my_products')->name('client.profile.products');
