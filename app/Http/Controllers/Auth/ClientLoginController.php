@@ -11,6 +11,9 @@ use Route;
 class ClientLoginController extends Controller
 {
 
+
+	protected $redirectTo = '/login';
+
 	public function __construct()
 	{
 		$this->middleware('guest:client', ['except' => ['logout']]);
@@ -34,6 +37,11 @@ class ClientLoginController extends Controller
 		// if successful, then redirect to their intended location
 			return redirect('/');
 		}
+
+		if ($this->attemptLogin($request)) {
+			return $this->sendLoginResponse($request);
+		}
+
 		// if unsuccessful, then redirect back to the login with the form data
 		//return redirect('/login')->withInput($request->only('email', 'remember'));
 		return $this->sendFailedLoginResponse($request);
@@ -42,7 +50,7 @@ class ClientLoginController extends Controller
 	public function logout()
 	{
 		Auth::guard('client')->logout();
-		return redirect('/');
+		return redirect('/login');
 	}
 
 
@@ -53,6 +61,26 @@ class ClientLoginController extends Controller
 		]);
 	}
 
+	protected function attemptLogin(Request $request)
+    {
+        return $this->guard()->attempt(
+            $this->credentials($request), $request->filled('remember')
+        );
+    }
+
+    protected function authenticated(Request $request, $user)
+    {
+        //
+    }
+
+	protected function sendLoginResponse(Request $request)
+	{
+		$request->session()->regenerate();
+
+		return $this->authenticated($request, $this->guard()->user())
+		?: redirect()->intended($this->redirectPath());
+	}
+
     /**
      * Get the login username to be used by the controller.
      *
@@ -61,5 +89,15 @@ class ClientLoginController extends Controller
     public function username()
     {
     	return 'email';
+    }
+
+    protected function guard()
+    {
+        return Auth::guard('client');
+    }
+
+    protected function credentials(Request $request)
+    {
+        return $request->only($this->username(), 'password');
     }
 }

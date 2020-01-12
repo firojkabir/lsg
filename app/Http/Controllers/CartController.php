@@ -14,32 +14,28 @@ class CartController extends Controller
 {
 
 	public function add(Request $request){
-		$userID = Auth::guard('client')->id();
-		$rowID = str_random(10);
+			$id = $request->id;
+			$product = DB::table('products')->where('id', $id)->first();
 
-		$id = $request->id;
-
-		$product = DB::table('products')->where('id', $id)->first();
-
-		if ($product) {
-			$push = array(
-				'id' => $product->id,
-				'name' => $product->title,
-				'price' => $product->price,
-				'qty' => 1,
-				'weight' => 1,
-				'image' => $product->thumb,
-				'path' => $product->path,
-				'description' => $product->description
-			);
-			if(Cart::add($push)){
-				echo "Product added to cart!";
+			if ($product) {
+				$push = array(
+					'id' => $product->id,
+					'name' => $product->title,
+					'price' => $product->price,
+					'qty' => 1,
+					'weight' => 1,
+					'image' => $product->thumb,
+					'path' => $product->path,
+					'description' => $product->description
+				);
+				if(Cart::add($push)){
+					echo Cart::count();
+				}else{
+					echo "0";
+				}
 			}else{
-				echo "Something went wrong!";
+				echo "0";
 			}
-		}else{
-			echo "Product is not available right now!";
-		}
 
 	}
 

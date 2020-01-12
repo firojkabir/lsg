@@ -56,7 +56,7 @@
 							<div class="control-group">
 								<label class="control-label"><b>Price: </b><span>&euro;{{ $result->price }}</span></label>
 								<div class="controls">
-									<button type="submit" class="btn btn-large btn-primary pull-right"><a href="/cart-summery">Add to cart </a><i class=" icon-shopping-cart"></i></button>
+									<button type="submit" class="btn btn-large btn-primary pull-right"><a id="{{ $result->id }}" class="add-to-cart" href="#">Add to cart </a><i class=" icon-shopping-cart"></i></button>
 								</div>
 							</div>
 						</form>
