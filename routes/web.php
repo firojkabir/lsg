@@ -1,12 +1,8 @@
 <?php
+use Illuminate\Support\Facades\Auth;
 
 /*--------------------start Home Controller routes-----------------*/
 
-use Illuminate\Support\Facades\Auth;
-
-Route::get('/register', function () {
-    return view('frontend.register');
-});
 
 Route::get('/contact', function () {
     return view('frontend.contact');
@@ -35,13 +31,18 @@ Route::get('/edit_profile', function () {
 
 Route::get('/', 'Home@index')->name('client.home');
 Route::get('/products', 'Home@search');
-Route::get('/profile', 'Home@profile')->name('client.profile');
 Route::get('/search', 'Home@search')->name('client.profile');
 
 Route::get('/category-search/{id}', 'Home@category_search')->name('client.category.search');
-Route::any('/add_product', 'Product@add')->name('client.product.add');
-Route::any('/edit_product/{id}', 'Product@edit')->name('client.product.edit');
-Route::get('/my_products', 'Product@my_products')->name('client.profile.products');
+
+Route::group(['middleware' => ['auth:client']], function() { 
+    Route::get('/profile', 'Home@profile')->name('client.profile');
+    Route::any('/add_product', 'Product@add')->name('client.product.add');
+    Route::any('/edit_product/{id}', 'Product@edit')->name('client.product.edit');
+    Route::get('/my_products', 'Product@my_products')->name('client.profile.products');
+});
+
+
 Route::get('/product-details/{id}', 'Home@product_details')->name('client.product.details');
 
 Route::get('/cart-summery', 'CartController@cart');
@@ -53,6 +54,7 @@ Route::get('/login','Auth\ClientLoginController@showLoginForm')->name('client.lo
 Route::post('/login', 'Auth\ClientLoginController@login')->name('client.login.submit');
 Route::get('/logout', 'Auth\ClientLoginController@logout')->name('client.logout');
 
+Route::get('/register','Home@register');
 Route::post('/register', 'Auth\ClientRegisterController@register')->name('client.register.submit');
 
 /*----------------------login, logout, Authentication-----------*/

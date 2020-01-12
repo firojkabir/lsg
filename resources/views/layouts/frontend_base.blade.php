@@ -137,8 +137,12 @@
 						type: 'post',
 						data: { '_token':'{{ csrf_token() }}', "id": id},
 						success: function (response) {
-							$('#cart-counter').html('{{ Cart::count() }}')
-							alert(response);
+							if(response =='0'){
+								alert("Something went wrong!");
+							}else{
+								$('#cart-counter').html(response);
+								alert("Product successfully added to cart!");
+							}
 						}
 					});
 				});
@@ -152,6 +156,7 @@
 						data: { '_token':'{{ csrf_token() }}', "id": id},
 						success: function (response) {
 							alert(response);
+							location.reload();
 						}
 					});
 				});

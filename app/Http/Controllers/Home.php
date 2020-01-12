@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Redirect;
 use Mail;
+Use Auth;
 
 class Home extends Controller
 {
@@ -31,7 +32,7 @@ class Home extends Controller
 		->where('products.status', '1')
 		->first();
 
-		if (count($data['result'])) {
+		if ($data['result']) {
 			return view('frontend.product-details', $data);
 		}else{
 			return redirect()->back();
@@ -97,6 +98,12 @@ class Home extends Controller
 		return view('frontend.products', $data);
 	}
 
-
+	public function register(){
+		if (Auth::guard('client')->check()) {
+			return redirect('/');
+		}else{
+			return view('frontend.register');
+		}
+	}
 
 }
