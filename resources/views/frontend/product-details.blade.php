@@ -65,6 +65,31 @@
 						<p>{{ $result->description }}</p>
 					</div>
 					<hr class="soft clr"/>
+
+					<button class="btn btn-large btn-success pull-right" href="#contact_seller" role="button" data-toggle="modal"><span>Contact Seller</span></button>
+					<div id="contact_seller" class="modal hide fade in" tabindex="-1" role="dialog" aria-labelledby="contact_seller" aria-hidden="false">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+							<h3 style="text-align: center;">Seller contact information</h3>
+						</div>
+						<div class="modal-body">
+							<form class="form-horizontal loginFrm" method="post" action="/login">
+								@csrf
+								<div class="control-group">								
+									<label for="name">Seller Name: </label>
+								</div>
+								<div class="control-group">
+									<label for="phone">Phone number: </label>
+								</div>
+								<div class="control-group">
+									<label for="email">Email: </label>
+								</div>
+								<div class="control-group">
+									<label for="address">Address: </label>
+								</div>
+							</form>		
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
