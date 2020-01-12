@@ -23,19 +23,19 @@ class CartController extends Controller
 
 		if ($product) {
 			$push = array(
-				'id' => $rowID,
-				'product_id' => $product->id,
+				'id' => $product->id,
 				'name' => $product->title,
 				'price' => $product->price,
-				'quantity' => 1,
+				'qty' => 1,
+				'weight' => 1,
 				'image' => $product->thumb,
 				'path' => $product->path,
 				'description' => $product->description
 			);
-			if(Cart::session($userID)->add($push)){
+			if(Cart::add($push)){
 				echo "Product added to cart!";
 			}else{
-				echo "Something went wrong!".Cart::content()->count();
+				echo "Something went wrong!";
 			}
 		}else{
 			echo "Product is not available right now!";
@@ -44,9 +44,14 @@ class CartController extends Controller
 	}
 
 	public function delete(Request $request){
-		$userID = Auth::guard('client')->id();
 		$rowID = $request->id;
-		Cart::session($userID)->remove($rowID);
+		
+		Cart::remove($rowID);
+		echo "Product removed from cart!";
 
+	}
+
+	public function cart(){
+		return view('frontend.cart-summery');
 	}
 }

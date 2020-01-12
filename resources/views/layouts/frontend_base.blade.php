@@ -31,7 +31,7 @@
 					Welcome to <strong> LetStuffGo</strong></div>
 					<div class="span6">
 						<div class="pull-right">
-							<a href="/cart-summery"><span class="btn btn-primary"><i class="icon-shopping-cart icon-white"></i> [ {{ Cart::getTotal() }} ] Cart </span> </a> 
+							<a href="/cart-summery"><span class="btn btn-primary"><i class="icon-shopping-cart icon-white"></i> [ <span id="cart-counter">{{ Cart::count() }}</span> ] Cart </span> </a> 
 						</div>
 					</div>
 				</div>
@@ -134,6 +134,20 @@
 					console.log(id);
 					$.ajax({
 						url: "{{ route('client.cart.add') }}",
+						type: 'post',
+						data: { '_token':'{{ csrf_token() }}', "id": id},
+						success: function (response) {
+							$('#cart-counter').html('{{ Cart::count() }}')
+							alert(response);
+						}
+					});
+				});
+
+				$('.cart-remove').on('click', function() {
+					var id = $(this).attr("id");
+					console.log(id);
+					$.ajax({
+						url: "{{ route('client.cart.delete') }}",
 						type: 'post',
 						data: { '_token':'{{ csrf_token() }}', "id": id},
 						success: function (response) {

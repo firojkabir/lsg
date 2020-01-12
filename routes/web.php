@@ -16,9 +16,6 @@ Route::get('/about', function () {
     return view('frontend.about');
 });
 
-Route::get('/cart-summery', function () {
-    return view('frontend.cart-summery');
-});
 
 Route::get('/basket', function () {
     return view('frontend.include.profile.basket');
@@ -47,6 +44,7 @@ Route::any('/edit_product/{id}', 'Product@edit')->name('client.product.edit');
 Route::get('/my_products', 'Product@my_products')->name('client.profile.products');
 Route::get('/product-details/{id}', 'Home@product_details')->name('client.product.details');
 
+Route::get('/cart-summery', 'CartController@cart');
 Route::post('/cart/add', 'CartController@add')->name('client.cart.add');
 Route::post('/cart/delete', 'CartController@delete')->name('client.cart.delete');
 

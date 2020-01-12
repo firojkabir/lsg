@@ -21,42 +21,14 @@
 					</ul>
 					<h3>  SHOPPING CART<a href="/products" class="btn btn-large pull-right"><i class="icon-arrow-left"></i> Continue Shopping </a></h3>
 					<hr class="soft"/>
-					<table class="table table-bordered">
-						<tr><th> I AM ALREADY REGISTERED  </th></tr>
-						<tr>
-							<td>
-								<form class="form-horizontal">
-									<div class="control-group">
-										<label class="control-label" for="inputUsername">Username</label>
-										<div class="controls">
-											<input type="text" id="inputUsername" placeholder="Username">
-										</div>
-									</div>
-									<div class="control-group">
-										<label class="control-label" for="inputPassword1">Password</label>
-										<div class="controls">
-											<input type="password" id="inputPassword1" placeholder="Password">
-										</div>
-									</div>
-									<div class="control-group">
-										<div class="controls">
-											<button type="submit" class="btn">Sign in</button> OR <a href="register.html" class="btn">Register Now!</a>
-										</div>
-									</div>
-									<div class="control-group">
-										<div class="controls">
-											<a href="forgetpass.html" style="text-decoration:underline">Forgot password ?</a>
-										</div>
-									</div>
-								</form>
-							</td>
-						</tr>
-					</table>
-					
+					@php
+						$items = Cart::content();
+					@endphp
+
 					<table class="table table-bordered">
 						<thead>
 							<tr>
-								<th>Product</th>
+								<th>Action</th>
 								<th>Description</th>
 								<th>Quantity/Update</th>
 								<th>Price</th>{{-- 
@@ -66,56 +38,15 @@
 							</tr>
 						</thead>
 						<tbody>
+							@foreach($items as $row)
 							<tr>
-								<td> <img width="60" src="{{ asset('static/website/themes/images/products/4.jpg') }}" alt=""/></td>
-								<td>MASSA AST<br/>Color : black, Material : metal</td>
-								<td>
-									<div class="input-append">
-										<input class="span1" style="max-width:34px" placeholder="1" id="appendedInputButtons" size="16" type="text">
-									</div>
-								</td>
-								<td>$120.00</td>
-								<td>$110.00</td>
+								<td><a href="#" class="cart-remove" id="{{ $row->rowId }}">Remove</a></td>
+								<td>{{ $row->name }}</td>
+								<td>{{ $row->qty }}</td>
+								<td>&euro;{{ $row->price }}</td>
+								<td>&euro;{{ $row->price*$row->qty }}</td>
 							</tr>
-							<tr>
-								<td> <img width="60" src="{{ asset('static/website/themes/images/products/8.jpg') }}" alt=""/></td>
-								<td>MASSA AST<br/>Color : black, Material : metal</td>
-								<td>
-									<div class="input-append">
-										<input class="span1" style="max-width:34px" placeholder="1"  size="16" type="text">
-									</div> 	
-								</td>
-								<td>$7.00</td>
-								<td>$8.00</td>
-							</tr>
-							<tr>
-								<td> <img width="60" src="{{ asset('static/website/themes/images/products/3.jpg') }}" alt=""/></td>
-								<td>MASSA AST<br/>Color : black, Material : metal</td>
-								<td>
-									<div class="input-append">
-										<input class="span1" style="max-width:34px" placeholder="1"  size="16" type="text">
-									</div>
-								</td>
-								<td>$120.00</td>
-								<td>$110.00</td>
-							</tr>
-							
-							<tr>
-								<td colspan="6" style="text-align:right">Total Price:	</td>
-								<td> $228.00</td>
-							</tr>
-							{{-- <tr>
-								<td colspan="6" style="text-align:right">Total Discount:	</td>
-								<td> $50.00</td>
-							</tr>
-							<tr>
-								<td colspan="6" style="text-align:right">Total Tax:	</td>
-								<td> $31.00</td>
-							</tr> --}}
-							<tr>
-								<td colspan="6" style="text-align:right"><strong>TOTAL  =</strong></td>
-								<td class="label label-important" style="display:block"> <strong> $155.00 </strong></td>
-							</tr>
+							@endforeach
 						</tbody>
 					</table>
 					<button type="btn" class="btn btn-success pull-right">Confirm order</button>
