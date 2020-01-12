@@ -45,7 +45,7 @@
 							<div class="span6">
 								<div class="control-group">
 									<div class="controls">
-										<input type="email" id="inputEmail" placeholder="Email*" required="" name="email">
+										<input type="email" id="email" placeholder="Email*" required="" name="email" value="">
 									</div>
 								</div>
 							</div>
@@ -106,4 +106,36 @@
 		</div>
 	</div>
 </div>
+@endsection
+
+@section('scripts')
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#email').on('change', function() {
+			var value = $(this).val();
+			var domain = '.hs-fulda.de';
+			if (!emailDomainCheck(value)) {
+				console.log(emailDomainCheck(value))
+				alert('Please only use the email provided by the university!');
+				$(this).val('');
+			}
+		});
+	});
+
+	function emailDomainCheck(email)
+	{
+		var parts = email.split('@');
+
+		var domain = 'informatik.hs-fulda.de';
+		var domain2 = 'verw.hs-fulda.de';
+
+		if (parts.length) {
+			if (parts[1] == domain || parts[1] == domain2) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+</script>
 @endsection
