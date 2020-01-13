@@ -16,14 +16,14 @@
                                 <a href="#">
                                     <img src="{{ asset('static/website/themes/images/user.png') }}" alt="User Photo" class="image-responsive" style="height: 200px; width: 200px;">
                                 </a>
-                            </div><!-- /.user-photo -->
-                        </div><!-- /.widget -->
+                            </div>
+                        </div>
                         <br>
                         <div class="widget">
                             @include('frontend.include.profile.pro_sidebar')
-                        </div><!-- /.widget -->
-                    </div><!-- /.sidebar -->
-                </div><!-- /.col-* -->
+                        </div>
+                    </div>
+                </div>
                 
                 <div class="profile span9">
                     <div class="row content">

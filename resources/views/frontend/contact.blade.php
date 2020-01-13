@@ -10,7 +10,7 @@
         <div class="container">
   			<div class="row">
   				<div class="span12">
-  					<h3 style="text-align: center;"> Send A Mail</h3>
+  					<h3 style="text-align: center;"> Send a message</h3>
   					<hr>
 					<div class="row">
 						<form class="contact-form">

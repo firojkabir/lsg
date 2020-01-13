@@ -1,6 +1,7 @@
 <div class="span9">		
 	<div class="well well-small">
 		<h4>Latest Products</h4>
+		<hr class="hr_exception">
 		<div class="row-fluid">
 			<div id="featured" class="carousel slide">
 				<div class="carousel-inner">
@@ -25,6 +26,7 @@
 		</div>
 	</div>
 	<h4>Top Products </h4>
+	<hr class="hr_exception">
 	<ul class="thumbnails">
 		@foreach($top as $t)
 		<li class="span3">
