@@ -26,7 +26,7 @@
                 </div><!-- /.col-* -->
                 
                 <div class="span9">
-                    <div class="content">
+                    <div class="row content">
                         <div class="page-title">
                             <h2>Profile
                                 <a class="btn btn-primary btn-xs pull-right" href="/edit_profile">Edit Profile</a>
@@ -34,28 +34,50 @@
                         </div><!-- /.page-title -->
                         <hr>
                         <div class="background-white p20 mb10">
-                            <h3 class="page-title">Contact Information</h3>
+                            <h4 class="page-title">Contact Information</h4>
                             <hr>
-                            <div class="row">
-                                <div class="span3">
-                                    <label>Firstname</label>
-                                    <p style="color: red;"><label>{{ Auth::guard('client')->user()->firstname }}</label></p>
-                                </div><!-- /.form-group -->
-                                <div class="span9">
-                                    <label>Lastname</label>
-                                    <p style="color: red;"><label>{{ Auth::guard('client')->user()->lastname }}</label></p>
-                                </div><!-- /.form-group -->
-                            <!-- </div>
-                            <div class="row"> -->
-                                <div class="form-group span6">
-                                    <label>E-mail</label>
-                                    <p style="color: red;"><label>{{ Auth::guard('client')->user()->email }}</label></p>
-                                </div><!-- /.form-group -->
-                                <div class="form-group span6">
-                                    <label>Phone</label>
-                                    <p style="color: red;"><label>{{ Auth::guard('client')->user()->phone }}</label></p>
-                                </div><!-- /.form-group -->
-                            </div><!-- /.row -->
+
+                            <form class="contact-form">
+                                <div class="span4">
+                                    <div class="control-group">
+                                        <div class="controls">
+                                            <label>Firstname</label>
+                                            <p style="color: red;">
+                                                <label>{{ Auth::guard('client')->user()->firstname }}</label>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="control-group">
+                                        <div class="controls">
+                                            <label>E-mail</label>
+                                            <p style="color: red;">
+                                                <label>{{ Auth::guard('client')->user()->email }}</label>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="span5">
+                                    <div class="control-group">
+                                        <div class="controls">
+                                            <label>Lastname</label>
+                                            <p style="color: red;">
+                                                <label>{{ Auth::guard('client')->user()->lastname }}</label>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="control-group">
+                                        <div class="controls">
+                                            <label>Phone</label>
+                                            <p style="color: red;">
+                                                <label>{{ Auth::guard('client')->user()->phone }}</label>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            
                         </div>
                         <div class="background-white p20 mb10">
                             <h3 class="page-title">Address</h3>
