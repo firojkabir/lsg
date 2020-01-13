@@ -37,6 +37,10 @@ hr {
 	border: 1px solid #494E53;
 }
 
+.hr_exception {
+	border: 0.5px solid #494E53 !important;
+}
+
 #sidebar li {
 	font-weight: bold; 
 	color: #262626;
@@ -190,6 +194,17 @@ hr {
 		/* style */
 	}
 	
+.profile .btn {
+	border: 0 none;
+	font-size: 18px;
+	padding: 13px 18px;
+	font-family: Courier new !important;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	background-color: #BBDEF7 !important;
+}
 /* #contact_seller .modal-header {
 	background-color: #FBFBFB !important;
 	color: white;
