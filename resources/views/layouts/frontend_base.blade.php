@@ -109,8 +109,8 @@
 					</div>
 					<div id="socialMedia" class="span6 pull-right">
 						{{-- <h5>SOCIAL MEDIA </h5> --}}<span>Follow us: </span>
-						<a href="www.facebook.com"><i class="fa fa-facebook" style="font-size:30px; color:#4267B2;"></i></a>
-						<a href="www.youtube.com"><i class="fa fa-youtube" style="font-size:30px; color:#FF0000;"></i></a>
+						<a class="fb" href="www.facebook.com"><i class="fa fa-facebook" style="font-size:30px;"></i></a>
+						<a class="youtube" href="www.youtube.com"><i class="fa fa-youtube" style="font-size:30px;"></i></a>
 					</div>
 				</div>
 				<br>

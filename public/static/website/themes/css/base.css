@@ -210,6 +210,19 @@ hr {
 	color: white;
 } */
 
+#footerSection p, #socialMedia {
+	color: #BBDEFB !important;
+}
+
+.fb:hover {
+	background-color: #4267B2;
+}
+
+#socialMedia > a:hover {
+	background-color: #FF0000;
+}
+
+
 /* body--- */
 .thumbnail>a{display:block; text-align:center}
 .thumbnail h5,.thumbnail p{text-align:center}

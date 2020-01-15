@@ -25,7 +25,7 @@
 			</div>
 		</div>
 	</div>
-	<h4>Top Products </h4>
+	<h4>All Products </h4>
 	<hr class="hr_exception">
 	<ul class="thumbnails">
 		@foreach($top as $t)
