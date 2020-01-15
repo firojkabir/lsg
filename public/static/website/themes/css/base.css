@@ -214,12 +214,12 @@ hr {
 	color: #BBDEFB !important;
 }
 
-.fb:hover {
-	background-color: #4267B2;
+#socialMedia > .fb > i:hover {
+	color: #4267B2;
 }
 
-#socialMedia > a:hover {
-	background-color: #FF0000;
+#socialMedia > .youtube > i:hover {
+	color: #FF0000;
 }
 
 
