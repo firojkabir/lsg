@@ -31,7 +31,7 @@
                             <h3>My Products</h3>
                         </div>
                         <hr>
-                        <a href="/add_product"><b>Add New Product</b></a>
+                        
                         <div class="table-content table-responsive">
                             <table class="table table-hover table-bordered">
                                 <thead class="thead-dark">
@@ -59,6 +59,7 @@
                                 </tbody>
                             </table>
                         </div>
+                        <a class="btn btn-info pull-right add_product" href="/add_product"><b>Add New Product</b></a>
                     </div>
                 </div>
             </div>
