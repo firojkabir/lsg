@@ -11,7 +11,8 @@
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<!-- Favicon -->
-	<link rel="shortcut icon" href="{{ asset('assets/favicon.png') }}">
+	{{-- <link rel="shortcut icon" href="{{ asset('assets/favicon.png') }}"> --}}
+	<link rel="shortcut icon" href="{{ asset('admin_assets/admin_images/favicon.ico') }}">
 	<link rel="stylesheet" href="{{ asset('admin_assets/admin_css/bootstrap/css/bootstrap.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('admin_assets/admin_css/bootstrap/css/bootstrap.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('admin_assets/admin_css/bootstrap/css/font-awesome.min.css') }}">
@@ -48,8 +49,8 @@
 		<header class="main-header">
 			<a href="{{ route('admin') }}" class="logo">
 				<img class="logo-mini" max-width="100%"
-				src="{{ asset('admin_assets/admin_images/company-sm.png') }}">
-				<img class="logo-lg" width="100%" src="{{ asset('admin_assets/admin_images/company.png') }}">
+				src="{{ asset('admin_assets/admin_images/logo.png') }}">
+				<img class="logo-lg" width="100%" src="{{ asset('admin_assets/admin_images/logo.png') }}">
 			</a>
 			<nav class="navbar navbar-static-top" role="navigation">
 				<a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
@@ -117,10 +118,10 @@
 				class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
 
 				<ul class="treeview-menu">
-					<li class="{{ Request::segment(3)=='slider' ? 'active':'' }}"><a
+					{{-- <li class="{{ Request::segment(3)=='slider' ? 'active':'' }}"><a
 						href="{{ route('a_slider') }}"><i class="fa fa-angle-right text-custom"
 						style="width:5px"></i> Home Slider </a>
-					</li>
+					</li> --}}
 					<li class="{{ Request::segment(3)=='category' ? 'active':'' }}"><a
 						href="{{ route('a_category') }}"><i class="fa fa-angle-right text-custom"
 						style="width:5px"></i> Category </a>
@@ -143,10 +144,10 @@
 </div>
 <footer class="main-footer">
 	<div class="pull-right hidden-xs">
-		<a style="color: #03AA9B;" href="http://datacraftbd.com/"><img
-			src="{{ asset('admin_assets/admin_images/datacraft.gif')}}" /></a>
+		<a style="color: #03AA9B;" href=""><img
+			src="{{ asset('admin_assets/admin_images/logo.png')}}" /></a>
 		</div>
-		<strong>Copyright &copy; 2019 <a href="{{ url('') }}"> LSG</a>.</strong> All rights
+		<strong>Copyright &copy; 2020 <a href="{{ url('') }}"> LSG</a>.</strong> All rights
 		reserved.
 	</footer>
 	<div class="control-sidebar-bg"></div>

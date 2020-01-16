@@ -35,8 +35,6 @@
                 <button type="submit" name="login"  class="btn btn-success btn-block btn-flat">Sign In</button>
             </div>
         </div>
-
-
     </form>
     <div class="row">
         <div class="col-xs-12">

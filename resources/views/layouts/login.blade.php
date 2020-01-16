@@ -11,7 +11,8 @@
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<!-- Favicon -->
-	<link rel="shortcut icon" href="{{ asset('assets/favicon.ico') }}">
+	{{-- <link rel="shortcut icon" href="{{ asset('assets/favicon.ico') }}"> --}}
+	<link rel="shortcut icon" href="{{ asset('admin_assets/admin_images/favicon.ico') }}">
 	<link rel="stylesheet" href="{{ asset('admin_assets/admin_css/bootstrap/css/bootstrap.min.css') }}">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
@@ -25,7 +26,7 @@
 	<div class="login-box">
 		<br />
 		<div class="login-logo" style="background:#FFFFFF ">
-			<a href=""><img  src="{{ asset('admin_assets/admin_images/company.png') }}"></a>
+			<a href=""><img  src="{{ asset('admin_assets/admin_images/logo.png') }}"></a>
 			<h2 class="text-custom" style="padding-top:0px; margin-top:10px;"> LetStuffGo :: ADMIN LOGIN</h2>
 		</div>
 		@yield('content')

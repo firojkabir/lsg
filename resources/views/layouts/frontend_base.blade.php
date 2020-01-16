@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<link rel="shortcut icon" href="{{ asset('static/website/themes/images/ico/favicon1.ico') }}">
+	<link rel="shortcut icon" href="{{ asset('static/website/themes/images/ico/favicon.ico') }}">
 
 	<script src="{{ asset('static/website/themes/js/less.js" type="text/javascript') }}"></script> 	
 	<!-- Bootstrap style --> 
