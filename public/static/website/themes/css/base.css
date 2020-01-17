@@ -173,6 +173,32 @@ hr {
 	margin-right: 15%;
 }
 
+.add_cart {
+	border: 0 none;
+	font-size: 18px;
+	padding: 13px 18px;
+	font-family: Courier new !important;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	background-color: #BBDEF7 !important;
+	/* color: white !important; */
+}
+
+.seller_contact {
+	border: 0 none;
+	font-size: 18px;
+	padding: 13px 18px;
+	font-family: Courier new !important;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	background-color: #BBDEF7 !important;
+	/* color: white !important; */
+}
+
 #srchFld {
 	background: #f5f5f5 none repeat scroll 0 0;
 	border: 0 none;

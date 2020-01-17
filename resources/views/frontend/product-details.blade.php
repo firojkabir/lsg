@@ -56,7 +56,7 @@
 							<div class="control-group">
 								<label class="control-label"><b>Price: </b><span>&euro;{{ $result->price }}</span></label>
 								<div class="controls">
-									<button type="submit" class="btn btn-large btn-primary pull-right"><a id="{{ $result->id }}" class="add-to-cart" href="#">Add to cart </a><i class=" icon-shopping-cart"></i></button>
+									<button type="submit" class="btn btn-large btn-primary pull-right add_cart"><a id="{{ $result->id }}" class="add-to-cart" href="#" style="color: white;">Add to cart </a><i class=" icon-shopping-cart"></i></button>
 								</div>
 							</div>
 						</form>
@@ -66,7 +66,7 @@
 					</div>
 					<hr class="soft clr"/>
 
-					<button class="btn btn-large btn-success pull-right" href="#contact_seller" role="button" data-toggle="modal"><span>Contact Seller</span></button>
+					<button class="btn btn-large btn-success pull-right seller_contact" href="#contact_seller" role="button" data-toggle="modal"><span>Contact Seller</span></button>
 					<div id="contact_seller" class="modal hide fade in" tabindex="-1" role="dialog" aria-labelledby="contact_seller" aria-hidden="false">
 						<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
