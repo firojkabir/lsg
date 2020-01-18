@@ -25,7 +25,7 @@
                     </div>
                 </div>
 
-                <div class="span9">
+                <div class="my_products span9">
                     <div class="content">
                         <div class="page-title">
                             <h3>My Products</h3>
@@ -59,7 +59,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        <a class="btn btn-info pull-right add_product" href="/add_product"><b>Add New Product</b></a>
+                        <a class="btn pull-right add_product" href="/add_product"><b>Add New Product</b></a>
                     </div>
                 </div>
             </div>
