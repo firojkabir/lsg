@@ -41,7 +41,7 @@
                                 <div class="span4">
                                     <div class="control-group">
                                         <div class="controls">
-                                            <label>Firstname</label>
+                                            <label><b>Firstname</b></label>
                                             <p style="color: red;">
                                                 <label>{{ Auth::guard('client')->user()->firstname }}</label>
                                             </p>
@@ -50,7 +50,7 @@
                                     <br>
                                     <div class="control-group">
                                         <div class="controls">
-                                            <label>E-mail</label>
+                                            <label><b>E-mail</b></label>
                                             <p style="color: red;">
                                                 <label>{{ Auth::guard('client')->user()->email }}</label>
                                             </p>
@@ -60,7 +60,7 @@
                                 <div class="span5">
                                     <div class="control-group">
                                         <div class="controls">
-                                            <label>Lastname</label>
+                                            <label><b>Lastname</b></label>
                                             <p style="color: red;">
                                                 <label>{{ Auth::guard('client')->user()->lastname }}</label>
                                             </p>
@@ -69,7 +69,7 @@
                                     <br>
                                     <div class="control-group">
                                         <div class="controls">
-                                            <label>Phone</label>
+                                            <label><b>Phone</b></label>
                                             <p style="color: red;">
                                                 <label>{{ Auth::guard('client')->user()->phone }}</label>
                                             </p>
@@ -78,13 +78,13 @@
                                 </div>
                                 
                                 <hr class="hr_exception">
-                                <h4 class="page-title">Address</h4>
+                                <h4 class="page-title">Address</h4></h4>
                                 <hr class="hr_exception">
 
                                 <div class="span4">
                                     <div class="control-group">
                                         <div class="controls">
-                                            <label>Street</label>
+                                            <label><b>Street</b></label>
                                             <p>
                                                 <label>{{ Auth::guard('client')->user()->street }}</label>
                                             </p>
@@ -93,7 +93,7 @@
                                     <br>
                                     <div class="control-group">
                                         <div class="controls">
-                                            <label>City</label>
+                                            <label><b>City</b></label>
                                             <p>
                                                 <label>{{ Auth::guard('client')->user()->city }}</label>
                                             </p>
@@ -103,7 +103,7 @@
                                 <div class="span5">
                                     <div class="control-group">
                                         <div class="controls">
-                                            <label>ZIP</label>
+                                            <label><b>ZIP</b></label>
                                             <p>
                                                 <label>{{ Auth::guard('client')->user()->zip }}</label>
                                             </p>
@@ -112,7 +112,7 @@
                                     <br>
                                     <div class="control-group">
                                         <div class="controls">
-                                            <label>Country</label>
+                                            <label><b>Country</b></label>
                                             <p>
                                                 <label>{{ Auth::guard('client')->user()->country }}</label>
                                             </p>

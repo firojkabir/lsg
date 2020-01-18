@@ -31,7 +31,7 @@
 					Welcome to <strong> LetStuffGo</strong></div>
 					<div class="span6">
 						<div class="pull-right">
-							<a href="/cart-summery"><span class="btn btn-primary"><i class="icon-shopping-cart icon-white"></i> [ <span id="cart-counter">{{ Cart::count() }}</span> ] Cart </span> </a> 
+							<a href="/cart-summery"><span class="btn cart_btn"><i class="icon-shopping-cart icon-white"></i> [ <span id="cart-counter">{{ Cart::count() }}</span> ] Cart </span> </a> 
 						</div>
 					</div>
 				</div>
@@ -47,7 +47,7 @@
 						<a class="brand" href="/" style="color: #BBDEFB;"><p class="pull-left">Let<span style="color: red; font-size: 25px;">Stuff</span>Go</p></a>
 						<form class="form-inline navbar-search pull-left" method="get" action="/search">
 							<input id="srchFld" class="srchTxt" placeholder="search" type="text" name="text"/>
-							<button type="submit" id="submitButton" class="btn btn-primary"><i class="fa fa-search"></i></button>
+							<button type="submit" id="submitButton" class="btn"><i class="fa fa-search"></i></button>
 						</form>
 						<ul id="topMenu" class="nav pull-right">
 							<li class=""><a href="/">Home</a></li>

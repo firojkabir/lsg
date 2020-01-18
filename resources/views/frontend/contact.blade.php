@@ -10,6 +10,10 @@
         <div class="container">
   			<div class="row">
   				<div class="span12">
+  					<ul class="breadcrumb">
+  						<li><a href="/">Home</a> <span class="divider">/</span></li>
+  						<li class="active">Contact</li>
+  					</ul>
   					<h3 style="text-align: center;"> Send a message</h3>
   					<hr>
 					<div class="row">
@@ -33,14 +37,14 @@
 									</div>
 								</div>
 							</div>
-							<div class="span5">
+							<div class="span6">
 								<div class="control-group">
 									<div class="controls">
 										<textarea name="message" placeholder="Your message*" required="" style="min-height: 115px; background-color: #DDE1EA !important;"></textarea>
 									</div>
 									<br>
 									<div class="contact-btn">
-	                                    <button type="submit" class="btn btn-info"><i class="fa fa-rocket"></i>  Send</button>
+	                                    <button type="submit" class="btn pull-right"><i class="fa fa-rocket"></i>  Send</button>
 	                                </div>
 								</div>
 							</div>
