@@ -19,13 +19,13 @@
 				<div class="well">
 					<div class="row">
 						@if ($errors->any())
-						<div class="col-sm-12 text-center">
-							<br>
-							@foreach ($errors->all() as $error)
-							<div style="color: red;">{{ $error }}</div>
-							@endforeach
-							<br>
-						</div>
+							<div class="col-sm-12 text-center">
+								<br>
+								@foreach ($errors->all() as $error)
+								<div style="color: red;">{{ $error }}</div>
+								@endforeach
+								<br>
+							</div>
 						@endif
 						<form class="add_product" method="post" enctype="multipart/form-data" action="/add_product">
 							@csrf
@@ -46,14 +46,14 @@
 								<div class="control-group">
 									<div class="controls">
 										<label for="image"><b>Product image 1<span style="color: red;">*</span></b></label>
-										<input type="file" id="image" name="image">
+										<input type="file" id="image" required="" name="image">
 									</div>
 								</div>
 								<br>
 
 								<div class="control-group">
 									<div class="controls">
-										<label for="image"><b>Product image 2<span style="color: red;">*</span></b></label>
+										<label for="image"><b>Product image 2</b></label>
 										<input type="file" id="image1" name="image1">
 									</div>
 								</div>
@@ -61,7 +61,7 @@
 
 								<div class="control-group">
 									<div class="controls">
-										<label for="image"><b>Product image 3<span style="color: red;">*</span></b></label>
+										<label for="image"><b>Product image 3</b></label>
 										<input type="file" id="image2" name="image2">
 									</div>
 								</div>
@@ -91,7 +91,7 @@
 								</div>
 							</div>
 							<br><br>
-							<button type="submit" class="btn btn-primary pull-right upload-btn">Upload product</button>
+							<button type="submit" class="btn pull-right upload-btn">Upload product</button>
 						</form>
 					</div>
 				</div>

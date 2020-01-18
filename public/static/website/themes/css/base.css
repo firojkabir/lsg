@@ -160,8 +160,8 @@ hr {
 	box-shadow: none;
 }
 
-.upload-btn {
-	/* background-color: #BBDEF7 !important; */
+.add_product button {
+	background-color: #BBDEF7 !important;
 	border: 0 none;
 	font-size: 18px;
 	padding: 13px 18px;
@@ -170,7 +170,13 @@ hr {
 	border-radius: 0;
 	-webkit-box-shadow: none;
 	box-shadow: none;
-	margin-right: 15%;
+	margin-right: 13%;
+	transition: 0.5s;
+}
+
+.add_product button:hover {
+	color: white;
+	background-color: #BE3730 !important;
 }
 
 .add_cart {
@@ -245,17 +251,7 @@ hr {
 	color: white;
 } */
 
-.add_product {
-	border: 0 none;
-	font-size: 18px;
-	padding: 13px 18px;
-	font-family: Courier new !important;
-	-webkit-border-radius: 0;
-	border-radius: 0;
-	-webkit-box-shadow: none;
-	box-shadow: none;
-	background-color: #BBDEF7 !important;
-}
+
 
 #footerSection p, #socialMedia {
 	color: #BBDEFB !important;
