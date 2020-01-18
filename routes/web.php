@@ -8,8 +8,8 @@ Route::get('/contact', function () {
     return view('frontend.contact');
 });
 
-Route::get('/about', function () {
-    return view('frontend.about');
+Route::get('/team', function () {
+    return view('frontend.team');
 });
 
 

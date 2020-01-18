@@ -52,7 +52,7 @@
 						<ul id="topMenu" class="nav pull-right">
 							<li class=""><a href="/">Home</a></li>
 							<li class=""><a href="/contact">Contact</a></li>
-							<li class=""><a href="/about">About us</a></li>
+							<li class=""><a href="/team">Team</a></li>
 							@if(Auth::guard('client')->check())
 							<li class=""><a href="/profile">Profile</a></li>
 							<li class="">
