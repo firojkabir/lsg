@@ -313,6 +313,25 @@ hr {
 	box-shadow: none;
 }
 
+.change_password_form .btn {
+	border: 0 none;
+	font-size: 18px;
+	padding: 13px 18px;
+	font-family: Courier new !important;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	background-color: #BBDEF7 !important;
+	margin-right: 3%;
+	transition: 0.5s;
+}
+
+.change_password_form .btn:hover {
+	color: white;
+	background-color: #BE3730 !important;
+}
+
 
 #footerSection p, #socialMedia {
 	color: #BBDEFB !important;
