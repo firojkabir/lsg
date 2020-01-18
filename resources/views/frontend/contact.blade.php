@@ -5,7 +5,7 @@
 		<img src="{{ asset('static/website/themes/images/fulda2.jpg') }}" alt="" class="img img-responsive">
 	</div>
 
-	<!--================Contact Area =================-->
+	<!--======= Contact Area =======-->
     <section class="contact">
         <div class="container">
   			<div class="row">

@@ -254,13 +254,13 @@ hr {
 	text-align: center;
 }
 
- #sideManu li {
+/*  #sideManu li {
  	
  }
 
 #sideManu:hover {
-		/* style */
-	}
+
+	} */
 	
 .profile .btn {
 	border: 0 none;
@@ -296,6 +296,21 @@ hr {
 .my_products .btn:hover {
 	color: white;
 	background-color: #BE3730 !important;
+}
+
+.change_password_form input {
+	background: #E8F0FE none repeat scroll 0 0 !important;
+	border: 0 none;
+	color: #333;
+	font-size: 15px;
+	height: 100%;
+	width: 70%;
+	padding: 17px 45px;
+	font-family: Courier new !important;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	-webkit-box-shadow: none;
+	box-shadow: none;
 }
 
 

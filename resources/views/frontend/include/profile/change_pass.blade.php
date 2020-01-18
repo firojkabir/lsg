@@ -26,12 +26,49 @@
                 </div>
 
                 <div class="span9">
-                    <div class="content">
+                    <div class="row content">
                         <div class="page-title">
                             <h3>Change password</h3>
                         </div>
                         <hr>
-                        <form action="" method="post">
+                        <form class="change_password_form">
+                            <div class="span5">
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <label><b>Email</b></label>
+                                        <input type="email" value="" name="email" required>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <label><b>Current password</b></label>
+                                        <input type="password" class="form-control" value="" name="password" required>
+                                    </div>
+                                </div>
+                                <br>
+                            </div>
+                            <div class="span4">
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <label><b>New password</b></label>
+                                        <input type="password" value="" name="n_password" required> 
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <label><b>Confirm password</b></label>
+                                        <input type="password" class="form-control" value="" name="c_password" required> 
+                                    </div>
+                                </div>
+                                <br>
+                            </div>
+                            <button class="btn btn-md pull-right" type="submit">Update</button>
+                        </form>
+
+
+                        {{-- <form action="" method="post">
                             <div class="change_pass_form">
                                 <div class="row">
                                     <div class="form-group span6">
@@ -61,7 +98,7 @@
                             <div class="span6">
                                 <button class="btn btn-primary btn-md" type="submit">Update</button>
                             </div>
-                        </form>
+                        </form> --}}
                     </div>
                 </div>
             </div>
