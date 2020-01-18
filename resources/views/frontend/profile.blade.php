@@ -29,7 +29,7 @@
                     <div class="row content">
                         <div class="page-title">
                             <h2>Profile
-                                <a class="btn btn-info btn-xs pull-right" href="/edit_profile">Edit Profile</a>
+                                <a class="btn pull-right" href="/edit_profile">Edit Profile</a>
                             </h2>
                         </div>
                         <hr>
