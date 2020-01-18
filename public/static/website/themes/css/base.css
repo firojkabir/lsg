@@ -18,6 +18,14 @@ body {
 #myCart .badge {padding: 9px;}
 #myCart {font-size: 13px;font-weight: bold; line-height: 33px;}
 
+#topMenu a {
+	color: #BBDEF7;
+}
+
+#topMenu a:hover {
+	color: #BE3730;
+}
+
 #sidebar ul ul li a { 
 	font-size:12px;
 }
