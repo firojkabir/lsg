@@ -47,10 +47,6 @@ body {
 	margin: 0;
 	width: 100%;
 }
-/* 
-#sidebar hr {
-	border: 1px solid #494E53;
-} */
 
 hr {
 	border: 1px solid #494E53;
@@ -72,7 +68,6 @@ hr {
 	color: white;
 	background-color: #BE3730  !important;
 }
-
 
 #sidebar ul li li a {
 	background: #eee; 

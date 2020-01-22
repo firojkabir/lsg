@@ -73,7 +73,7 @@
 									<div class="controls"><b>
 										<label for="product_category"><b>Product category<span style="color: red;">*</span></b></label>
 										<select name="category" id="product_category"  style="width: 80%;" required>
-											<option value="">=== Add product category ===</option>
+											<option value="">=== Choose product category ===</option>
 											@foreach($categories as $c)
 											<option value="{{ $c->id }}">{{ $c->name }}</option>
 											@endforeach
@@ -84,7 +84,7 @@
 									<div class="control-group">
 										<div class="controls">
 											<label for="product_description"><b>Product description<span style="color: red;">*</span></b></label>
-											<textarea name="description" placeholder="" required="" style="min-height: 115px; width: 60%;"></textarea>
+											<textarea name="description" placeholder="" required="" style="min-height: 130px; width: 60%;"></textarea>
 										</div>
 										<br>
 									</div>
