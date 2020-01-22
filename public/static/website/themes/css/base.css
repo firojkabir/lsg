@@ -358,6 +358,17 @@ hr {
 	background-color: #BE3730 !important;
 }
 
+.cart_summery .btn {
+	border: 0 none;
+	font-size: 18px;
+	padding: 13px 18px;
+	font-family: Courier new !important;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
 
 #footerSection p, #socialMedia {
 	color: #BBDEFB !important;
