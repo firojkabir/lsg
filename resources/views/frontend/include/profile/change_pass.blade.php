@@ -35,14 +35,14 @@
                             <div class="span5">
                                 <div class="control-group">
                                     <div class="controls">
-                                        <label><b>Email</b></label>
+                                        <label><b>Email<span style="color: red;">*</span></b></label>
                                         <input type="email" value="" name="email" required>
                                     </div>
                                 </div>
                                 <br>
                                 <div class="control-group">
                                     <div class="controls">
-                                        <label><b>Current password</b></label>
+                                        <label><b>Current password<span style="color: red;">*</span></b></label>
                                         <input type="password" class="form-control" value="" name="password" required>
                                     </div>
                                 </div>
@@ -51,14 +51,14 @@
                             <div class="span4">
                                 <div class="control-group">
                                     <div class="controls">
-                                        <label><b>New password</b></label>
+                                        <label><b>New password<span style="color: red;">*</span></b></label>
                                         <input type="password" value="" name="n_password" required> 
                                     </div>
                                 </div>
                                 <br>
                                 <div class="control-group">
                                     <div class="controls">
-                                        <label><b>Confirm password</b></label>
+                                        <label><b>Confirm password<span style="color: red;">*</span></b></label>
                                         <input type="password" class="form-control" value="" name="c_password" required> 
                                     </div>
                                 </div>
