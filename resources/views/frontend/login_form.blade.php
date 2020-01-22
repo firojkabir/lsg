@@ -36,11 +36,11 @@
 						<div class="span6">
 							<form class="form-horizontal loginFrm" method="post" action="/login">
 								@csrf
-								<div class="control-group">								
+								<div class="one control-group">								
 									<input type="text" id="inputEmail" placeholder="Username or Email" name="email" value="{{ old('email') }}">
 								</div>
 								<br>
-								<div class="control-group">
+								<div class="two control-group">
 									<input type="password" id="inputPassword" placeholder="Password" name="password">
 								</div>
 								<br>
