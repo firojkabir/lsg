@@ -36,18 +36,23 @@
                                 <thead class="thead-dark">
                                     <tr>
                                         <th class="si">SI No</th>
-                                        <th class="product-name">Name</th>
-                                        <th class="product-quantity">Quantity</th>
-                                        <th class="product-price">Price</th>
+                                        <th class="product-name">Product Name</th>
+                                        <th class="product-price">Total Amount</th>
+                                        <th class="product-quantity">Date</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @php
+                                    $i = 1;
+                                    @endphp
+                                    @foreach($results as $result)
                                     <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        <td>{{ $i++ }}</td>
+                                        <td>{{ $result->product }}</td>
+                                        <td>{{ $result->total }}</td>
+                                        <td>{{ date('M d, Y', strtotime($result->created_at)) }}</td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

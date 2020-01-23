@@ -106,4 +106,10 @@ class Home extends Controller
 		}
 	}
 
+	public function my_order(){
+		$id = Auth::guard('client')->user()->id;
+		$data['results'] = DB::table('orders')->where('client_id', $id)->orderBy('created_at', 'DESC')->get(); 
+		return view('frontend.include.profile.my_order', $data);
+	}
+
 }

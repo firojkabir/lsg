@@ -54,7 +54,7 @@
 							</tr>
 						</tbody>
 					</table>
-					<button type="btn" class="btn btn-success pull-right">Confirm order</button>
+					<a href="/confirm_order" class="btn btn-success pull-right">Confirm order</a>
 				</div>
 			</div>
 		</div>

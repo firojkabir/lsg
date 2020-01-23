@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 23, 2020 at 12:36 PM
+-- Generation Time: Jan 23, 2020 at 01:35 PM
 -- Server version: 5.7.28-0ubuntu0.18.04.4
--- PHP Version: 7.2.24-0ubuntu0.18.04.2
+-- PHP Version: 7.1.33-4+ubuntu18.04.1+deb.sury.org+1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -141,6 +141,27 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `order_id` int(11) NOT NULL,
+  `client_id` int(11) NOT NULL,
+  `total` varchar(255) NOT NULL,
+  `product` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`order_id`, `client_id`, `total`, `product`, `created_at`) VALUES
+(4, 5, '805.00', 'Macbook Air, Bike(Kids), ', '2020-01-23 12:10:33');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `products`
 --
 
@@ -177,7 +198,8 @@ INSERT INTO `products` (`id`, `title`, `description`, `price`, `status`, `image`
 (15, 'Jacket(Men)', 'Winter jacket for men.\r\n\r\nWaterproof', 60.00, 1, '1578785806_men.jpeg', '1578785807_men.jpeg', '1578785807_men.jpeg', 'thumb_1578785806_men.jpeg', 'assets/product/', 4, 5, '2020-01-11 23:00:00', NULL),
 (16, 'Macbook', 'Mackbook', 1000.00, 0, '1579193242_sports.jpg', '1579193243_foods.jpg', '1579193243_gadgets.jpg', 'thumb_1579193242_sports.jpg', 'assets/product/', 5, 2, '2020-01-16 16:47:23', '2020-01-16 16:47:23'),
 (17, 'OnePlus 5t', 'OnePlus 5T White\r\n8 gb Ram\r\n128 gb Rom', 350.00, 1, '1579299651_oneplus.jpg', '1579299651_oneplus.jpg', '1579299651_oneplus.jpg', 'thumb_1579299651_oneplus.jpg', 'assets/product/', 6, 3, '2020-01-17 22:20:51', '2020-01-17 22:20:51'),
-(18, 'Test', 'Test product', 20.00, 1, '1579777431_test.jpg', NULL, NULL, 'thumb_1579777431_test.jpg', 'assets/product/', 8, 5, '2020-01-23 11:03:51', '2020-01-23 11:03:51');
+(18, 'Test', 'Test product', 20.00, 1, '1579777431_test.jpg', NULL, NULL, 'thumb_1579777431_test.jpg', 'assets/product/', 8, 5, '2020-01-23 11:03:51', '2020-01-23 11:03:51'),
+(19, 'Sample Product', 'description', 10.00, 1, '1579780252_43 Years Celebration latest 21219.jpg', NULL, NULL, 'thumb_1579780252_43 Years Celebration latest 21219.jpg', 'assets/product/', 5, 2, '2020-01-23 11:50:52', '2020-01-23 11:50:52');
 
 -- --------------------------------------------------------
 
@@ -237,6 +259,12 @@ ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`order_id`);
+
+--
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
@@ -275,10 +303,15 @@ ALTER TABLE `home_slider`
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `users`
 --

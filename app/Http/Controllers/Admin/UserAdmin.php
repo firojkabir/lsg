@@ -23,7 +23,7 @@ class UserAdmin extends Controller
 {
     public function index()
     {
-        return view('admin.home');
+        redirect('admin');
     }
 
     /*---------------------------- user View  -----------------------------*/

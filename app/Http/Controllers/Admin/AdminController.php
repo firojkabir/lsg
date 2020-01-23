@@ -37,7 +37,11 @@ class AdminController extends Controller
     public function index()
     {
         if (Auth::check()) {
-            return view('admin.home');
+            $data['new_product'] = DB::table('products')->where('status', 0)->count();
+            $data['products'] = DB::table('products')->where('status', 1)->count();
+            $data['clients'] = DB::table('clients')->where('status', 1)->count();
+            $data['category'] = DB::table('category')->where('status', 1)->count();
+            return view('admin.home', $data);
         } else {
             redirect('logout');
         }

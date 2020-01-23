@@ -18,6 +18,8 @@
 	<!-- Google-code-prettify -->	
 	<link href="{{ asset('static/website/themes/js/google-code-prettify/prettify.css') }}" rel="stylesheet"/>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="{{ asset('admin_assets/admin_css/plugins/gritter/css/jquery.gritter.css') }}">
+	@yield('style')
 
 </head>
 <body>
@@ -124,6 +126,7 @@
 		<script src="{{ asset('static/website/themes/js/google-code-prettify/prettify.js') }}"></script>
 		<script src="{{ asset('static/website/themes/js/bootshop.js') }}"></script>
 		<script src="{{ asset('static/website/themes/js/jquery.lightbox-0.5.js') }}"></script>
+		<script src="{{ asset('admin_assets/admin_css/plugins/gritter/js/jquery.gritter.min.js') }}"></script>
 
 
 		<script type="text/javascript">
@@ -162,6 +165,34 @@
 			});
 
 		</script>
+
+
+		@if(Session::has('smsg'))
+		<script>
+			$(document).ready(function () {
+				$.gritter.add({
+					title: 'Success!',
+					text: '{{ ucwords(session('smsg')) }}<br>Please click X to dismiss this notification.',
+					class_name: "gritter-success",
+
+				});
+			});
+		</script>
+		@endif
+
+		@if(Session::has('emsg'))
+		<script>
+			$(document).ready(function () {
+				$.gritter.add({
+					title: 'Error!',
+					text: '{{ ucwords(session('emsg')) }}<br>Please click X to dismiss this notification.',
+					class_name: "gritter-danger",
+				});
+			});
+		</script>
+		@endif
+
+
 		@yield('scripts')
 
 	</body>

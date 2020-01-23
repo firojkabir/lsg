@@ -17,10 +17,6 @@ Route::get('/basket', function () {
     return view('frontend.include.profile.basket');
 });
 
-Route::get('/my_order', function () {
-    return view('frontend.include.profile.my_order');
-});
-
 Route::get('/change_pass', function () {
     return view('frontend.include.profile.change_pass');
 });
@@ -37,9 +33,11 @@ Route::get('/category-search/{id}', 'Home@category_search')->name('client.catego
 
 Route::group(['middleware' => ['auth:client']], function() { 
     Route::get('/profile', 'Home@profile')->name('client.profile');
+    Route::get('/my_order', 'Home@my_order')->name('client.profile.myorder');
     Route::any('/add_product', 'Product@add')->name('client.product.add');
     Route::any('/edit_product/{id}', 'Product@edit')->name('client.product.edit');
     Route::get('/my_products', 'Product@my_products')->name('client.profile.products');
+    Route::get('/confirm_order', 'Product@confirm_order')->name('client.profile.order');
 });
 
 

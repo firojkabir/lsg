@@ -1,38 +1,71 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="table-responsive">
+<section class="content">
+    <div class="row">
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-aqua">
+                <div class="inner">
+                    <h3>{{ $new_product }}</h3>
 
-    <table CELLSPACING=0 CELLPADDING=0 BORDER=0 align="center" class="table table-striped">
-        @if(Session::has('msg'))
-        <tr>
-            <td align=center><span style="color: blue">{!! ucwords(session('msg')) !!}</span></td>
-        </tr>
-        @endif
+                    <p>New Products</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-bag"></i>
+                </div>
+                <a href="{{ route('a_products') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-green">
+                <div class="inner">
+                    <h3>{{ $products }}</h3>
 
-        <tr>
-            <td align=center style="color:#1fa337; " height="100"></td>
-        </tr>
-        <tr>
-            <td align=center class="text-custom">
-                <h2>WELCOME </h2>
-            </td>
-        </tr>
-        <tr>
-            <td align=center class="text-custom">
-                <h2> To </h2>
-            </td>
-        </tr>
-        <tr>
-            <td align=center>
-                {{-- <img src="{{ asset('admin_assets/admin_images/logo.png') }}"> --}}
-                <a class="brand" href="/" style="color: #89c4f4;"><b><p style="font-size: 30px;">Let<span style="color: red; font-size: 35px;">Stuff</span>Go</p></b></a>
-            </td>
-        </tr>
-        <tr>
-            <td align=center style="color:#1fa337" height="100"></td>
-        </tr>
+                    <p>Total Products</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-stats-bars"></i>
+                </div>
+                <a href="{{ route('a_products') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <!-- ./col -->
 
-    </table>
-</div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-red">
+                <div class="inner">
+                    <h3>{{ $category }}</h3>
+
+                    <p>Product Category</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-pie-graph"></i>
+                </div>
+                <a href="{{ route('a_category') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-yellow">
+                <div class="inner">
+                    <h3>{{ $clients }}</h3>
+
+                    <p>User Registrations</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-person-add"></i>
+                </div>
+{{--                 <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a> --}}
+            </div>
+        </div>
+        
+        <!-- ./col -->
+    </div>
+</section>
 @endsection

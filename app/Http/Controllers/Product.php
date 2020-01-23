@@ -10,6 +10,7 @@ use Illuminate\Support\Str;
 use DB;
 use File;
 use Image;
+use Cart;
 
 class Product extends Controller
 {
@@ -171,7 +172,7 @@ class Product extends Controller
 
 
 				$result = DB::table('products')->where('id', $id)->update($postdata);
-				$request->session()->flash('msg', 'Product Successfully updated!');
+				$request->session()->flash('smsg', 'Product Successfully updated!');
 				return redirect('/my_products');
 
 			} catch (Exception $e) {
@@ -180,6 +181,29 @@ class Product extends Controller
 
 			}
 		}
+	}
+
+	public function confirm_order(Request $request){
+		try {
+			$postdata['total'] = Cart::subtotal();
+			$postdata['client_id'] = Auth::guard('client')->user()->id;
+			$postdata['product'] = '';
+
+			foreach (Cart::content() as $row) {
+				$postdata['product'] .= $row->name.', ';				
+			}
+
+			$result = DB::table('orders')->insert($postdata);
+			$request->session()->flash('smsg', 'Order Successfully submitted!');
+			Cart::destroy();
+			return redirect('/my_order');
+			
+		} catch (Exception $e) {
+			$request->session()->flash('emsg', 'Something wrong!');
+			return redirect('/cart-summery');
+		}
+
+
 	}
 
 }

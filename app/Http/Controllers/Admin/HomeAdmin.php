@@ -22,7 +22,7 @@ class HomeAdmin extends Controller
     public function index()
     {
         if (Auth::check()) {
-            return view('admin.home');
+            redirect('admin');
         } else {
             redirect('logout');
         }
@@ -295,6 +295,7 @@ class HomeAdmin extends Controller
         $results = DB::table('products')
         ->join('category', 'products.category_id', '=', 'category.id')
         ->select('products.*', 'category.name')
+        ->orderby('products.created_at', 'DESC')
         ->paginate(10);
         return view('admin.home.products', ['results' => $results]);
     }
