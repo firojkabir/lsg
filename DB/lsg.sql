@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 12, 2020 at 02:16 AM
+-- Generation Time: Jan 23, 2020 at 12:36 PM
 -- Server version: 5.7.28-0ubuntu0.18.04.4
--- PHP Version: 7.1.33-3+ubuntu18.04.1+deb.sury.org+1
+-- PHP Version: 7.2.24-0ubuntu0.18.04.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -77,7 +77,10 @@ CREATE TABLE `clients` (
 --
 
 INSERT INTO `clients` (`id`, `firstname`, `lastname`, `email`, `password`, `phone`, `street`, `city`, `zip`, `country`, `status`, `remember_token`, `created_at`, `updated_at`) VALUES
-(4, 'Firoz', 'Kabir', 'rimon@gmail.com', '$2y$10$43nkcAF7sbNSNXYW/C.Yl.57eUVXVxXQAe/PNTMtLv7GXA6wItCFW', '09876543765', 'Demo', 'FULDA', '36037', 'Germany', 1, NULL, '2020-01-11 12:06:09', '2020-01-11 12:06:09');
+(5, 'Ahmed', 'Rimon', 'rimon@informatik.hs-fulda.de', '$2y$10$iWqceDADnyAG/aufym0euehYa93/AZ.y3mJkR1Lf6XXU2l0V1pkVi', '017630169444', 'Am Rhonbad 5, Bronnzell', 'Fulda', '36043', 'Germany', 1, NULL, '2020-01-16 10:48:25', '2020-01-16 10:48:25'),
+(6, 'Angelo', 'Merkel', 'merkel@informatik.hs-fulda.de', '$2y$10$d.rnGgO/6XGu9bQQUTOcZOqCAYmV7MFiFeAPDdmMqbjXuIzQRZh5K', '01794221798', 'Wiesenmühlen 3, Room 3121', 'Main City', '36037', 'Germany', 1, NULL, '2020-01-17 20:59:56', '2020-01-17 20:59:56'),
+(7, 'Jhon', 'Doe', 'doe@informatik.hs-fulda.de', '$2y$10$YyfWnlFCs1BRR0jt6yr5..e0oWjfqDDTHPp6qEdw/ABPl1EvfBjoO', '01794221798', 'Wiesenmühlen 3, Room 3121', 'Main City', '36037', 'Germany', 1, NULL, '2020-01-22 21:41:29', '2020-01-22 21:41:29'),
+(8, 'Test', 'Abc', 'abc@informatik.hs-fulda.de', '$2y$10$pdleFlnyfCWRK.H4i79IpOQ11Ql3R.CwxfagEgg8iBHEYQKgEAxHW', '01794221798', 'Wiesenmühlen 3, Room 3121', 'Main City', '36037', 'Germany', 1, NULL, '2020-01-23 09:51:25', '2020-01-23 09:51:25');
 
 -- --------------------------------------------------------
 
@@ -109,8 +112,7 @@ INSERT INTO `home_slider` (`id`, `title`, `morelink`, `morelinkweb`, `rank`, `de
 (12, 'Slider 2', NULL, NULL, 2, NULL, '1571723174_Aamar-Account-banner.jpg', 'thumb_1571723174_Aamar-Account-banner.jpg', 'public/assets/home/slider/', 1, 1, '2019-10-14 07:51:59'),
 (13, 'Slider 3', NULL, NULL, 3, NULL, '1571723143_IFIC_Aamar-Card.jpg', 'thumb_1571723143_IFIC_Aamar-Card.jpg', 'public/assets/home/slider/', 1, 1, '2019-10-14 07:56:32'),
 (14, 'Slider 4', NULL, NULL, 1, NULL, '1575823940_Shohoj_ Website_1920 px X 668 px_4-12-19-01.jpg', 'thumb_1575823940_Shohoj_ Website_1920 px X 668 px_4-12-19-01.jpg', 'public/assets/home/slider/', 1, 1, '2019-10-14 08:00:00'),
-(15, 'slider 5', NULL, NULL, 5, NULL, '1571723121_IFIC-Aamar-Bank.jpg', 'thumb_1571723121_IFIC-Aamar-Bank.jpg', 'public/assets/home/slider/', 1, 1, '2019-10-14 08:44:32'),
-(16, 'IFIC Aamar Bari', NULL, 'https://www.ificbank.com.bd/personal/ific-aamar-bari', -1, NULL, '1575739421_Amar-Bari_we-banner_v2.jpg', 'thumb_1575739421_Amar-Bari_we-banner_v2.jpg', 'public/assets/home/slider/', 1, 1, '2019-12-07 17:12:47');
+(15, 'slider 5', NULL, NULL, 5, NULL, '1571723121_IFIC-Aamar-Bank.jpg', 'thumb_1571723121_IFIC-Aamar-Bank.jpg', 'public/assets/home/slider/', 1, 1, '2019-10-14 08:44:32');
 
 -- --------------------------------------------------------
 
@@ -172,7 +174,10 @@ INSERT INTO `products` (`id`, `title`, `description`, `price`, `status`, `image`
 (12, 'Eat That From(1st Edition)', 'Eat that from is a best selling book. \r\n\r\nHelpful for self improvement.', 23.00, 1, '1578785469_books.jpeg', '1578785469_books.jpeg', '1578785469_books.jpeg', 'thumb_1578785469_books.jpeg', 'assets/product/', 4, 10, '2020-01-11 23:00:00', NULL),
 (13, 'Shoe(Women)', 'Women\'s converse. \r\nEasy and comfortable to wear.', 48.00, 1, '1578785619_women.jpg', '1578785619_women.jpg', '1578785619_women.jpg', 'thumb_1578785619_women.jpg', 'assets/product/', 4, 4, '2020-01-11 23:00:00', NULL),
 (14, 'Xiaomi AirDots', 'Xiaomi airdots\r\n\r\nBlack \r\nBluetooth', 18.00, 1, '1578785723_gadgets.jpg', '1578785723_gadgets.jpg', '1578785723_gadgets.jpg', 'thumb_1578785723_gadgets.jpg', 'assets/product/', 4, 3, '2020-01-11 23:00:00', NULL),
-(15, 'Jacket(Men)', 'Winter jacket for men.\r\n\r\nWaterproof', 60.00, 1, '1578785806_men.jpeg', '1578785807_men.jpeg', '1578785807_men.jpeg', 'thumb_1578785806_men.jpeg', 'assets/product/', 4, 5, '2020-01-11 23:00:00', NULL);
+(15, 'Jacket(Men)', 'Winter jacket for men.\r\n\r\nWaterproof', 60.00, 1, '1578785806_men.jpeg', '1578785807_men.jpeg', '1578785807_men.jpeg', 'thumb_1578785806_men.jpeg', 'assets/product/', 4, 5, '2020-01-11 23:00:00', NULL),
+(16, 'Macbook', 'Mackbook', 1000.00, 0, '1579193242_sports.jpg', '1579193243_foods.jpg', '1579193243_gadgets.jpg', 'thumb_1579193242_sports.jpg', 'assets/product/', 5, 2, '2020-01-16 16:47:23', '2020-01-16 16:47:23'),
+(17, 'OnePlus 5t', 'OnePlus 5T White\r\n8 gb Ram\r\n128 gb Rom', 350.00, 1, '1579299651_oneplus.jpg', '1579299651_oneplus.jpg', '1579299651_oneplus.jpg', 'thumb_1579299651_oneplus.jpg', 'assets/product/', 6, 3, '2020-01-17 22:20:51', '2020-01-17 22:20:51'),
+(18, 'Test', 'Test product', 20.00, 1, '1579777431_test.jpg', NULL, NULL, 'thumb_1579777431_test.jpg', 'assets/product/', 8, 5, '2020-01-23 11:03:51', '2020-01-23 11:03:51');
 
 -- --------------------------------------------------------
 
@@ -200,8 +205,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `group`, `password`, `image`, `thumb`, `image_path`, `status`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Jobayer Mojumder', 'jobayer.pro@gmail.com', 'admin', '$2y$10$w3izHy6CV.luwuDy36Ggw.NER3Z/ZmU7T6nwZPNBBTqxEXRpLAkvi', '1528090106_16299767_1402521006478179_360885980094480421_o.jpg', 'thumb_1528090106_16299767_1402521006478179_360885980094480421_o.jpg', 'assets/user/', 1, 'fglgHNtTvrJUa8lj90uUSzhvqkgzlhOjAuJbgfiLHBOXDpBG1Owv7cDG6gYc', NULL, '2017-09-28 00:23:16'),
-(6, 'Rimon', 'rimon@gmail.com', 'customer', '$2y$10$w3izHy6CV.luwuDy36Ggw.NER3Z/ZmU7T6nwZPNBBTqxEXRpLAkvi', '', '', '', 1, NULL, NULL, NULL);
+(1, 'Admin', 'admin@gmail.com', 'admin', '$2y$10$ameFTO477fqtaQZYG5byFuVYAIzPQEySuVeto2j5XLAR1uHuglF/W', '1579172873_myself.png', 'thumb_1579172873_myself.png', 'assets/user/', 1, 'llJEFI7XzK5POO6godpOCaxXMPYcA8efb5G8rfoQP0exjSIqHNxrXS6orDlL', NULL, '2017-09-28 00:23:16');
 
 --
 -- Indexes for dumped tables
@@ -259,12 +263,12 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `home_slider`
 --
 ALTER TABLE `home_slider`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `migrations`
 --
@@ -274,7 +278,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `users`
 --
