@@ -213,6 +213,29 @@ hr {
 	background-color: #BE3730 !important;
 }
 
+.qtyFrm .btn {
+	background-color: #BBDEF7 !important;
+	border: 0 none;
+	font-size: 18px;
+	padding: 13px 18px;
+	font-family: Courier new !important;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	margin-right: 13%;
+	transition: 0.5s;
+}
+
+.qtyFrm .btn:hover {
+	color: white !important;
+	background-color: #BE3730 !important;
+}
+
+.qtyFrm .btn a:hover {
+	color: white !important;
+}
+
 .contact-btn .btn {
 	background-color: #BBDEF7 !important;
 	border: 0 none;
@@ -273,7 +296,7 @@ hr {
 	border-radius: 0;
 	-webkit-box-shadow: none;
 	box-shadow: none;
-	background-color: #BBDEF7 !important;
+	/* background-color: #BBDEF7 !important; */
 	/* color: white !important; */
 }
 
