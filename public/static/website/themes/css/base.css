@@ -441,8 +441,8 @@ hr {
 }
 
 .change_password_form input {
-	background: #E8F0FE none repeat scroll 0 0 !important;
-	border: 0 none;
+	background: none;
+	border: 1px solid black;
 	color: #333;
 	font-size: 15px;
 	height: 100%;
