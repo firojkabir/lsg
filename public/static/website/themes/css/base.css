@@ -82,6 +82,15 @@ hr {
 	line-height: 26px;
 }
 
+.thumbnail {
+	background: transparent;
+	border: 1px solid #524e4e;
+}
+
+.mainbody .add-to-cart {
+	background: #f4b94b;
+}
+
 /* ***** divImg **** */
 #divImg img {
 	background-size: cover;
