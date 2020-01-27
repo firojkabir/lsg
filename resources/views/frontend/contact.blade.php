@@ -40,7 +40,7 @@
 							<div class="span6">
 								<div class="control-group">
 									<div class="controls">
-										<textarea name="message" placeholder="Your message*" required="" style="min-height: 115px; background-color: #DDE1EA !important;"></textarea>
+										<textarea name="message" placeholder="Your message*" required="" style="min-height: 115px; background-color: none; border: 1px solid black;"></textarea>
 									</div>
 									<br>
 									<div class="contact-btn">
