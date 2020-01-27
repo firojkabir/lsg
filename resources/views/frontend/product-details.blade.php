@@ -51,7 +51,7 @@
 					<div class="span6">
 						<h3>{{ $result->title }}</h3>
 						<small><b>Category: </b>{{ $result->name }}</small>
-						<hr class="soft"/>
+						<hr class="hr_exception">
 						<form class="form-horizontal qtyFrm">
 							<div class="control-group">
 								<label class="control-label"><b>Price: </b><span>&euro;{{ $result->price }}</span></label>
@@ -60,7 +60,7 @@
 								</div>
 							</div>
 						</form>
-						<hr class="soft clr"/>
+						<hr class="hr_exception">
 						<label class="control-label"><b>Description </b></label>
 						<p>{{ $result->description }}</p>
 					</div>
