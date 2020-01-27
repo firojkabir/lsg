@@ -65,7 +65,7 @@
 								<a href="#login" role="button" data-toggle="modal" style="padding-right:0"><span class="btn btn-large btn-success"><i class="fa fa-sign-in"></i></span></a>
 								<div id="login" class="modal hide fade in" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="false">
 									<div class="modal-header">
-										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+										<button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="color: red;">X</button>
 										<h3 style="text-align: center;">Login</h3>
 									</div>
 									<div class="modal-body">
@@ -86,7 +86,7 @@
 												<p style="font-size: 15px;">New here? Then <b><a href="/register" style="color: darkslateblue;">Register</a> </b>first.</p>
 											</div>
 											<button type="submit" class="btn btn-success">Login</button>
-											<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+											<button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Close</button>
 										</form>		
 									</div>
 								</div>

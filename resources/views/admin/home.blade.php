@@ -27,7 +27,8 @@
                     <p>Total Products</p>
                 </div>
                 <div class="icon">
-                    <i class="ion ion-stats-bars"></i>
+                    {{-- <i class="ion ion-stats-bars"></i> --}}
+                    <i class="ion ion-bag"></i>
                 </div>
                 <a href="{{ route('a_products') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
             </div>
@@ -44,7 +45,7 @@
                     <p>Product Category</p>
                 </div>
                 <div class="icon">
-                    <i class="ion ion-pie-graph"></i>
+                    <i class="ion ion-grid"></i>
                 </div>
                 <a href="{{ route('a_category') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
             </div>

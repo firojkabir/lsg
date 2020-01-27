@@ -22,7 +22,7 @@ Route::get('/change_pass', function () {
 });
 
 Route::get('/edit_profile', function () {
-    return view('frontend.include.profile.edit_profile');
+    return view('frontend.edit_profile');
 });
 
 Route::get('/', 'Home@index')->name('client.home');
