@@ -21,6 +21,10 @@ Route::get('/change_pass', function () {
     return view('frontend.include.profile.change_pass');
 });
 
+Route::get('/edit_product', function () {
+    return view('frontend.include.profile.edit_product');
+});
+
 Route::get('/edit_profile', function () {
     return view('frontend.edit_profile');
 });

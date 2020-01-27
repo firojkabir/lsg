@@ -38,7 +38,7 @@
 						<tbody>
 							@foreach($items as $row)
 							<tr>
-								<td><a href="#" class="cart-remove" id="{{ $row->rowId }}">Remove</a></td>
+								<td><a href="#" class="btn btn-danger cart-remove" id="{{ $row->rowId }}" style="font-size: 15px; padding: 3px;">Remove</a></td>
 								<td>{{ $row->name }}</td>
 								<td>{{ $row->qty }}</td>
 								<td>&euro;{{ $row->price }}</td>
