@@ -14,8 +14,9 @@
 					<li><a href="/">Home</a> <span class="divider">/</span></li>
 					<li class="active">Registration</li>
 				</ul>
-				<hr>
 				<h3 style="text-align: center;"> Registration</h3>	
+				<hr>
+				<br>
 				<div class="well">
 					@if ($errors->any())
 					<div class="col-sm-12 text-center">

@@ -95,8 +95,8 @@ hr {
 }
 
 .reg input {
-	background: #fff none repeat scroll 0 0;
-	border: 0 none;
+	background: none;
+	border: 1px solid black;
 	color: #666666;
 	font-size: 18px;
 	height: 100%;
@@ -127,7 +127,7 @@ hr {
 
  .loginFrm input {
 	/* background: #DDE1EA none repeat scroll 0 0; */
-	background: none;
+	background: none !important;
 	border: 1px solid black;
 	color: #666666;
 	font-size: 15px;

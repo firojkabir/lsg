@@ -14,6 +14,8 @@
 					<li class="active">Login</li>
 				</ul>
 				<h3 style="text-align: center;"> Login</h3>	
+				<hr>
+				<br>
 				<div class="well">
 					@if ($errors->any())
 					<div class="col-sm-12" style="text-align: center;">

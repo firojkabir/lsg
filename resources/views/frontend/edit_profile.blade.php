@@ -10,7 +10,7 @@
         <section class="edit_profile htc__product__grid bg__white ptb--50">
             <div class="container">
                 <div class="row">
-                    <div class="photo span3">
+                    <div class="photo span3" style="margin-top: 40px;">
                         <div class="sidebar">
                             <div class="widget">
                                 <div class="user-photo">
