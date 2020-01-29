@@ -9,21 +9,7 @@
     <section class="htc__product__grid bg__white ptb--50">
         <div class="container">
             <div class="row">
-                <div class="span3">
-                    <div class="sidebar">
-                        <div class="widget">
-                            <div class="user-photo">
-                                <a href="#">
-                                    <img src="{{ asset('static/website/themes/images/user.png') }}" alt="User Photo" class="image-responsive" style="height: 200px; width: 200px;">
-                                </a>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="widget">
-                            @include('frontend.include.profile.pro_sidebar')
-                        </div>
-                    </div>
-                </div>
+                @include('frontend.include.profile.pro_sidebar')
 
                 <div class="my_products span9">
                     <div class="content">
@@ -53,7 +39,7 @@
                                         <td>{{ $result->title }}</td>
                                         <td>{{ $result->price }}</td>
                                         <td>{{ $result->status }}</td>
-                                        <td><a href="/edit_product">Edit</a></td>
+                                        <td><a href="/edit_product/{{ $result->id }}">Edit</a></td>
                                     </tr>
                                     @endforeach
                                 </tbody>

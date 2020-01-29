@@ -19,7 +19,7 @@
 				<br>
 				<div class="well">
 					<div class="row">
-						{{-- @if ($errors->any())
+						@if ($errors->any())
 						<div class="col-sm-12 text-center">
 							<br>
 							@foreach ($errors->all() as $error)
@@ -27,21 +27,22 @@
 							@endforeach
 							<br>
 						</div>
-						@endif --}}
-						<form class="" method="post" enctype="multipart/form-data" action="/edit_product">
+						@endif
+						<form class="" method="post" enctype="multipart/form-data" action="/edit_product/{{ $result->id }}">
+							@csrf
 							<section class="edit_product">
 								<div class="span1"></div>
 								<div class="span5">
 									<div class="control-group">
 										<div class="controls">
 											<label for="title"><b>Product title<span style="color: red;">*</span></b></label>
-											<input type="text" id="title" placeholder="" required="" name="title" value="">
+											<input type="text" id="title" placeholder="" required="" name="title" value="{{ $result->title }}">
 										</div>
 									</div>
 									<div class="control-group">
 										<div class="controls">
 											<label for="price"><b>Product price<span style="color: red;">*</span></b></label>
-											<input type="number" step="any" min="0.01" id="price" placeholder="" required="" name="price" value="">
+											<input type="number" step="any" min="0.01" id="price" placeholder="" required="" name="price" value="{{ $result->price }}">
 										</div>
 									</div>
 									<div class="control-group">
@@ -75,16 +76,16 @@
 											<label for="product_category"><b>Product category<span style="color: red;">*</span></b></label>
 											<select name="category" id="product_category"  style="width: 80%;" required>
 												<option value="">=== Add product category ===</option>
-												{{-- @foreach($categories as $c)
+												@foreach($categories as $c)
 												<option {{ $result->category_id == $c->id ? 'selected':'' }} value="{{ $c->id }}">{{ $c->name }}</option>
-												@endforeach --}}
+												@endforeach
 											</select>
 										</div>
 										<br>
 										<div class="control-group">
 											<div class="controls">
 												<label for="product_description"><b>Product description<span style="color: red;">*</span></b></label>
-												<textarea name="description" placeholder="" required="" style="min-height: 115px; width: 60%;">{{-- {{ $result->description }} --}}</textarea>
+												<textarea name="description" placeholder="" required="" style="min-height: 115px; width: 60%;">{{ $result->description }}</textarea>
 											</div>
 											<br>
 										</div>

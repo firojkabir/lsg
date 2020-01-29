@@ -6,7 +6,8 @@
 	</div>
     <br>
     
-    <form action="" method="POST" enctype="multipart/form-data">
+    <form action="/edit_profile" method="POST" enctype="multipart/form-data">
+        @csrf
         <section class="edit_profile htc__product__grid bg__white ptb--50">
             <div class="container">
                 <div class="row">
@@ -18,7 +19,7 @@
                                         <div class="col-smx-2 imgUp">
                                             <div class="imagePreview"></div>
                                             <label class="btn">
-                                            Upload Photo<input type="file" class="file" value="Upload Photo" style="width: 100%: 0px;overflow: hidden;" name="uploadedfile" id="image">
+                                            Upload Photo<input type="file" class="file" value="Upload Photo" style="width: 100%: 0px;overflow: hidden;" name="image" id="image">
                                             </label>
                                         </div>
                                     </div>
@@ -43,19 +44,19 @@
                                 <div class="row">
                                     <div class="form-group span4">
                                         <label><b>Firstname</b></label>
-                                        <input type="text"  class="form-control" value="" name="firstname" required>
+                                        <input type="text"  class="form-control" value="{{ $result->firstname }}" name="firstname" required>
                                     </div>
                                     <div class="form-group span4">
                                         <label><b>Lastname</b></label>
-                                        <input type="text"  class="form-control" value="" name="lastname" required>
+                                        <input type="text"  class="form-control" value="{{ $result->lastname }}" name="lastname" required>
                                     </div>
-                                    <div class="form-group span4">
+                                    {{-- <div class="form-group span4">
                                         <label><b>E-mail</b></label>
                                         <input type="text"  class="form-control" value="" name="email" required>
-                                    </div>
+                                    </div> --}}
                                     <div class="form-group span4">
                                         <label><b>Phone</b></label>
-                                        <input type="text"  class="form-control" value="" name="phone" required>
+                                        <input type="text"  class="form-control" value="{{ $result->phone }}" name="phone" required>
                                     </div>
                                 </div>
                             </div>
@@ -66,24 +67,24 @@
                                 <div class="row">
                                     <div class="form-group span4">
                                         <label><b>Street</b></label>
-                                        <input type="text"  class="form-control" value="" name="state" required>
+                                        <input type="text"  class="form-control" value="{{ $result->street }}" name="street" required>
                                     </div>
                                     <div class="form-group span4">
                                         <label><b>City</b></label>
-                                        <input type="text"  class="form-control" value="" name="city" required>
+                                        <input type="text"  class="form-control" value="{{ $result->city }}" name="city" required>
                                     </div>
                                     <div class="form-group span4">
                                         <label><b>ZIP</b></label>
-                                        <input type="text"  class="form-control" value="" name="zip" required>
+                                        <input type="text"  class="form-control" value="{{ $result->zip }}" name="zip" required>
                                     </div>
                                     <div class="form-group span4">
                                         <label><b>Country</b></label>
-                                        <input type="text"  class="form-control" value="" name="country" required>
+                                        <input type="text"  class="form-control" value="{{ $result->country }}" name="country" required>
                                     </div>
                                 </div>
                             </div>
                             <br>
-                            <button type="button" class="btn btn-success pull-right">Update Info</button>
+                            <button type="submit" class="btn btn-success pull-right">Update Info</button>
                         </div>
                     </div>
                 </div>

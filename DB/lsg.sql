@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 23, 2020 at 01:35 PM
--- Server version: 5.7.28-0ubuntu0.18.04.4
+-- Generation Time: Jan 30, 2020 at 12:24 AM
+-- Server version: 5.7.29-0ubuntu0.18.04.1
 -- PHP Version: 7.1.33-4+ubuntu18.04.1+deb.sury.org+1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -66,6 +66,9 @@ CREATE TABLE `clients` (
   `city` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `zip` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `country` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `thumb` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `path` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` int(11) NOT NULL DEFAULT '1',
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -76,11 +79,11 @@ CREATE TABLE `clients` (
 -- Dumping data for table `clients`
 --
 
-INSERT INTO `clients` (`id`, `firstname`, `lastname`, `email`, `password`, `phone`, `street`, `city`, `zip`, `country`, `status`, `remember_token`, `created_at`, `updated_at`) VALUES
-(5, 'Ahmed', 'Rimon', 'rimon@informatik.hs-fulda.de', '$2y$10$iWqceDADnyAG/aufym0euehYa93/AZ.y3mJkR1Lf6XXU2l0V1pkVi', '017630169444', 'Am Rhonbad 5, Bronnzell', 'Fulda', '36043', 'Germany', 1, NULL, '2020-01-16 10:48:25', '2020-01-16 10:48:25'),
-(6, 'Angelo', 'Merkel', 'merkel@informatik.hs-fulda.de', '$2y$10$d.rnGgO/6XGu9bQQUTOcZOqCAYmV7MFiFeAPDdmMqbjXuIzQRZh5K', '01794221798', 'Wiesenmühlen 3, Room 3121', 'Main City', '36037', 'Germany', 1, NULL, '2020-01-17 20:59:56', '2020-01-17 20:59:56'),
-(7, 'Jhon', 'Doe', 'doe@informatik.hs-fulda.de', '$2y$10$YyfWnlFCs1BRR0jt6yr5..e0oWjfqDDTHPp6qEdw/ABPl1EvfBjoO', '01794221798', 'Wiesenmühlen 3, Room 3121', 'Main City', '36037', 'Germany', 1, NULL, '2020-01-22 21:41:29', '2020-01-22 21:41:29'),
-(8, 'Test', 'Abc', 'abc@informatik.hs-fulda.de', '$2y$10$pdleFlnyfCWRK.H4i79IpOQ11Ql3R.CwxfagEgg8iBHEYQKgEAxHW', '01794221798', 'Wiesenmühlen 3, Room 3121', 'Main City', '36037', 'Germany', 1, NULL, '2020-01-23 09:51:25', '2020-01-23 09:51:25');
+INSERT INTO `clients` (`id`, `firstname`, `lastname`, `email`, `password`, `phone`, `street`, `city`, `zip`, `country`, `image`, `thumb`, `path`, `status`, `remember_token`, `created_at`, `updated_at`) VALUES
+(5, 'Ahmed', 'Rimon', 'rimon@informatik.hs-fulda.de', '$2y$10$iWqceDADnyAG/aufym0euehYa93/AZ.y3mJkR1Lf6XXU2l0V1pkVi', '017630169444', 'Am Rhonbad 5, Bronnzell', 'Fulda', '36043', 'Germany', '1580339904_32c69221d53267c6d97ec6ea8ca6bebf5fc16f27.jpg', 'thumb_1580339904_32c69221d53267c6d97ec6ea8ca6bebf5fc16f27.jpg', 'assets/profile/', 1, NULL, '2020-01-16 10:48:25', '2020-01-16 10:48:25'),
+(6, 'Angelo', 'Merkel', 'merkel@informatik.hs-fulda.de', '$2y$10$d.rnGgO/6XGu9bQQUTOcZOqCAYmV7MFiFeAPDdmMqbjXuIzQRZh5K', '01794221798', 'Wiesenmühlen 3, Room 3121', 'Main City', '36037', 'Germany', NULL, NULL, NULL, 1, NULL, '2020-01-17 20:59:56', '2020-01-17 20:59:56'),
+(7, 'Jhon', 'Doe', 'doe@informatik.hs-fulda.de', '$2y$10$YyfWnlFCs1BRR0jt6yr5..e0oWjfqDDTHPp6qEdw/ABPl1EvfBjoO', '01794221798', 'Wiesenmühlen 3, Room 3121', 'Main City', '36037', 'Germany', NULL, NULL, NULL, 1, NULL, '2020-01-22 21:41:29', '2020-01-22 21:41:29'),
+(8, 'Test', 'Abc', 'abc@informatik.hs-fulda.de', '$2y$10$pdleFlnyfCWRK.H4i79IpOQ11Ql3R.CwxfagEgg8iBHEYQKgEAxHW', '01794221798', 'Wiesenmühlen 3, Room 3121', 'Main City', '36037', 'Germany', NULL, NULL, NULL, 1, NULL, '2020-01-23 09:51:25', '2020-01-23 09:51:25');
 
 -- --------------------------------------------------------
 
@@ -157,7 +160,8 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`order_id`, `client_id`, `total`, `product`, `created_at`) VALUES
-(4, 5, '805.00', 'Macbook Air, Bike(Kids), ', '2020-01-23 12:10:33');
+(4, 5, '805.00', 'Macbook Air, Bike(Kids), ', '2020-01-23 12:10:33'),
+(5, 5, '555.00', 'Macbook Air, ', '2020-01-29 21:28:52');
 
 -- --------------------------------------------------------
 
@@ -227,7 +231,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `group`, `password`, `image`, `thumb`, `image_path`, `status`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'admin@gmail.com', 'admin', '$2y$10$ameFTO477fqtaQZYG5byFuVYAIzPQEySuVeto2j5XLAR1uHuglF/W', '1579172873_myself.png', 'thumb_1579172873_myself.png', 'assets/user/', 1, 'llJEFI7XzK5POO6godpOCaxXMPYcA8efb5G8rfoQP0exjSIqHNxrXS6orDlL', NULL, '2017-09-28 00:23:16');
+(1, 'Admin', 'admin@gmail.com', 'admin', '$2y$10$ameFTO477fqtaQZYG5byFuVYAIzPQEySuVeto2j5XLAR1uHuglF/W', '1579172873_myself.png', 'thumb_1579172873_myself.png', 'assets/user/', 1, 'I4Y6JVFgLGtA6N90YI3Vgm2AUDZscAUFcbCYn3SrhFmLd7irUYqtPogDji6G', NULL, '2017-09-28 00:23:16');
 
 --
 -- Indexes for dumped tables
@@ -291,7 +295,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `home_slider`
 --
@@ -306,7 +310,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `products`
 --
