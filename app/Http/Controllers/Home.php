@@ -35,6 +35,9 @@ class Home extends Controller
 		->first();
 
 		if ($data['result']) {
+			$data['seller'] = DB::table('clients')
+			->where('id', $data['result']->user_id)
+			->first();
 			return view('frontend.product-details', $data);
 		}else{
 			return redirect()->back();
