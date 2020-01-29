@@ -46,10 +46,10 @@ return [
             'provider' => 'users',
         ],
         'client' => [
-         'driver' => 'session',
-         'provider' => 'clients',
-     ],
- ],
+           'driver' => 'session',
+           'provider' => 'clients',
+       ],
+   ],
 
     /*
     |--------------------------------------------------------------------------
@@ -75,10 +75,10 @@ return [
         ],
 
         'clients' => [
-           'driver' => 'eloquent',
-           'model' => App\Client::class,
-       ],
-   ],
+         'driver' => 'eloquent',
+         'model' => App\Client::class,
+     ],
+ ],
 
     /*
     |--------------------------------------------------------------------------
