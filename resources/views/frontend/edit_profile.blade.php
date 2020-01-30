@@ -51,11 +51,11 @@
                                     </div>
                                     <div class="form-group span4">
                                         <label><b>E-mail</b></label>
-                                        <input type="text"  class="form-control" value="" name="email" required>
+                                        <input type="email"  class="form-control" value="" name="email" required>
                                     </div>
                                     <div class="form-group span4">
                                         <label><b>Phone</b></label>
-                                        <input type="text"  class="form-control" value="" name="phone" required>
+                                        <input type="number"  class="form-control" value="" name="phone" required>
                                     </div>
                                 </div>
                             </div>
@@ -66,7 +66,7 @@
                                 <div class="row">
                                     <div class="form-group span4">
                                         <label><b>Street</b></label>
-                                        <input type="text"  class="form-control" value="" name="state" required>
+                                        <input type="text"  class="form-control" value="" name="street" required>
                                     </div>
                                     <div class="form-group span4">
                                         <label><b>City</b></label>

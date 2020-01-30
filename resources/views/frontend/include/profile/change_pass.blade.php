@@ -36,7 +36,7 @@
                                 <div class="control-group">
                                     <div class="controls">
                                         <label><b>Email<span style="color: red;">*</span></b></label>
-                                        <input type="email" value="" name="email" required>
+                                        <input type="email" class="form-control" value="" name="email" required>
                                     </div>
                                 </div>
                                 <br>
@@ -52,7 +52,7 @@
                                 <div class="control-group">
                                     <div class="controls">
                                         <label><b>New password<span style="color: red;">*</span></b></label>
-                                        <input type="password" value="" name="n_password" required> 
+                                        <input type="password" class="form-control" value="" name="n_password" required> 
                                     </div>
                                 </div>
                                 <br>
