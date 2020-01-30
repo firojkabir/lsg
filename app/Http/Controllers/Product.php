@@ -74,7 +74,7 @@ class Product extends Controller
 				}
 
 				$result = DB::table('products')->insert($postdata);
-				$request->session()->flash('smsg', 'Product Successfully added!');
+				$request->session()->flash('smsg', 'Product successfully added!');
 				return redirect('/my_products');
 			} catch (Exception $e) {
 				$request->session()->flash('emsg', $e->errorInfo[2]);
@@ -89,7 +89,7 @@ class Product extends Controller
 			$data['categories'] = DB::table('category')->where('status', '1')->get();
 			$data['result'] = DB::table('products')->where('id', $id)->first();
 
-			if (count($data['result'])) {
+			if ($data['result']) {
 				return view('frontend.include.profile.edit_product', $data);
 			}else{
 				return redirect()->back();
@@ -172,7 +172,7 @@ class Product extends Controller
 
 
 				$result = DB::table('products')->where('id', $id)->update($postdata);
-				$request->session()->flash('smsg', 'Product Successfully updated!');
+				$request->session()->flash('smsg', 'Product successfully updated!');
 				return redirect('/my_products');
 
 			} catch (Exception $e) {
@@ -195,7 +195,7 @@ class Product extends Controller
 				}
 
 				$result = DB::table('orders')->insert($postdata);
-				$request->session()->flash('smsg', 'Order Successfully submitted!');
+				$request->session()->flash('smsg', 'Order successfully submitted!');
 				Cart::destroy();
 				return redirect('/my_order');
 

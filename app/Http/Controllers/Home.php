@@ -38,8 +38,16 @@ class Home extends Controller
 			$data['seller'] = DB::table('clients')
 			->where('id', $data['result']->user_id)
 			->first();
+			if ($data['seller']) {
+				# code...
 			return view('frontend.product-details', $data);
+			} else {
+			$request->session()->flash('emsg', "Product user not found!");
+			return redirect()->back();
+			}
+			
 		}else{
+			$request->session()->flash('emsg', "Product not found!");
 			return redirect()->back();
 		}
 	}

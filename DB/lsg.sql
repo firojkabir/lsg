@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 30, 2020 at 12:24 AM
+-- Generation Time: Jan 30, 2020 at 02:10 AM
 -- Server version: 5.7.29-0ubuntu0.18.04.1
--- PHP Version: 7.1.33-4+ubuntu18.04.1+deb.sury.org+1
+-- PHP Version: 7.2.24-0ubuntu0.18.04.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -80,7 +80,7 @@ CREATE TABLE `clients` (
 --
 
 INSERT INTO `clients` (`id`, `firstname`, `lastname`, `email`, `password`, `phone`, `street`, `city`, `zip`, `country`, `image`, `thumb`, `path`, `status`, `remember_token`, `created_at`, `updated_at`) VALUES
-(5, 'Ahmed', 'Rimon', 'rimon@informatik.hs-fulda.de', '$2y$10$iWqceDADnyAG/aufym0euehYa93/AZ.y3mJkR1Lf6XXU2l0V1pkVi', '017630169444', 'Am Rhonbad 5, Bronnzell', 'Fulda', '36043', 'Germany', '1580339904_32c69221d53267c6d97ec6ea8ca6bebf5fc16f27.jpg', 'thumb_1580339904_32c69221d53267c6d97ec6ea8ca6bebf5fc16f27.jpg', 'assets/profile/', 1, NULL, '2020-01-16 10:48:25', '2020-01-16 10:48:25'),
+(5, 'Ahmed', 'Rimon', 'rimon@informatik.hs-fulda.de', '$2y$10$iWqceDADnyAG/aufym0euehYa93/AZ.y3mJkR1Lf6XXU2l0V1pkVi', '017630169444', 'Am Rhonbad 5, Bronnzell', 'Fulda', '36043', 'Germany', '1580345752_myself.png', 'thumb_1580345752_myself.png', 'assets/profile/', 1, NULL, '2020-01-16 10:48:25', '2020-01-16 10:48:25'),
 (6, 'Angelo', 'Merkel', 'merkel@informatik.hs-fulda.de', '$2y$10$d.rnGgO/6XGu9bQQUTOcZOqCAYmV7MFiFeAPDdmMqbjXuIzQRZh5K', '01794221798', 'Wiesenmühlen 3, Room 3121', 'Main City', '36037', 'Germany', NULL, NULL, NULL, 1, NULL, '2020-01-17 20:59:56', '2020-01-17 20:59:56'),
 (7, 'Jhon', 'Doe', 'doe@informatik.hs-fulda.de', '$2y$10$YyfWnlFCs1BRR0jt6yr5..e0oWjfqDDTHPp6qEdw/ABPl1EvfBjoO', '01794221798', 'Wiesenmühlen 3, Room 3121', 'Main City', '36037', 'Germany', NULL, NULL, NULL, 1, NULL, '2020-01-22 21:41:29', '2020-01-22 21:41:29'),
 (8, 'Test', 'Abc', 'abc@informatik.hs-fulda.de', '$2y$10$pdleFlnyfCWRK.H4i79IpOQ11Ql3R.CwxfagEgg8iBHEYQKgEAxHW', '01794221798', 'Wiesenmühlen 3, Room 3121', 'Main City', '36037', 'Germany', NULL, NULL, NULL, 1, NULL, '2020-01-23 09:51:25', '2020-01-23 09:51:25');
@@ -191,15 +191,15 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `title`, `description`, `price`, `status`, `image`, `image1`, `image2`, `thumb`, `path`, `user_id`, `category_id`, `created_at`, `updated_at`) VALUES
-(7, 'Macbook Air', 'Mackbook air from Apple.\r\n\r\nRam: 8gb\r\nRom 500 gb SSD\r\nScreen: 13.5\"', 555.00, 1, '1578783770_laptop.jpg', '1578783770_laptop.jpg', '1578783770_laptop.jpg', 'thumb_1578783770_laptop.jpg', 'assets/product/', 4, 2, '2020-01-11 23:00:00', NULL),
-(8, 'Bike(Kids)', 'Bike for kids. \r\n\r\nRechargeable and driveable.', 250.00, 1, '1578784969_kids.jpg', '1578784969_kids.jpg', '1578784969_kids.jpg', 'thumb_1578784969_kids.jpg', 'assets/product/', 4, 6, '2020-01-11 23:00:00', NULL),
-(9, 'Juice(Grape)', 'Juice made from black grapes. \r\n\r\nNo alcohol.', 2.00, 1, '1578785205_foods.jpg', '1578785205_foods.jpg', '1578785205_foods.jpg', 'thumb_1578785205_foods.jpg', 'assets/product/', 4, 7, '2020-01-11 23:00:00', NULL),
-(10, 'Hand Wash(Dettol)', 'Dettol hand wash. \r\n\r\nTo disinfect your hands.', 10.00, 1, '1578785296_Health.jpg', '1578785296_Health.jpg', '1578785296_Health.jpg', 'thumb_1578785296_Health.jpg', 'assets/product/', 4, 8, '2020-01-11 23:00:00', NULL),
-(11, 'Basket Ball', 'Wilson basket ball.\r\n\r\nKeep play it will make your body fit.', 45.00, 1, '1578785375_sports.jpg', '1578785375_sports.jpg', '1578785375_sports.jpg', 'thumb_1578785375_sports.jpg', 'assets/product/', 4, 9, '2020-01-11 23:00:00', NULL),
-(12, 'Eat That From(1st Edition)', 'Eat that from is a best selling book. \r\n\r\nHelpful for self improvement.', 23.00, 1, '1578785469_books.jpeg', '1578785469_books.jpeg', '1578785469_books.jpeg', 'thumb_1578785469_books.jpeg', 'assets/product/', 4, 10, '2020-01-11 23:00:00', NULL),
-(13, 'Shoe(Women)', 'Women\'s converse. \r\nEasy and comfortable to wear.', 48.00, 1, '1578785619_women.jpg', '1578785619_women.jpg', '1578785619_women.jpg', 'thumb_1578785619_women.jpg', 'assets/product/', 4, 4, '2020-01-11 23:00:00', NULL),
-(14, 'Xiaomi AirDots', 'Xiaomi airdots\r\n\r\nBlack \r\nBluetooth', 18.00, 1, '1578785723_gadgets.jpg', '1578785723_gadgets.jpg', '1578785723_gadgets.jpg', 'thumb_1578785723_gadgets.jpg', 'assets/product/', 4, 3, '2020-01-11 23:00:00', NULL),
-(15, 'Jacket(Men)', 'Winter jacket for men.\r\n\r\nWaterproof', 60.00, 1, '1578785806_men.jpeg', '1578785807_men.jpeg', '1578785807_men.jpeg', 'thumb_1578785806_men.jpeg', 'assets/product/', 4, 5, '2020-01-11 23:00:00', NULL),
+(7, 'Macbook Air', 'Mackbook air from Apple.\r\n\r\nRam: 8gb\r\nRom 500 gb SSD\r\nScreen: 13.5\"', 555.00, 1, '1578783770_laptop.jpg', '1578783770_laptop.jpg', '1578783770_laptop.jpg', 'thumb_1578783770_laptop.jpg', 'assets/product/', 5, 2, '2020-01-11 23:00:00', NULL),
+(8, 'Bike(Kids)', 'Bike for kids. \r\n\r\nRechargeable and driveable.', 250.00, 1, '1578784969_kids.jpg', '1578784969_kids.jpg', '1578784969_kids.jpg', 'thumb_1578784969_kids.jpg', 'assets/product/', 5, 6, '2020-01-11 23:00:00', NULL),
+(9, 'Juice(Grape)', 'Juice made from black grapes. \r\n\r\nNo alcohol.', 2.00, 1, '1578785205_foods.jpg', '1578785205_foods.jpg', '1578785205_foods.jpg', 'thumb_1578785205_foods.jpg', 'assets/product/', 5, 7, '2020-01-11 23:00:00', NULL),
+(10, 'Hand Wash(Dettol)', 'Dettol hand wash. \r\n\r\nTo disinfect your hands.', 10.00, 1, '1578785296_Health.jpg', '1578785296_Health.jpg', '1578785296_Health.jpg', 'thumb_1578785296_Health.jpg', 'assets/product/', 5, 8, '2020-01-11 23:00:00', NULL),
+(11, 'Basket Ball', 'Wilson basket ball.\r\n\r\nKeep play it will make your body fit.', 45.00, 1, '1578785375_sports.jpg', '1578785375_sports.jpg', '1578785375_sports.jpg', 'thumb_1578785375_sports.jpg', 'assets/product/', 5, 9, '2020-01-11 23:00:00', NULL),
+(12, 'Eat That From(1st Edition)', 'Eat that from is a best selling book. \r\n\r\nHelpful for self improvement.', 23.00, 1, '1578785469_books.jpeg', '1578785469_books.jpeg', '1578785469_books.jpeg', 'thumb_1578785469_books.jpeg', 'assets/product/', 5, 10, '2020-01-11 23:00:00', NULL),
+(13, 'Shoe(Women)', 'Women\'s converse. \r\nEasy and comfortable to wear.', 48.00, 1, '1578785619_women.jpg', '1578785619_women.jpg', '1578785619_women.jpg', 'thumb_1578785619_women.jpg', 'assets/product/', 5, 4, '2020-01-11 23:00:00', NULL),
+(14, 'Xiaomi AirDots', 'Xiaomi airdots\r\n\r\nBlack \r\nBluetooth', 18.00, 1, '1578785723_gadgets.jpg', '1578785723_gadgets.jpg', '1578785723_gadgets.jpg', 'thumb_1578785723_gadgets.jpg', 'assets/product/', 5, 3, '2020-01-11 23:00:00', NULL),
+(15, 'Jacket(Men)', 'Winter jacket for men.\r\n\r\nWaterproof', 60.00, 1, '1578785806_men.jpeg', '1578785807_men.jpeg', '1578785807_men.jpeg', 'thumb_1578785806_men.jpeg', 'assets/product/', 5, 5, '2020-01-11 23:00:00', NULL),
 (16, 'Macbook', 'Mackbook', 1000.00, 0, '1579193242_sports.jpg', '1579193243_foods.jpg', '1579193243_gadgets.jpg', 'thumb_1579193242_sports.jpg', 'assets/product/', 5, 2, '2020-01-16 16:47:23', '2020-01-16 16:47:23'),
 (17, 'OnePlus 5t', 'OnePlus 5T White\r\n8 gb Ram\r\n128 gb Rom', 350.00, 1, '1579299651_oneplus.jpg', '1579299651_oneplus.jpg', '1579299651_oneplus.jpg', 'thumb_1579299651_oneplus.jpg', 'assets/product/', 6, 3, '2020-01-17 22:20:51', '2020-01-17 22:20:51'),
 (18, 'Test', 'Test product', 20.00, 1, '1579777431_test.jpg', NULL, NULL, 'thumb_1579777431_test.jpg', 'assets/product/', 8, 5, '2020-01-23 11:03:51', '2020-01-23 11:03:51'),

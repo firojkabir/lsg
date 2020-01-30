@@ -76,16 +76,16 @@
 							<form class="form-horizontal loginFrm" method="post" action="/login">
 								@csrf
 								<div class="control-group">								
-									<label for="name">Seller Name: {{ $seller->firstname." ".$seller->lastname }}</label>
+									<label for="name"><b>Seller Name: </b>{{ $seller->firstname." ".$seller->lastname }}</label>
 								</div>
 								<div class="control-group">
-									<label for="phone">Phone number: {{ $seller->phone }}</label>
+									<label for="phone"><b>Phone number: </b>{{ $seller->phone }}</label>
 								</div>
 								<div class="control-group">
-									<label for="email">Email: {{ $seller->email }}</label>
+									<label for="email"><b>Email: </b>{{ $seller->email }}</label>
 								</div>
 								<div class="control-group">
-									<label for="address">Address: {{ $seller->street.", ".$seller->zip.", ".$seller->city.", ".$seller->country }}</label>
+									<label for="address"><b>Address: </b>{{ $seller->street.", ".$seller->zip.", ".$seller->city.", ".$seller->country }}</label>
 								</div>
 							</form>		
 						</div>
