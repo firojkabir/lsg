@@ -3,7 +3,7 @@
 		<div class="widget">
 			<div class="user-photo">
 				<a href="#">
-					<img src="{{ asset(Auth::guard('client')->user()->path.Auth::guard('client')->user()->thumb) }}" alt="User Photo" class="image-responsive" style="height: 200px; width: 200px;">
+					<img src="{{ asset(Auth::guard('client')->user()->path.Auth::guard('client')->user()->thumb) }}" alt="User Photo" class="image-responsive" style="height: 200px; width: 200px; border-radius: 50%;">
 				</a>
 			</div>
 		</div>
