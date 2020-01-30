@@ -45,12 +45,25 @@ body {
 	font-size:12px;
 }
 
-#sidebar ul {
+/* #sidebar ul {
 	list-style: none;
 	padding: 0;
 	margin: 0;
 	width: 100%;
+} */
+
+.sidebar_menu ul li {
+	padding-top: 15px;	
 }
+
+.sidebar_menu ul a {	
+	text-decoration: none;
+}
+
+.sidebar_menu ul a:hover {	
+	color: #BE3730;
+}
+
 
 hr {
 	border: 1px solid #494E53;

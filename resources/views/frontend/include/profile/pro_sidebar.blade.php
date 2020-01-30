@@ -8,7 +8,7 @@
 			</div>
 		</div>
 		<br>
-		<div class="widget">
+		<div class="widget sidebar_menu">
 			<ul class="menu-advanced" style="font-size: 17px; list-style: none;">
 				<li><a href="/profile"><i class="fa fa-user"></i> My Profile</a></li>
 				<li><a href="/my_products"><i class="fa fa-gift"></i> My Products</a></li>
