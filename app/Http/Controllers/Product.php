@@ -184,23 +184,28 @@ class Product extends Controller
 	}
 
 	public function confirm_order(Request $request){
-		try {
-			$postdata['total'] = Cart::subtotal();
-			$postdata['client_id'] = Auth::guard('client')->user()->id;
-			$postdata['product'] = '';
+		if (Auth::guard('client')->check()) {
+			try {
+				$postdata['total'] = Cart::subtotal();
+				$postdata['client_id'] = Auth::guard('client')->user()->id;
+				$postdata['product'] = '';
 
-			foreach (Cart::content() as $row) {
-				$postdata['product'] .= $row->name.', ';				
+				foreach (Cart::content() as $row) {
+					$postdata['product'] .= $row->name.', ';				
+				}
+
+				$result = DB::table('orders')->insert($postdata);
+				$request->session()->flash('smsg', 'Order Successfully submitted!');
+				Cart::destroy();
+				return redirect('/my_order');
+
+			} catch (Exception $e) {
+				$request->session()->flash('emsg', 'Something wrong!');
+				return redirect('/cart-summery');
 			}
-
-			$result = DB::table('orders')->insert($postdata);
-			$request->session()->flash('smsg', 'Order Successfully submitted!');
-			Cart::destroy();
-			return redirect('/my_order');
-			
-		} catch (Exception $e) {
-			$request->session()->flash('emsg', 'Something wrong!');
-			return redirect('/cart-summery');
+		}else{
+			$request->session()->flash('emsg', 'To complete your order you have to login first!');
+			return redirect('/login');
 		}
 
 

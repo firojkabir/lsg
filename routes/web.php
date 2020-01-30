@@ -21,13 +21,6 @@ Route::get('/change_pass', function () {
     return view('frontend.include.profile.change_pass');
 });
 
-Route::get('/edit_product', function () {
-    return view('frontend.include.profile.edit_product');
-});
-
-Route::get('/edit_profile', function () {
-    return view('frontend.edit_profile');
-});
 
 Route::get('/', 'Home@index')->name('client.home');
 Route::get('/products', 'Home@search');
@@ -35,13 +28,15 @@ Route::get('/search', 'Home@search')->name('client.profile');
 
 Route::get('/category-search/{id}', 'Home@category_search')->name('client.category.search');
 
+Route::get('/confirm_order', 'Product@confirm_order')->name('client.profile.order');
+
 Route::group(['middleware' => ['auth:client']], function() { 
     Route::get('/profile', 'Home@profile')->name('client.profile');
+    Route::any('/edit_profile', 'Home@edit_profile')->name('client.profile.edit');
     Route::get('/my_order', 'Home@my_order')->name('client.profile.myorder');
     Route::any('/add_product', 'Product@add')->name('client.product.add');
     Route::any('/edit_product/{id}', 'Product@edit')->name('client.product.edit');
     Route::get('/my_products', 'Product@my_products')->name('client.profile.products');
-    Route::get('/confirm_order', 'Product@confirm_order')->name('client.profile.order');
 });
 
 

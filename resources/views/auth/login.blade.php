@@ -40,7 +40,7 @@
         <div class="col-xs-12">
             <div class="text text-right" >
 
-                <a href="{{ route('password.request') }}"><p><font color="red">Forgot Your Password ?</font></p></a>
+                {{-- <a href="{{ route('password.request') }}"><p><font color="red">Forgot Your Password ?</font></p></a> --}}
                 <p><a href="">Go to Home Page</a></p>
             </div>
         </div>
