@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 30, 2020 at 02:10 AM
+-- Generation Time: Feb 09, 2020 at 07:23 PM
 -- Server version: 5.7.29-0ubuntu0.18.04.1
 -- PHP Version: 7.2.24-0ubuntu0.18.04.2
 
@@ -47,7 +47,8 @@ INSERT INTO `category` (`id`, `name`, `status`, `created_at`, `updated_at`) VALU
 (7, 'Food & Beverages', 1, NULL, NULL),
 (8, 'Health & Beauty', 1, NULL, NULL),
 (9, 'Sports & Leisure', 1, NULL, NULL),
-(10, 'Books & Entertainments', 1, NULL, NULL);
+(10, 'Books & Entertainments', 1, NULL, NULL),
+(11, 'Others', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -80,10 +81,11 @@ CREATE TABLE `clients` (
 --
 
 INSERT INTO `clients` (`id`, `firstname`, `lastname`, `email`, `password`, `phone`, `street`, `city`, `zip`, `country`, `image`, `thumb`, `path`, `status`, `remember_token`, `created_at`, `updated_at`) VALUES
-(5, 'Ahmed', 'Rimon', 'rimon@informatik.hs-fulda.de', '$2y$10$iWqceDADnyAG/aufym0euehYa93/AZ.y3mJkR1Lf6XXU2l0V1pkVi', '017630169444', 'Am Rhonbad 5, Bronnzell', 'Fulda', '36043', 'Germany', '1580345752_myself.png', 'thumb_1580345752_myself.png', 'assets/profile/', 1, NULL, '2020-01-16 10:48:25', '2020-01-16 10:48:25'),
+(5, 'Ahmed', 'Rimon', 'rimon@informatik.hs-fulda.de', '$2y$10$iWqceDADnyAG/aufym0euehYa93/AZ.y3mJkR1Lf6XXU2l0V1pkVi', '017630169444', 'Lipzieger', 'Fulda', '36043', 'Germany', '1580345752_myself.png', 'thumb_1580345752_myself.png', 'assets/profile/', 1, NULL, '2020-01-16 10:48:25', '2020-01-16 10:48:25'),
 (6, 'Angelo', 'Merkel', 'merkel@informatik.hs-fulda.de', '$2y$10$d.rnGgO/6XGu9bQQUTOcZOqCAYmV7MFiFeAPDdmMqbjXuIzQRZh5K', '01794221798', 'Wiesenmühlen 3, Room 3121', 'Main City', '36037', 'Germany', NULL, NULL, NULL, 1, NULL, '2020-01-17 20:59:56', '2020-01-17 20:59:56'),
 (7, 'Jhon', 'Doe', 'doe@informatik.hs-fulda.de', '$2y$10$YyfWnlFCs1BRR0jt6yr5..e0oWjfqDDTHPp6qEdw/ABPl1EvfBjoO', '01794221798', 'Wiesenmühlen 3, Room 3121', 'Main City', '36037', 'Germany', NULL, NULL, NULL, 1, NULL, '2020-01-22 21:41:29', '2020-01-22 21:41:29'),
-(8, 'Test', 'Abc', 'abc@informatik.hs-fulda.de', '$2y$10$pdleFlnyfCWRK.H4i79IpOQ11Ql3R.CwxfagEgg8iBHEYQKgEAxHW', '01794221798', 'Wiesenmühlen 3, Room 3121', 'Main City', '36037', 'Germany', NULL, NULL, NULL, 1, NULL, '2020-01-23 09:51:25', '2020-01-23 09:51:25');
+(8, 'Test', 'Abc', 'abc@informatik.hs-fulda.de', '$2y$10$pdleFlnyfCWRK.H4i79IpOQ11Ql3R.CwxfagEgg8iBHEYQKgEAxHW', '01794221798', 'Wiesenmühlen 3, Room 3121', 'Main City', '36037', 'Germany', NULL, NULL, NULL, 1, NULL, '2020-01-23 09:51:25', '2020-01-23 09:51:25'),
+(9, 'Jon', 'Smith', 'jsmith@informatik.hs-fulda.de', '$2y$10$HBbK0.2dOTgWa/UT6fwq7e7O8f3Nr6WJhAKPAEDYG.gb35aMt8NmS', '21212121', 'Leipziger str 139', 'Fulda', '36037', 'Germany', NULL, NULL, 'assets/profile/', 1, NULL, '2020-01-30 15:14:56', '2020-01-30 15:14:56');
 
 -- --------------------------------------------------------
 
@@ -161,7 +163,11 @@ CREATE TABLE `orders` (
 
 INSERT INTO `orders` (`order_id`, `client_id`, `total`, `product`, `created_at`) VALUES
 (4, 5, '805.00', 'Macbook Air, Bike(Kids), ', '2020-01-23 12:10:33'),
-(5, 5, '555.00', 'Macbook Air, ', '2020-01-29 21:28:52');
+(5, 5, '555.00', 'Macbook Air, ', '2020-01-29 21:28:52'),
+(6, 5, '555.00', 'Macbook Air, ', '2020-01-30 11:15:08'),
+(7, 9, '1,110.00', 'Macbook Air, ', '2020-01-30 16:15:32'),
+(8, 5, '60.00', 'Jacket(Men), ', '2020-01-30 16:21:34'),
+(9, 5, '350.00', 'OnePlus 5t, ', '2020-02-06 16:40:27');
 
 -- --------------------------------------------------------
 
@@ -203,7 +209,8 @@ INSERT INTO `products` (`id`, `title`, `description`, `price`, `status`, `image`
 (16, 'Macbook', 'Mackbook', 1000.00, 0, '1579193242_sports.jpg', '1579193243_foods.jpg', '1579193243_gadgets.jpg', 'thumb_1579193242_sports.jpg', 'assets/product/', 5, 2, '2020-01-16 16:47:23', '2020-01-16 16:47:23'),
 (17, 'OnePlus 5t', 'OnePlus 5T White\r\n8 gb Ram\r\n128 gb Rom', 350.00, 1, '1579299651_oneplus.jpg', '1579299651_oneplus.jpg', '1579299651_oneplus.jpg', 'thumb_1579299651_oneplus.jpg', 'assets/product/', 6, 3, '2020-01-17 22:20:51', '2020-01-17 22:20:51'),
 (18, 'Test', 'Test product', 20.00, 1, '1579777431_test.jpg', NULL, NULL, 'thumb_1579777431_test.jpg', 'assets/product/', 8, 5, '2020-01-23 11:03:51', '2020-01-23 11:03:51'),
-(19, 'Sample Product', 'description', 10.00, 1, '1579780252_43 Years Celebration latest 21219.jpg', NULL, NULL, 'thumb_1579780252_43 Years Celebration latest 21219.jpg', 'assets/product/', 5, 2, '2020-01-23 11:50:52', '2020-01-23 11:50:52');
+(19, 'Sample Product abc', 'description', 10.00, 0, '1579780252_43 Years Celebration latest 21219.jpg', NULL, NULL, 'thumb_1579780252_43 Years Celebration latest 21219.jpg', 'assets/product/', 5, 2, '2020-01-23 11:50:52', '2020-01-23 11:50:52'),
+(20, 'Mercedes', 'Product Description', 5000.00, 1, '1580401400_fulda.jpg', '1580401400_fulda2.jpg', NULL, 'thumb_1580401400_fulda.jpg', 'assets/product/', 5, 9, '2020-01-30 16:23:20', '2020-01-30 16:23:20');
 
 -- --------------------------------------------------------
 
@@ -231,7 +238,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `group`, `password`, `image`, `thumb`, `image_path`, `status`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'admin@gmail.com', 'admin', '$2y$10$ameFTO477fqtaQZYG5byFuVYAIzPQEySuVeto2j5XLAR1uHuglF/W', '1579172873_myself.png', 'thumb_1579172873_myself.png', 'assets/user/', 1, 'I4Y6JVFgLGtA6N90YI3Vgm2AUDZscAUFcbCYn3SrhFmLd7irUYqtPogDji6G', NULL, '2017-09-28 00:23:16');
+(1, 'Admin', 'admin@gmail.com', 'admin', '$2y$10$ameFTO477fqtaQZYG5byFuVYAIzPQEySuVeto2j5XLAR1uHuglF/W', '1579172873_myself.png', 'thumb_1579172873_myself.png', 'assets/user/', 1, 's2CVKalQ31KKa7G3rZL6wmEMoDKDF4WyUQrNLgHvyTFC3vMLWOWXPPZxQFRd', NULL, '2017-09-28 00:23:16');
 
 --
 -- Indexes for dumped tables
@@ -290,12 +297,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `home_slider`
 --
@@ -310,12 +317,12 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `users`
 --
