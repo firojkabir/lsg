@@ -28,7 +28,7 @@ Route::get('/search', 'Home@search')->name('client.profile');
 
 Route::get('/category-search/{id}', 'Home@category_search')->name('client.category.search');
 
-Route::get('/confirm_order', 'Product@confirm_order')->name('client.profile.order');
+// Route::get('/confirm_order', 'Product@confirm_order')->name('client.profile.order');
 
 Route::group(['middleware' => ['auth:client']], function() { 
     Route::get('/profile', 'Home@profile')->name('client.profile');
@@ -37,6 +37,7 @@ Route::group(['middleware' => ['auth:client']], function() {
     Route::any('/add_product', 'Product@add')->name('client.product.add');
     Route::any('/edit_product/{id}', 'Product@edit')->name('client.product.edit');
     Route::get('/my_products', 'Product@my_products')->name('client.profile.products');
+    Route::get('/confirm_order', 'Product@confirm_order')->name('client.profile.order');
 });
 
 

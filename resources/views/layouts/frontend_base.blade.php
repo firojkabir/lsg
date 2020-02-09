@@ -99,7 +99,7 @@
 		</div>
 		<!-- ******* Header End ****** -->
 
-		@yield('content')
+		@yield('content') 
 
 		<!-- ****** Footer part start ****** -->
 		<div  id="footerSection">
