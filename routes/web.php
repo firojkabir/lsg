@@ -13,8 +13,8 @@ Route::get('/team', function () {
 });
 
 
-Route::get('/basket', function () {
-    return view('frontend.include.profile.basket');
+Route::get('/messages', function () {
+    return view('frontend.include.profile.messages');
 });
 
 Route::get('/change_pass', function () {
