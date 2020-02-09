@@ -15,7 +15,7 @@
 				<li><a href="/my_order"><i class="fa fa-cart-plus"></i> My Orders</a></li>
 				<li><a href="/messages"><i class="fa fa-envelope"></i> Messages</a></li>
 				<li><a href="/change_pass"><i class="fa fa-key"></i> Change Password</a></li>
-				<li><a href="/logout"><i class="fa fa-sign-out"></i> Logout</a></li>
+				<li><a href="/logout" class="exc"><i class="fa fa-sign-out"></i> Logout</a></li>
 			</ul>
 		</div>
 	</div>
