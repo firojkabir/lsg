@@ -118,10 +118,10 @@
 				class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
 
 				<ul class="treeview-menu">
-					{{-- <li class="{{ Request::segment(3)=='slider' ? 'active':'' }}"><a
-						href="{{ route('a_slider') }}"><i class="fa fa-angle-right text-custom"
-						style="width:5px"></i> Home Slider </a>
-					</li> --}}
+					<li class="{{ Request::segment(3)=='client' ? 'active':'' }}"><a
+						href="{{ route('a_clientlist') }}"><i class="fa fa-angle-right text-custom"
+						style="width:5px"></i> Client List </a>
+					</li>
 					<li class="{{ Request::segment(3)=='category' ? 'active':'' }}"><a
 						href="{{ route('a_category') }}"><i class="fa fa-angle-right text-custom"
 						style="width:5px"></i> Category </a>

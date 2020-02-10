@@ -321,4 +321,47 @@ class HomeAdmin extends Controller
     /*--------------------------------- Products Function end ------------------------*/
 
     
+    /*---------------------------- client View  -----------------------------*/
+
+    public function clientlist()
+    {
+        $client = DB::table('clients')->paginate(10);
+        return view('admin.client.clientlist', ['client' => $client]);
+    }
+
+
+
+    /*---------------------- client status change ---------------*/
+
+    public function clientStatus(Request $request, $id, $value)
+    {
+        if ($value) {
+            $result = $this->statusChange('clients', $id, '0');
+        } else {
+            $result = $this->statusChange('clients', $id, '1');
+        }
+        if ($result) {
+            $request->session()->flash('msg', 'Status Successfully Changed!');
+            return redirect()->route('a_clientlist');
+        } else {
+            $request->session()->flash('msg', 'Status Change was Un-Successful!');
+            return redirect()->route('a_clientlist');
+        }
+    }
+
+    /*---------------------- status change main function ---------------*/
+
+    public function statusChange($table, $id, $value)
+    {
+        $postdata['status'] = $value;
+        $result = DB::table($table)->where('id', $id)->update($postdata);
+        if ($result) {
+            return '1';
+        } else {
+            return '0';
+        }
+    }
+
+
+    
 }

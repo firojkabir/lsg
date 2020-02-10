@@ -77,6 +77,11 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
 
     });
 
+    Route::prefix('/client')->group(function () {
+        Route::get('/', 'HomeAdmin@clientlist')->name('a_clientlist');
+        Route::get('/status/{id}/{value}', 'HomeAdmin@clientStatus')->name('a_clientStatus');
+    });
+
     /*---------------------Admin Home Content (slider)---------------*/
 
     Route::prefix('/home')->group(function () {
