@@ -26,7 +26,7 @@ class Home extends Controller
 		return view('frontend.home', $data);
 	}
 
-	public function product_details($id){
+	public function product_details(Request $request, $id){
 		$data['result'] = DB::table('products')
 		->join('category', 'products.category_id', '=', 'category.id')
 		->select('products.*', 'category.name')
@@ -40,10 +40,10 @@ class Home extends Controller
 			->first();
 			if ($data['seller']) {
 				# code...
-			return view('frontend.product-details', $data);
+				return view('frontend.product-details', $data);
 			} else {
-			$request->session()->flash('emsg', "Product user not found!");
-			return redirect()->back();
+				$request->session()->flash('emsg', "Product user not found!");
+				return redirect()->back();
 			}
 			
 		}else{
@@ -194,6 +194,103 @@ class Home extends Controller
 		$id = Auth::guard('client')->user()->id;
 		$data['results'] = DB::table('orders')->where('client_id', $id)->orderBy('created_at', 'DESC')->get(); 
 		return view('frontend.include.profile.my_order', $data);
+	}
+
+	public function send_message(Request $request){
+
+		$request->validate([
+			'receiver' => 'required',
+			'message' => 'required',
+		]);
+		try {
+			$postdata['sender'] = Auth::guard('client')->user()->id;
+			$postdata['receiver'] = $request->input('receiver');
+			$postdata['details'] = $request->input('message');
+			$result = DB::table('message')->insert($postdata);
+
+			$request->session()->flash('smsg', 'Message send Successfully!');
+			return redirect()->back();
+
+		} catch (Exception $e) {
+			$request->session()->flash('emsg', $e->errorInfo[2]);
+			return redirect()->back();
+		}
+		
+	}
+
+	public function send_message_ajax(Request $request){
+
+		$request->validate([
+			'receiver' => 'required',
+			'details' => 'required',
+		]);
+		try {
+			$postdata['sender'] = Auth::guard('client')->user()->id;
+			$postdata['receiver'] = $request->input('receiver');
+			$postdata['details'] = $request->input('details');
+			$result = DB::table('message')->insert($postdata);
+
+			echo '1';
+
+		} catch (Exception $e) {
+			echo '0';
+		}
+		
+	}
+
+	public function messages(){
+
+		$id = Auth::guard('client')->user()->id;
+
+		$data['messages'] = DB::table('message')
+		->join('clients', 'message.sender', '=', 'clients.id')
+		->where('message.receiver', $id)
+		->groupBy('message.sender')
+		->orderBy('message.date', 'DESC')
+		->get();
+
+		return view('frontend.include.profile.messages', $data);
+	}
+
+	public function get_messages($sender){
+
+		$receiver = Auth::guard('client')->user()->id;
+
+		$messages = DB::table('message')
+		->where(function ($query) use($receiver, $sender) {
+			$query->where('receiver', $receiver)
+			->where('sender', $sender);
+		})->orWhere(function($query) use($receiver, $sender) {
+			$query->where('receiver', $sender)
+			->where('sender', $receiver);	
+		})
+		->orderBy('message.date', 'ASC')
+		->get();
+
+		// print_r($messages);
+
+		$html = "";
+		
+		foreach ($messages as $msg) {
+
+			if ($msg->sender == $sender) {
+				$html .= '<div class="incoming_msg">';
+				$html .= '<div class="received_msg">';
+				$html .= '<div class="received_withd_msg">';
+				$html .= '<p>'.$msg->details.'</p>';
+				$html .= '<span class="time_date"> '.date('h:i a  |  M d', strtotime($msg->date)).'</span></div></div></div>';
+			}else{
+				$html .= '<div class="outgoing_msg">';
+				$html .= '<div class="sent_msg">';
+				$html .= '<p>'.$msg->details.'</p>';
+				$html .= '<span class="time_date"> '.date('h:i a  |  M d', strtotime($msg->date)).'</span>';
+				$html .= '</div></div>';
+			}
+
+		}
+
+		echo $html;
+
 	}
 
 }
