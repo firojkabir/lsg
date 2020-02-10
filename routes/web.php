@@ -12,11 +12,6 @@ Route::get('/team', function () {
     return view('frontend.team');
 });
 
-
-Route::get('/messages', function () {
-    return view('frontend.include.profile.messages');
-});
-
 Route::get('/change_pass', function () {
     return view('frontend.include.profile.change_pass');
 });
@@ -31,6 +26,10 @@ Route::get('/category-search/{id}', 'Home@category_search')->name('client.catego
 // Route::get('/confirm_order', 'Product@confirm_order')->name('client.profile.order');
 
 Route::group(['middleware' => ['auth:client']], function() { 
+    Route::get('/get_messages/{id}', 'Home@get_messages')->name('client.get_messages');
+    Route::get('/messages', 'Home@messages')->name('client.messages');
+    Route::post('/send_message_ajax', 'Home@send_message_ajax')->name('client.send_message_ajax');
+    Route::post('/send_message', 'Home@send_message')->name('client.send_message');
     Route::get('/profile', 'Home@profile')->name('client.profile');
     Route::any('/edit_profile', 'Home@edit_profile')->name('client.profile.edit');
     Route::get('/my_order', 'Home@my_order')->name('client.profile.myorder');
