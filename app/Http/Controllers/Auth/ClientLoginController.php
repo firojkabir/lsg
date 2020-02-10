@@ -34,8 +34,16 @@ class ClientLoginController extends Controller
 
 		// Attempt to log the user in
 		if (Auth::guard('client')->attempt(['email' => $request->email, 'password' => $request->password], $request->remember)) {
-		// if successful, then redirect to their intended location
-			return redirect('/');
+
+
+			$userStatus = Auth::guard('client')->User()->status;
+			if($userStatus=='1') {
+				return redirect()->intended(url('/'));
+			}else{
+				Auth::guard('client')->logout();
+				// Session::flush();
+				return redirect(url('login'))->withInput()->with('emsg','You are temporary blocked. please contact to admin');
+			}
 		}
 
 		if ($this->attemptLogin($request)) {
@@ -62,16 +70,16 @@ class ClientLoginController extends Controller
 	}
 
 	protected function attemptLogin(Request $request)
-    {
-        return $this->guard()->attempt(
-            $this->credentials($request), $request->filled('remember')
-        );
-    }
+	{
+		return $this->guard()->attempt(
+			$this->credentials($request), $request->filled('remember')
+		);
+	}
 
-    protected function authenticated(Request $request, $user)
-    {
+	protected function authenticated(Request $request, $user)
+	{
         //
-    }
+	}
 
 	protected function sendLoginResponse(Request $request)
 	{
@@ -93,11 +101,11 @@ class ClientLoginController extends Controller
 
     protected function guard()
     {
-        return Auth::guard('client');
+    	return Auth::guard('client');
     }
 
     protected function credentials(Request $request)
     {
-        return $request->only($this->username(), 'password');
+    	return $request->only($this->username(), 'password');
     }
 }
