@@ -84,7 +84,7 @@
 									<div class="control-group">
 										<div class="controls">
 											<label for="product_description"><b>Product description<span style="color: red;">*</span></b></label>
-											<textarea name="description" placeholder="" required="" style="min-height: 130px; width: 60%;"></textarea>
+											<textarea name="description" placeholder="" required="" style="min-height: 130px; width: 70%;"></textarea>
 										</div>
 										<br>
 									</div>
