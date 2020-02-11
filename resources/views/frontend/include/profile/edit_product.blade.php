@@ -47,7 +47,7 @@
 									</div>
 									<div class="control-group">
 										<div class="controls">
-											<label for="image"><b>Product image 1</b></label>
+											<label for="image"><b>Product image 1<span style="color: red;">*</span></b></label>
 											<input type="file" id="image" name="image">
 											<input type="hidden" name="old_image" value="">
 										</div>
@@ -85,7 +85,7 @@
 										<div class="control-group">
 											<div class="controls">
 												<label for="product_description"><b>Product description<span style="color: red;">*</span></b></label>
-												<textarea name="description" placeholder="" required="" style="min-height: 115px; width: 60%;">{{ $result->description }}</textarea>
+												<textarea name="description" placeholder="" required="" style="min-height: 115px; width: 70%;">{{ $result->description }}</textarea>
 											</div>
 											<br>
 										</div>

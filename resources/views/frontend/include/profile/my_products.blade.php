@@ -39,7 +39,7 @@
                                         <td>{{ $result->title }}</td>
                                         <td>{{ $result->price }}</td>
                                         <td>{{ $result->status }}</td>
-                                        <td><a href="/edit_product/{{ $result->id }}">Edit</a></td>
+                                        <td><a class="btn btn-success edit_link" href="/edit_product/{{ $result->id }}" style="font-size: 12px; padding: 0px;">Edit</a></td>
                                     </tr>
                                     @endforeach
                                 </tbody>
