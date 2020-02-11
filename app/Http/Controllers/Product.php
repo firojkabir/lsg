@@ -47,7 +47,7 @@ class Product extends Controller
 					$image = $request->file('image');
 					$imagename = time() . '_' . $image->getClientOriginalname();
 					$thumb = 'thumb_' . $imagename;
-					$path = 'assets/product';
+					$path = 'public/assets/product';
 					$img = Image::make($image->getRealPath())->resize(160, 160);
 					$img->save($path . '/' . $thumb);
 					$image->move($path, $imagename);
@@ -60,7 +60,7 @@ class Product extends Controller
 				if (Input::hasFile('image1')) {
 					$image1 = $request->file('image1');
 					$imagename1 = time() . '_' . $image1->getClientOriginalname();
-					$path = 'assets/product';
+					$path = 'public/assets/product';
 					$image1->move($path, $imagename1);
 					$postdata['image1'] = $imagename1;
 				}
@@ -68,7 +68,7 @@ class Product extends Controller
 				if (Input::hasFile('image2')) {
 					$image2 = $request->file('image2');
 					$imagename2 = time() . '_' . $image2->getClientOriginalname();
-					$path = 'assets/product';
+					$path = 'public/assets/product';
 					$image2->move($path, $imagename2);
 					$postdata['image2'] = $imagename2;
 				}
@@ -119,7 +119,7 @@ class Product extends Controller
 					$image = $request->file('image');
 					$imagename = time() . '_' . $image->getClientOriginalname();
 					$thumb = 'thumb_' . $imagename;
-					$path = 'assets/product';
+					$path = 'public/assets/product';
 					$img = Image::make($image->getRealPath())->resize(150, 150);
 					$img->save($path . '/' . $thumb);
 					$image->move($path, $imagename);
@@ -142,7 +142,7 @@ class Product extends Controller
 
 					$image1 = $request->file('image1');
 					$imagename1 = time() . '_' . $image1->getClientOriginalname();
-					$path = 'assets/product';
+					$path = 'public/assets/product';
 					$image1->move($path, $imagename1);
 					$postdata['image1'] = $imagename1;
 
@@ -158,7 +158,7 @@ class Product extends Controller
 
 					$image2 = $request->file('image2');
 					$imagename2 = time() . '_' . $image2->getClientOriginalname();
-					$path = 'assets/product';
+					$path = 'public/assets/product';
 					$image2->move($path, $imagename2);
 					$postdata['image2'] = $imagename2;
 
